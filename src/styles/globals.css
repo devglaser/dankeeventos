@@ -5,5 +5,88 @@
   text-decoration: none;
   list-style: none;
   font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Nexa", sans-serif;
+  font-weight: 700;
+  color: #e5e1e6;
+  transition: 0.5s all;
+}
+
+.titulo {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
+.subtitulo {
+  font-size: 1.625rem;
+  font-weight: 500;
+}
+
+.titulo, .subtitulo {
+  font-family: "sft", serif;
+}
+
+.foto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 492px;
+  max-height: 398px;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 492px;
+  max-height: 333px;
+}
+
+@media (max-width: 700px) {
+  .titulo {
+    font-size: 2.125rem;
+  }
+  .subtitulo {
+    font-size: 1.375rem;
+  }
+  .textoBtn {
+    font-size: 1.125rem;
+  }
+}
+.botaoAcao {
+  max-height: 45px;
+  height: 45px;
+  padding: 10px 25px;
+  background: #e5e1e6;
+  color: #2e1a47;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "sft", sans-serif;
+  cursor: pointer;
+}
+.botaoAcao:hover {
+  background: #612651;
+  color: #e5e1e6;
+}
+@media (max-width: 700px) {
+  .botaoAcao {
+    font-size: 1.125rem;
+  }
+}
+
+.fixedWidth {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.autoPadding {
+  padding: 25px 75px;
+}
+@media (max-width: 700px) {
+  .autoPadding {
+    padding: 25px 20px;
+  }
+}
+
+body {
+  background: #2e1a47;
 }/*# sourceMappingURL=globals.css.map */
