@@ -57,7 +57,7 @@
   height: 45px;
   padding: 10px 25px;
   background: #e5e1e6;
-  color: #2e1a47;
+  color: rgb(46, 26, 71);
   font-size: 1.25rem;
   font-weight: 700;
   font-family: "sft", sans-serif;
@@ -88,5 +88,5 @@
 }
 
 body {
-  background: #2e1a47;
+  background: rgb(46, 26, 71);
 }/*# sourceMappingURL=globals.css.map */

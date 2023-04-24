@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 const BotaoAcao = ({texto}) => {
     return (
-        <a className="botaoAcao">
+        <Link href="" className="botaoAcao">
             {texto}
-        </a>
+        </Link>
     );
 }
 
