@@ -1,9 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import styled from "styled-components";
-
-import BotaoAcao from "./Components/BotaoAcao";
 
 import photo from '../../public/Imgs/photo.png'
 import foto from '../../public/Imgs/aboutPhoto.png'

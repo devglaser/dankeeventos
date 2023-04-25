@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 import {useState, useEffect} from 'react'
-
+import { useRouter } from 'next/router'
 import Link from "next/link";
-import DankeEventos from "./DankeEventos";
-import BotaoAcao from "./BotaoAcao";
-import DankeLogo from "./DankeLogo";
+import DankeEventos from "../SvgsComponents/DankeEventos";
+import BotaoAcao from "../ActionButton/BotaoAcao";
+import DankeLogo from "../SvgsComponents/DankeLogo";
+import OpenClose from "../ActionButton/OpenClose";
 
 const Navegacao = styled.nav`
     position: absolute;
@@ -22,15 +23,17 @@ const ListaNav = styled.ul`
 const ListaLink = styled.ul`
     width: 317px;
     display:flex;align-items:center;justify-content: space-between;
+
+    li > a{font-weight: 700}
 `
 ////////
 
 const NavMobile = styled.nav`
     position: fixed;
     top:0;left:0;
-    width: 100%;
+    width: 100%;height: 75px;
     z-index:99;
-    background: ${({drop}) => drop};
+    background: ${({drop}) => drop}; 
 `
 
 const NavDrop = styled.ul`
@@ -56,15 +59,21 @@ const ListaLinkMobile = styled.ul`
 `
 
 const Navbar = () => {
-    const [largura, setLargura] = useState('')
-    const [drop, setDrop] = useState(false)
     
+    const [largura, setLargura] = useState('')
+
+    const [drop, setDrop] = useState(false)
+
+    const router = useRouter()
+
     useEffect(()=>{
         window.addEventListener('resize', ()=> setLargura(window.innerWidth))
         setDrop(false)
     }, [largura])
 
-    return largura > 1150 ? ( 
+    function HandleCloseMenu(){setDrop(false)}
+
+    return largura > 1100 ? ( 
         <Navegacao >
             <ListaNav> 
                 <li>
@@ -75,10 +84,10 @@ const Navbar = () => {
 
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
                     <ListaLink>
-                        <li><Link href="/" style={{textDecoration: 'underline #C09ADD 3px'}}>Home</Link></li>    
-                        <li><Link href="/sobre">Sobre</Link></li>    
-                        <li><Link href="/portfolio">Portfólio</Link></li>    
-                        <li><Link href="/contato">Contato</Link></li>    
+                        <li><Link href="/" style={{textDecoration: router.asPath === "/" && 'underline #C09ADD 3px'}}>Home</Link></li>    
+                        <li><Link href="/sobre" style={{textDecoration: router.asPath === "/sobre" && 'underline #C09ADD 3px'}}>Sobre</Link></li>    
+                        <li><Link href="/portfolio" style={{textDecoration: router.asPath === "/portfolio" && 'underline #C09ADD 3px'}}>Portfólio</Link></li>    
+                        <li><Link href="/contato" style={{textDecoration: router.asPath === "/contato" && 'underline #C09ADD 3px'}}>Contato</Link></li>    
                     </ListaLink>
 
                     <li></li>
@@ -93,18 +102,18 @@ const Navbar = () => {
         <NavMobile drop={drop ? "#612651" : 'transparent'}>
             
             <NavDrop drop={drop ? 'transparent' : 'linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25)'}>
-                <li title="Abrir menu" onClick={() => setDrop(!drop)}>[Abrir Menu]</li>
-                <li><DankeLogo/></li>
+                <li title="Abrir menu" onClick={() => setDrop(!drop)}><OpenClose op={drop}/></li>
+                <li><Link href="/"><DankeLogo/></Link></li>
             </NavDrop>
             
             <NavItens drop={drop === false ? '-100%' : '0'}>
                 <li>Mudança de Linguage</li>
                 <li>
                     <ListaLinkMobile>
-                        <li><Link href="/" style={{textDecoration: 'underline #C09ADD 3px'}} onClick={() => setDrop(false)}>Home</Link></li>    
-                        <li><Link href="/sobre" onClick={() => setDrop(false)}>Sobre</Link></li>    
-                        <li><Link href="/portfolio" onClick={() => setDrop(false)}>Portfólio</Link></li>    
-                        <li><Link href="/contato" onClick={() => setDrop(false)}>Contato</Link></li>  
+                        <li><Link href="/" style={{textDecoration: router.asPath === "/" && 'underline #C09ADD 3px'}} onClick={HandleCloseMenu}>Home</Link></li>    
+                        <li><Link href="/sobre" onClick={HandleCloseMenu} style={{textDecoration: router.asPath === "/sobre" && 'underline #C09ADD 3px'}}>Sobre</Link></li>    
+                        <li><Link href="/portfolio" onClick={HandleCloseMenu} style={{textDecoration: router.asPath === "/portfolio" && 'underline #C09ADD 3px'}}>Portfólio</Link></li>    
+                        <li><Link href="/contato" onClick={HandleCloseMenu} style={{textDecoration: router.asPath === "/contato" && 'underline #C09ADD 3px'}}>Contato</Link></li>  
                     </ListaLinkMobile>
                 </li>
                 <li>

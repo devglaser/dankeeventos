@@ -1,0 +1,46 @@
+import styled from "styled-components";
+import { useEffect, useState } from "react";
+
+const ButtonOp = styled.button`
+    position:relative;
+    width: 35px;height:35px;
+    background:transparent;
+    display: grid;place-items:center;
+    cursor:pointer;
+
+    span{
+        position: relative;
+        width: 100%;height:2px;
+        border-radius: 1px;
+        background: ${({op})=> op ? 'transparent' : '#e5e1e6'};
+
+        &::before,&::after{
+            content: '';
+            position: absolute;
+            top:0;left:0;
+            width: 100%;height:100%;
+            background: #E5E1E6;
+            transition: .25s all;
+        }
+
+        &::before{
+            top:-8.75px;
+            transform:${({op})=> op ? 'rotate(-45deg)' : 'rotate(0deg)'};
+        }
+
+        &::after{
+            top:8.75px;
+            transform:${({op})=> op ? 'rotate(45deg)' : 'rotate(0deg)'};
+        }
+
+        &::before,&::after{top:${({op}) => op && '0'};}
+    }
+`
+
+const OpenClose = () => {
+    const [op, setOp] = useState(false)
+
+    return <ButtonOp op={op} onClick={() => setOp(!op)}><span></span></ButtonOp>
+}
+
+export default OpenClose;

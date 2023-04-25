@@ -1,17 +1,19 @@
+// Cores
+$roxoEscuro: rgb(46, 26, 71);
+$roxoDanke: #612651;
+$brancoNeve: #e5e1e6;
+
 *{
   padding: 0;margin: 0;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-size: 1rem;font-family: 'Nexa', sans-serif;font-weight: 700;
-  color: #e5e1e6;
+  font-size: 1rem;font-family: 'Nexa', sans-serif;font-weight: 400;
+  color: $brancoNeve;
   transition: .5s all;
+  outline: none;
+  border: none;
 }
-
-// Cores
-$roxoEscuro: rgb(46, 26, 71);
-$roxoDanke: #612651;
-$brancoNeve: #e5e1e6;
 
 // Fontes
 .titulo{font-size: 2.625rem;font-weight: 700;}

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
-import DankeEventos from "./DankeEventos";
-import FaceIcon from "./FaceIcon";
-import InstaIcon from "./InstaIcon";
+import DankeEventos from "../SvgsComponents/DankeEventos";
+import FaceIcon from "../SvgsComponents/FaceIcon";
+import InstaIcon from "../SvgsComponents/InstaIcon";
 
 const Footer = styled.footer`
     padding: 50px 0;

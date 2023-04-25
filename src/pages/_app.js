@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import '@/styles/fontes.css'
-import Rodape from './Components/Rodape'
-import Navbar from './Components/Navbar'
+import Rodape from './Components/Footer/Rodape'
+import Navbar from './Components/NavBar/Navbar'
 
 export default function App({ Component, pageProps }) {
   return (

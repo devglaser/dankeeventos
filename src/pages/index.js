@@ -6,13 +6,12 @@ import { useEffect } from 'react'
 
 import styled from 'styled-components'
 
-import BotaoAcao from './Components/BotaoAcao'
+import BotaoAcao from './Components/ActionButton/BotaoAcao'
 
 
 
 import photo from '../../public/Imgs/photo.png'
 import foto from '../../public/Imgs/foto.png'
-import Navbar from './Components/Navbar'
 
 
 const Cabecalho = styled.header`
