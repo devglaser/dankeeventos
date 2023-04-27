@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
 
 const ButtonOp = styled.button`
     position:relative;
@@ -37,8 +38,14 @@ const ButtonOp = styled.button`
     }
 `
 
-const OpenClose = () => {
+const OpenClose = ({w}) => {
+    const router = useRouter()
+
     const [op, setOp] = useState(false)
+
+    useEffect(()=>{;(()=>{setOp(false)})()},[router.asPath])
+
+    useEffect(()=>{;(()=>{setOp(w)})()},[w])
 
     return <ButtonOp op={op} onClick={() => setOp(!op)}><span></span></ButtonOp>
 }

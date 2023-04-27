@@ -41,9 +41,12 @@ const TituloBanner = styled.h1`
 
 ////////////
 
-const Sobre = styled.section`
-  display: flex;align-items:center;justify-content: space-between;
+const SectionSobre = styled.section`
   background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25), rgba(46, 26, 71, 1));
+`
+
+const Sobre = styled.main`
+  display: flex;align-items:center;justify-content: space-between;
   @media (max-width:1080px){
     flex-direction: column-reverse;
   }
@@ -82,26 +85,27 @@ export default function Home() {
             <TituloBanner className='titulo'>Tenha um evento inesquecível com a Danke!</TituloBanner>
           </AreaTextosBanner>
         </Cabecalho>
+        <SectionSobre>
+          <Sobre className="autoPadding fixedWidth">
+            <div>
+              <h1 className="titulo" style={{maxWidth: '650px', width: '100%'}}>
+                Transforme seu evento em uma experiência única e inesquecível
+              </h1>
 
-        <Sobre className="autoPadding fixedWidth">
-          <div>
-            <h1 className="titulo" style={{maxWidth: '650px', width: '100%'}}>
-              Transforme seu evento em uma experiência única e inesquecível
-            </h1>
+              <h2 className="subtitulo" style={{margin: '25px 0',maxWidth: '555px'}}>
+              Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento.
+              </h2>
 
-            <h2 className="subtitulo" style={{margin: '25px 0',maxWidth: '555px'}}>
-            Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento.
-            </h2>
-
-            <div style={{width: '100%',maxWidth: '355px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-              <BotaoAcao texto={'Contratar Serviços'} />
-              <Link href="/sobre" style={{textDecoration: 'underline', fontWeight: '300'}}>Saiba Mais</Link>
+              <div style={{width: '100%',maxWidth: '355px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <BotaoAcao texto={'Contratar Serviços'} />
+                <Link href="/sobre" style={{textDecoration: 'underline', fontWeight: '300'}}>Saiba Mais</Link>
+              </div>
             </div>
-          </div>
-          
-          <Image src={foto} className='foto' alt="Foto ilustrativa"/>
+            
+            <Image src={foto} className='foto' alt="Foto ilustrativa"/>
 
-        </Sobre>
+          </Sobre>
+        </SectionSobre>
 
         <Servico className="autoPadding fixedWidth">
           <Image src={photo} className='photo' alt="Foto ilustrativa"/>

@@ -6,8 +6,13 @@ import BotaoAcao from "./Components/ActionButton/BotaoAcao";
 const Contato = styled.main`
     display: grid; place-items: center;align-content: start;
     margin-top:95px;
-    height: calc(100vh - 95px);
+    height: calc(100vh - 95px);min-height: calc(100vh - 95px); 
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .1), rgba(46, 26, 71, 1));
+
+    @media (max-width:700px;){
+        margin-top:75px;
+        height: calc(100vh - 75px);min-height: calc(100vh - 75px);
+    }
 `
 
 const Formulario = styled.form`

@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 import {useState, useEffect} from 'react'
+
 import { useRouter } from 'next/router'
 import Link from "next/link";
+
 import DankeEventos from "../SvgsComponents/DankeEventos";
 import BotaoAcao from "../ActionButton/BotaoAcao";
 import DankeLogo from "../SvgsComponents/DankeLogo";
@@ -62,18 +64,29 @@ const Navbar = () => {
     
     const [largura, setLargura] = useState('')
 
-    const [drop, setDrop] = useState(false)
+    const [drop, setDrop] = useState(true)
 
     const router = useRouter()
 
     useEffect(()=>{
-        window.addEventListener('resize', ()=> setLargura(window.innerWidth))
-        setDrop(false)
+        ;(()=>{
+            try {
+                window.addEventListener('resize', () => {setLargura(window.innerWidth)})
+                window.removeEventListener('resize', () => {setLargura(window.innerWidth)})
+            } catch (error) {
+                console.warn(error)
+            }finally{
+                setLargura(window.innerWidth)
+                setDrop(false)
+            }
+        })()
     }, [largura])
 
-    function HandleCloseMenu(){setDrop(false)}
+    function HandleCloseMenu(){
+        setDrop(false)
+    }
 
-    return largura > 1100 ? ( 
+    return largura >= 1100 ? ( 
         <Navegacao >
             <ListaNav> 
                 <li>
@@ -102,7 +115,7 @@ const Navbar = () => {
         <NavMobile drop={drop ? "#612651" : 'transparent'}>
             
             <NavDrop drop={drop ? 'transparent' : 'linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25)'}>
-                <li title="Abrir menu" onClick={() => setDrop(!drop)}><OpenClose op={drop}/></li>
+                <li title={drop ? "Fechar menu" : "Abrir Menu"} onClick={() => setDrop(!drop)}><OpenClose w={drop}/></li>
                 <li><Link href="/"><DankeLogo/></Link></li>
             </NavDrop>
             
