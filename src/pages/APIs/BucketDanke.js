@@ -1,13 +1,23 @@
 import axios from "axios";
+import { useState, useEffect } from "react";
 
-export const getImagesFromBucket = async () => {
-  try {
-    const response = await axios.get(
-      "https://firebasestorage.googleapis.com/v0/b/danke-eventos.appspot.com/o/"
-    );
-    return response.data.items;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-};
+const BucketDanke = () => {
+  const URL_API = "https://firebasestorage.googleapis.com/v0/b/danke-eventos.appspot.com/o/"
+  const [data,setData] = useState('')
+
+  useEffect(()=>{
+    ;( async ()=>{
+      try {
+        const response = await axios.get(URL_API)
+        const result = response.data.items
+        setData(result)
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  },[])
+
+  return [data]
+}
+
+export default BucketDanke;
