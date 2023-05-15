@@ -48,10 +48,10 @@ const contato = () => {
     return (
         <>
             <Head>
-                <title>Contate-nos | Danke Eventos</title>
+                <title>Contate-nos</title>
                 <meta name="description" content="Danke eventos" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/dankelogo.svg" />
+                <link rel="icon" href="/Svg/dankelogo.svg" />
             </Head>
             <Contato className='autoPadding fixedWidth'>
                 

@@ -10,8 +10,9 @@ import BotaoAcao from './Components/ActionButton/BotaoAcao'
 
 
 
-import photo from '../../public/Imgs/photo.png'
-import foto from '../../public/Imgs/foto.png'
+import ImgSobre from '../../public/Imgs/imgSobre.png'
+import ImgServicos from '../../public/Imgs/imgServicos.jpg'
+import BackgroundBanner from '../../public/Imgs/bannerBackground.jpg'
 
 
 const Cabecalho = styled.header`
@@ -22,8 +23,8 @@ const Cabecalho = styled.header`
 const AreaTextosBanner = styled.section`
   position: relative;
   padding:0 75px;
-  top: 50px;
-  width: 100vw;height: calc(100% - 50px);
+  top: 95px;
+  width: 100vw;height: calc(100% - 95px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +39,21 @@ const TituloBanner = styled.h1`
 
   @media (max-width: 700px){font-size:2.125rem;max-width:480px}
 `
+const BackBanner = styled.section`
+  position: absolute;
+  top:0;left: 0;
+  width: 100%;
+  height: 100%;max-height:615px;
+  z-index: -1;
+  overflow: hidden;
 
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;height:100%;
+    background: linear-gradient(180deg,rgba(0,0,0,.25), rgba(97, 38, 81, .5), rgba(46, 26, 71, 1));
+  }
+`
 ////////////
 
 const SectionSobre = styled.section`
@@ -67,6 +82,104 @@ const Clientes = styled.section`
   text-align: center;
 `
 
+const ImageHomeMax = styled.div`
+  max-width: 492px;
+  width: 100%;
+`
+
+///////////
+
+const SectionGaleria = styled.section `
+  position: relative;
+`
+
+const TituloGaleleria = styled.h1 `
+  position: relative;
+  left: 40px;
+
+  @media (max-width:700px) {
+    font-size: 1.375rem;
+  }
+
+  &::before{
+    content: 'Galeria';
+    position: absolute;
+    top: -78%;left:-8%;
+    color: rgba(97, 38, 81, .5);
+    z-index: -1;
+    font-size: 1rem;font-weight: 400;
+
+    font-size: 4.25rem;
+
+    @media (max-width: 700px){
+      font-size:2.125rem;
+    }
+  }
+`
+const AreaImgs = styled.main`
+  margin-top: 25px;
+  display: grid;grid-gap:10px 25px;place-items:center;
+  grid-template-areas: 'imgA imgA imgB imgC'
+                        'imgA imgA imgD imgE';
+
+  @media (max-width:1215px) {
+    margin: 25px auto;
+    max-width: 598px;
+    grid-template-areas: 'imgA imgA'
+                        'imgB imgC'
+                        'imgD imgE';
+  }
+
+  @media (min-width:1216px) {
+    height: 398px;
+  }
+`
+
+const AreaImg = styled.div`
+  position: relative;
+  grid-area: ${({area}) => area};
+  display: grid; place-items: center;
+  overflow: hidden;
+`
+
+const AreaCards = styled.section`
+  width: 100%;
+  display: grid; grid-gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width:1215px) {
+   grid-template-columns: repeat(2,1fr);
+  }
+`
+
+const CardsGaleria = styled.div`
+  padding: 25px;
+  max-width: 285px;width:100%;
+  border: 3px solid #e5e1e6;
+  border-top-right-radius:  65.5px;
+
+  p{
+    margin-top: 25px;
+  }
+
+  @media (max-width:1200px) {
+   img{
+    max-width: 25px;
+   }
+   
+   p{
+    font-size: .875rem;
+   }
+  }
+`
+
+const CardGaleria = ({texto = "Eventos sociais", icone = "drink", alt = 'taça', w = 34.67}) => <>
+  <CardsGaleria >
+    <Image src={`/Svg/${icone}.svg`} alt={`Icone ilustrativo de ${alt}`} width={w} height={35}/>
+    <p style={{fontWeight: 'bold'}}>{texto}</p>
+  </CardsGaleria>
+</>
+
 export default function Home() {
 
   return ( 
@@ -75,7 +188,7 @@ export default function Home() {
         <title>Danke Eventos</title>
         <meta name="description" content="Danke eventos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/dankelogo.svg" />
+        <link rel="icon" href="/Svg/dankelogo.svg" />
       </Head>
       
       <main>
@@ -84,7 +197,19 @@ export default function Home() {
             <h2 className="subtitulo">Mais de 20 anos de experiência</h2>
             <TituloBanner className='titulo'>Tenha um evento inesquecível com a Danke!</TituloBanner>
           </AreaTextosBanner>
+          <BackBanner>
+            <Image
+                src={"/Imgs/bannerBackground.jpg"}
+                alt="Imagem de fundo RAFFO Fest"
+                layout="fill"
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+          </BackBanner>
         </Cabecalho>
+
         <SectionSobre>
           <Sobre className="autoPadding fixedWidth">
             <div>
@@ -101,14 +226,120 @@ export default function Home() {
                 <Link href="/sobre" style={{textDecoration: 'underline', fontWeight: '300'}}>Saiba Mais</Link>
               </div>
             </div>
+
+            <ImageHomeMax>
+              <Image 
+                src={ImgSobre}
+                alt="My Image"
+                layout="responsive"
+                objectFit="cover"
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </ImageHomeMax>
             
-            <Image src={foto} className='foto' alt="Foto ilustrativa"/>
+            
 
           </Sobre>
         </SectionSobre>
 
+        <SectionGaleria className="autoPadding fixedWidth">
+          
+          <header style={{display:"flex",alignItems: 'center', justifyContent: 'space-between'}}>
+            <TituloGaleleria className="titulo">
+              Fotos dos nossos eventos
+            </TituloGaleleria>
+            <Link href="/portfolio" style={{fontWeight: '600'}}>Ver fotos <Image src="/Svg/seta.svg" alt="Icone de seta" width={19} height={15} className="setaLink"/> </Link>
+          </header>
+
+          <AreaImgs>
+            <AreaImg area={"imgA"}>
+              <Image
+                alt="WINDSOR | Principe e Princesa de Dinamarca"
+                src="/Imgs/galeriaA.png"
+                layout="responsive"
+                width={596} height={398}
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </AreaImg>
+            <AreaImg area={"imgB"}>
+              <Image
+                alt="Aniversário"
+                src="/Imgs/galeriaB.png"
+                layout="responsive"
+                width={285} height={190}
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </AreaImg>
+            <AreaImg area={"imgC"}>
+              <Image
+                alt="Club Med Presidentes Gala"
+                src="/Imgs/galeriaC.png"
+                layout="responsive"
+                width={285} height={190}
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </AreaImg>
+            <AreaImg area={"imgD"}>
+              <Image
+                alt="Saxofonista"
+                src="/Imgs/galeriaD.png"
+                layout="responsive"
+                width={285} height={190}
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </AreaImg>
+            <AreaImg area={"imgE"}>
+              <Image
+                alt="Evento Avon"
+                src="/Imgs/galeriaE.png"
+                layout="responsive"
+                width={285} height={190}
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </AreaImg>
+          </AreaImgs>
+          
+          <h1 className="subtitulo" style={{margin: "25px 0"}}>Atendimento personalizado</h1>
+
+          <AreaCards>
+            <CardGaleria/>
+            <CardGaleria texto='Eventos Cerimoniais' icone='nick' alt='tesoura' w={35.83}/>
+            <CardGaleria texto='Eventos Esportivos' icone='ball' alt='bola de tênis' w={36.13}/>
+            <CardGaleria texto='Eventos de Exibição' icone='nick' alt='pessoa palestrando' w={38.18}/>
+          </AreaCards>
+        </SectionGaleria>
+
         <Servico className="autoPadding fixedWidth">
-          <Image src={photo} className='photo' alt="Foto ilustrativa"/>
+          
+            <ImageHomeMax>
+              <Image 
+                src={ImgServicos}
+                alt="Equipe da Danke eventos em produção"
+                layout="responsive"
+                quality={75}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+              />
+            </ImageHomeMax>
     
           <div>
             <h1 className="titulo" style={{maxWidth: '546px'}}>

@@ -14,7 +14,7 @@ const Footer = styled.footer`
 
 const Lista = styled.ul`
     display: flex;align-items:center;justify-content: space-around;flex-direction:column;
-    height: 100%;
+    height: 100%; 
 `
 
 const Rodape = () => {
@@ -26,7 +26,7 @@ const Rodape = () => {
                 </li>
                 
                 <li title="Contato"> 
-                    <Link href="https://wa.me/5527999678371" title="WhatsApp" target="_blank">+ 55 00 1 2345-6789</Link> | <Link href="mailto:contato@dankeventos.com.br" title="E-mail">contato@dankeeventos.com.br</Link>
+                    <Link href="https://wa.me/5521993401594" title="WhatsApp" target="_blank">+ 55 21 9 9340-1594</Link> | <Link href="mailto:contato@dankeventos.com.br" title="E-mail">contato@dankeeventos.com.br</Link>
                 </li>
 
                 <li>

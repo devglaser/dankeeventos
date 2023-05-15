@@ -2,8 +2,7 @@ import Image from "next/image";
 
 import styled from "styled-components";
 
-import photo from '../../public/Imgs/photo.png'
-import foto from '../../public/Imgs/aboutPhoto.png'
+import photo from '../../public/Imgs/imgServicos.jpg'
 import Head from "next/head";
 
 const SobreDanke = styled.section`
@@ -36,8 +35,9 @@ const sobre = () => {
         <>
             <Head>
                 <title>Sobre Danke Eventos</title>
+                <meta name="description" content="Danke eventos" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/dankelogo.svg" />
+                <link rel="icon" href="/Svg/dankelogo.svg" />
             </Head>
             <main>
                 <SobreDanke className="autoPadding fixedWidth">
@@ -55,12 +55,30 @@ const sobre = () => {
                         </p>
                     </div>
                     
-                    <Image src={foto} className='foto' alt="Foto ilustrativa"/>
+                    <Image 
+                        src='/Imgs/galeriaC.png'
+                        alt="Imagem de jantar realizado pela Danke Eventos"
+                        layout="responsive"
+                        width={492} height={292}
+                        quality={75}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                    />
 
                 </SobreDanke>
 
                 <Servico className="autoPadding fixedWidth">
-                    <Image src={photo} className='photo' alt="Foto ilustrativa"/>
+                    <Image 
+                        src='/Imgs/imgServicos.jpg'
+                        alt="Imagem da equipe organizando o evento"
+                        layout="responsive"
+                        width={492} height={292}
+                        quality={75}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                    />
             
                     <div>
                         <h1 className="titulo" style={{maxWidth: '546px'}}>
