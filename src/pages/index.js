@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 
 import { useEffect } from 'react'
@@ -12,7 +12,8 @@ import BotaoAcao from './Components/ActionButton/BotaoAcao'
 
 import ImgSobre from '../../public/Imgs/imgSobre.png'
 import ImgServicos from '../../public/Imgs/imgServicos.jpg'
-import BackgroundBanner from '../../public/Imgs/bannerBackground.jpg'
+
+import galeriaA from '../../public/Imgs/galeriaA.png'
 
 
 const Cabecalho = styled.header`
@@ -71,9 +72,35 @@ const Sobre = styled.main`
 
 const Servico = styled.section`
   display: flex;align-items:center;justify-content: space-between;
+  height: 608px;
 
-  @media (max-width:1280px){
-    flex-direction: column; 
+  &::before{
+    content:'';
+    position: absolute;
+    right: 0;
+    width: 100%;height: 100%;
+    max-width: 41.5%;max-height:608px;
+    background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, 1));
+    border-bottom-left-radius: 50%;
+    z-index: -1;
+  }
+
+  @media (max-width:1215px){
+    position: relative;
+    flex-direction: column;
+    height: 100%; 
+
+    &::before{
+      bottom: 0;
+      max-width:83%; max-height: 553px;
+      border-bottom-left-radius: 150px;
+    }
+  }
+`
+const TextosServicos = styled.main`
+  @media (max-width: 1215px) {
+    height: 553px;
+    padding-top: 50px;
   }
 `
 //////////
@@ -137,8 +164,8 @@ const AreaImgs = styled.main`
 
 const AreaImg = styled.div`
   position: relative;
+  width: 100%;
   grid-area: ${({area}) => area};
-  display: grid; place-items: center;
   overflow: hidden;
 `
 
@@ -146,6 +173,7 @@ const AreaCards = styled.section`
   width: 100%;
   display: grid; grid-gap: 25px;
   grid-template-columns: repeat(4, 1fr);
+  place-items: center;
 
   @media (max-width:1215px) {
    grid-template-columns: repeat(2,1fr);
@@ -202,6 +230,7 @@ export default function Home() {
                 src={"/Imgs/bannerBackground.jpg"}
                 alt="Imagem de fundo RAFFO Fest"
                 layout="fill"
+                objectFit='cover'
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
@@ -260,6 +289,7 @@ export default function Home() {
                 alt="WINDSOR | Principe e Princesa de Dinamarca"
                 src="/Imgs/galeriaA.png"
                 layout="responsive"
+                objectFit="cover"
                 width={596} height={398}
                 quality={75}
                 loading="lazy"
@@ -272,6 +302,7 @@ export default function Home() {
                 alt="Aniversário"
                 src="/Imgs/galeriaB.png"
                 layout="responsive"
+                objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
@@ -284,6 +315,7 @@ export default function Home() {
                 alt="Club Med Presidentes Gala"
                 src="/Imgs/galeriaC.png"
                 layout="responsive"
+                objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
@@ -296,6 +328,7 @@ export default function Home() {
                 alt="Saxofonista"
                 src="/Imgs/galeriaD.png"
                 layout="responsive"
+                objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
@@ -308,6 +341,7 @@ export default function Home() {
                 alt="Evento Avon"
                 src="/Imgs/galeriaE.png"
                 layout="responsive"
+                objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
@@ -331,9 +365,11 @@ export default function Home() {
           
             <ImageHomeMax>
               <Image 
-                src={ImgServicos}
+                src={'/Imgs/imgServicos.jpg'}
                 alt="Equipe da Danke eventos em produção"
                 layout="responsive"
+                objectFit={'cover'}
+                width={492} height={333}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
@@ -341,7 +377,7 @@ export default function Home() {
               />
             </ImageHomeMax>
     
-          <div>
+          <TextosServicos >
             <h1 className="titulo" style={{maxWidth: '546px'}}>
             Soluções integradas de decoração e organização de eventos
             </h1>
@@ -355,7 +391,7 @@ export default function Home() {
             </p>
 
             <BotaoAcao texto={'Contratar Serviços'} />
-          </div>       
+          </TextosServicos>       
         </Servico>
 
         <Clientes className="autoPadding fixedWidth">

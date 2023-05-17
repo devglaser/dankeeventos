@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import styled from "styled-components";
 
@@ -12,6 +12,10 @@ const SobreDanke = styled.section`
     @media (max-width:1080px){
         margin-top:75px;
         flex-direction: column-reverse;
+
+        div:nth-child(1){
+            margin-top: 25px;
+        }
     }
 `
 
@@ -27,6 +31,10 @@ const Servico = styled.section`
 
     @media (max-width:1280px){
     flex-direction: column; 
+
+        div:nth-child(1){
+            margin-bottom: 25px;
+        }
     }
 `
 
@@ -55,30 +63,36 @@ const sobre = () => {
                         </p>
                     </div>
                     
-                    <Image 
-                        src='/Imgs/galeriaC.png'
-                        alt="Imagem de jantar realizado pela Danke Eventos"
-                        layout="responsive"
-                        width={492} height={292}
-                        quality={75}
-                        loading="lazy"
-                        placeholder="blur"
-                        blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
-                    />
+                    <div style={{position: 'relative', width: '100%', maxWidth: '492px'}}>
+                        <Image 
+                            src='/Imgs/galeriaC.png'
+                            alt="Imagem de jantar realizado pela Danke Eventos"
+                            layout="responsive"
+                            objectFit='cover'
+                            width={492} height={292}
+                            quality={75}
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                        />
+                    </div>
 
                 </SobreDanke>
 
                 <Servico className="autoPadding fixedWidth">
-                    <Image 
-                        src='/Imgs/imgServicos.jpg'
-                        alt="Imagem da equipe organizando o evento"
-                        layout="responsive"
-                        width={492} height={292}
-                        quality={75}
-                        loading="lazy"
-                        placeholder="blur"
-                        blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
-                    />
+                    <div style={{position: 'relative', width: '100%', maxWidth: '492px'}}>
+                        <Image 
+                            src='/Imgs/imgServicos.jpg'
+                            alt="Imagem da equipe organizando o evento"
+                            layout="responsive"
+                            objectFit={'cover'}
+                            width={492} height={292}
+                            quality={75}
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                        />
+                    </div>
             
                     <div>
                         <h1 className="titulo" style={{maxWidth: '546px'}}>

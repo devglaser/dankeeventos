@@ -1,13 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import BucketDanke from "./APIs/BucketDanke";
 import Head from "next/head";
+import styled from "styled-components";
+import Masonry from "react-masonry-css";
+
+import aniversario from "../../public/Imgs/portfolio/aniversario.jpg";
+import avon from "../../public/Imgs/portfolio/avon.jpg";
+import gala from "../../public/Imgs/portfolio/gala.jpg";
+import jantar from "../../public/Imgs/portfolio/jantar.jpg";
+import organizacao from "../../public/Imgs/portfolio/organizacao.jpg";
+import raffo from "../../public/Imgs/portfolio/raffo.jpg";
+import sax from "../../public/Imgs/portfolio/sax.jpg";
+
+const SectionPortfolio = styled.main`
+  margin-top: 95px;
+`;
+
+const CustomMasonry = styled(Masonry)`
+  display: grid;
+  grid-gap: 25px;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+`;
 
 const Portfolio = () => {
-  const [loading, setLoading] = useState(true);
+  const images = [
+    { src: aniversario, alt: "Aniversário" },
+    { src: avon, alt: "Avon" },
+    { src: gala, alt: "Gala" },
+    { src: jantar, alt: "Jantar" },
+    { src: organizacao, alt: "Organização" },
+    { src: raffo, alt: "Raffo" },
+    { src: sax, alt: "Sax" },
+  ];
 
-  const [data] = BucketDanke();
-  console.log(data)
+  const breakpointColumnsObj = {
+    default: 3,
+    700: 2,
+  };
 
   return (
     <>
@@ -17,26 +47,30 @@ const Portfolio = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/Svg/dankelogo.svg" />
       </Head>
-      <h1 className="titulo">Portfólio</h1>
-      
-      {data && Array.isArray(data) ?
-        data.map((imagem, index) => (
-          <div key={index} style={{maxWidth: '398px'}}>
+
+      <SectionPortfolio className="autoPadding fixedWidth">
+        <h1
+          className="titulo"
+          style={{ textAlign: "center", marginBottom: "50px" }}
+        >
+          Confira alguns de nossos eventos
+        </h1>
+
+        <CustomMasonry breakpointCols={breakpointColumnsObj}>
+          {images.map((image, index) => (
             <Image
-            src={`https://firebasestorage.googleapis.com/v0/b/${imagem.bucket}/o/${encodeURIComponent(imagem.name)}?alt=media`}
-            alt={imagem.name}
-            width={389}
-            height={389}
-            layout="responsive"
-            objectFit="cover"
-            quality={75}
-            loading="lazy"
-            placeholder="blur"
-            onLoad={() => setLoading(false)}
-            blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
-          />
-          </div>
-        )) : (<>Carregando...</>)}
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              layout="responsive"
+              objectFit="cover"
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+            />
+          ))}
+        </CustomMasonry>
+      </SectionPortfolio>
     </>
   );
 };
