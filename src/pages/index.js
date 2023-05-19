@@ -280,7 +280,6 @@ export default function Home() {
             <TituloGaleleria className="titulo">
               Fotos dos nossos eventos
             </TituloGaleleria>
-            <Link href="/portfolio" style={{fontWeight: '600'}}>Ver fotos <Image src="/Svg/seta.svg" alt="Icone de seta" width={19} height={15} className="setaLink"/> </Link>
           </header>
 
           <AreaImgs>
@@ -357,7 +356,7 @@ export default function Home() {
             <CardGaleria/>
             <CardGaleria texto='Eventos Cerimoniais' icone='nick' alt='tesoura' w={35.83}/>
             <CardGaleria texto='Eventos Esportivos' icone='ball' alt='bola de tênis' w={36.13}/>
-            <CardGaleria texto='Eventos de Exibição' icone='nick' alt='pessoa palestrando' w={38.18}/>
+            <CardGaleria texto='Eventos de Exibição' icone='confe' alt='pessoa palestrando' w={38.18}/>
           </AreaCards>
         </SectionGaleria>
 
