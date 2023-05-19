@@ -96,6 +96,26 @@
   }
 }
 
+@media (max-width: 900px) {
+  .hLinkPortGaleria {
+    display: none;
+  }
+}
+
+.linkPortGaleria {
+  margin: 0 42.5%;
+}
+@media (min-width: 900px) {
+  .linkPortGaleria {
+    display: none;
+  }
+}
+
+.hLinkPortGaleria:hover, .linkPortGaleria:hover {
+  -webkit-text-decoration: 3px #C09ADD underline;
+          text-decoration: 3px #C09ADD underline;
+}
+
 body {
   background: rgb(46, 26, 71);
 }/*# sourceMappingURL=globals.css.map */

@@ -1,6 +1,7 @@
 // Cores
 $roxoEscuro: rgb(46, 26, 71);
 $roxoDanke: #612651;
+$lilas: #C09ADD;
 $brancoNeve: #e5e1e6;
 
 *{
@@ -69,6 +70,25 @@ $brancoNeve: #e5e1e6;
 
   @media (max-width:700px) {
     padding: 25px 20px;
+  }
+}
+
+.hLinkPortGaleria{
+  @media (max-width:900px) {
+    display: none;
+  }
+}
+
+.linkPortGaleria{
+  margin: 0 42.5%;
+  @media (min-width:900px) {
+    display: none;
+  }
+}
+
+.hLinkPortGaleria, .linkPortGaleria{
+  &:hover{
+    text-decoration: 3px $lilas underline;
   }
 }
 

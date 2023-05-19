@@ -280,6 +280,8 @@ export default function Home() {
             <TituloGaleleria className="titulo">
               Fotos dos nossos eventos
             </TituloGaleleria>
+            
+            <Link href="/portfolio" className="hLinkPortGaleria" style={{fontWeight: '600'}}>Ver fotos <Image src="/Svg/seta.svg" alt="Icone de seta" width={19} height={15} className="setaLink"/> </Link>
           </header>
 
           <AreaImgs>
@@ -349,6 +351,8 @@ export default function Home() {
               />
             </AreaImg>
           </AreaImgs>
+
+          <Link href="/portfolio" className="linkPortGaleria" style={{fontWeight: '600'}}>Ver fotos <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
           
           <h1 className="subtitulo" style={{margin: "25px 0"}}>Atendimento personalizado</h1>
 
