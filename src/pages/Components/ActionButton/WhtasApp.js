@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Whats from '../../../../public/Svg/whats.svg'
 import styled from "styled-components";
 
 const WhatsButton = styled.section`
@@ -21,8 +20,9 @@ const WhtasApp = () => {
         <WhatsButton>
             <Link href="https://wa.me/5521993401594" title="Entre em contato pelo WhatsApp" target="_blank">
                 <Image 
-                    src={Whats} 
+                    src={'/Svg/whats.svg'} 
                     alt="Botão inferio direito de contato via WhatsApp"
+                    width={60} height={60}
                     layout="responsive" 
                     objectFit="cover" 
                     quality={75}
