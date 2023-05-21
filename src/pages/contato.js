@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-import BotaoAcao from "./Components/ActionButton/BotaoAcao";
 
 const Contato = styled.main`
     display: grid; place-items: center;align-content: start;
@@ -9,7 +8,7 @@ const Contato = styled.main`
     height: calc(100vh - 95px);min-height: calc(100vh - 95px); 
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .1), rgba(46, 26, 71, 1));
 
-    @media (max-width:700px;){
+    @media (max-width:700px){
         margin-top:75px;
         height: calc(100vh - 75px);min-height: calc(100vh - 75px);
     }
@@ -23,7 +22,7 @@ const Formulario = styled.form`
 const InputForm = styled.input`
     background: transparent;
     padding: 15px 25px;
-    border 3px solid #E5E1E6;
+    border: 3px solid #E5E1E6;
     width: 100%;max-width: 490px;
     max-height:45px;
 
@@ -35,7 +34,7 @@ const InputForm = styled.input`
 const TextArea = styled.textarea`
     background: transparent;
     padding: 13px 25px;
-    border 3px solid #E5E1E6;
+    border: 3px solid #E5E1E6;
     min-width: 100%;max-width: 490px;
     max-height:70px;min-height:70px;
 `
@@ -45,6 +44,7 @@ const ButtonForm = () => <input type="submit" value="Enviar Mensagem" className=
 const InputTextEmail= ({place = 'Infome seu nome', type = 'text'}) => <InputForm placeholder={place} type={type} required/>
 
 const contato = () => {
+
     return (
         <>
             <Head>
