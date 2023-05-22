@@ -9,6 +9,7 @@ import DankeEventos from "../SvgsComponents/DankeEventos";
 import BotaoAcao from "../ActionButton/BotaoAcao";
 import DankeLogo from "../SvgsComponents/DankeLogo";
 import OpenClose from "../ActionButton/OpenClose";
+//import Language from "../Language/CurrentLanguage";
 
 const Navegacao = styled.nav`
     position: absolute;
@@ -42,7 +43,7 @@ const NavDrop = styled.ul`
     height: 75px;
     padding:20px;
     display:flex;align-items:center;justify-content: space-between;
-    background: ${({drop}) => drop }); 
+    background: ${({drop}) => drop }; 
 ` 
 
 const NavItens = styled.ul`
@@ -103,7 +104,8 @@ const Navbar = () => {
                         <li><Link href="/contato" style={{textDecoration: router.asPath === "/contato" && 'underline #C09ADD 3px'}}>Contato</Link></li>    
                     </ListaLink>
 
-                    <li></li>
+                    <li>
+                    </li>
                     
                     <li>
                         <BotaoAcao texto={'Contratar Serviço'}/>
@@ -120,7 +122,8 @@ const Navbar = () => {
             </NavDrop>
             
             <NavItens drop={drop === false ? '-100%' : '0'}>
-                <li>Mudança de Linguage</li>
+                <li>
+                </li>
                 <li>
                     <ListaLinkMobile>
                         <li><Link href="/" style={{textDecoration: router.asPath === "/" && 'underline #C09ADD 3px'}} onClick={HandleCloseMenu}>Home</Link></li>    

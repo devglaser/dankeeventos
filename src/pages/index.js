@@ -11,9 +11,6 @@ import BotaoAcao from './Components/ActionButton/BotaoAcao'
 
 
 import ImgSobre from '../../public/Imgs/imgSobre.png'
-import ImgServicos from '../../public/Imgs/imgServicos.jpg'
-
-import galeriaA from '../../public/Imgs/galeriaA.png'
 
 
 const Cabecalho = styled.header`
@@ -234,7 +231,7 @@ export default function Home() {
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={`../../public/Imgs/bannerBackground.jpg`}
               />
           </BackBanner>
         </Cabecalho>

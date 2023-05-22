@@ -40,7 +40,7 @@ const Rodape = () => {
 
                 <li title="Direitos e Desenvolvedor">
                     <p>© Todos os direitos reservados 2023</p>
-                    <p style={{fontWeight: '300'}}>Desenvolvido por <Link href="https://danielglaser.vercel.app" target="_blank" title="Desenvolvedor e Designer Web Daniel_GLaser">Daniel_GLaser</Link></p>
+                    <p style={{fontWeight: '300'}}>Desenvolvido por <Link href="https://wa.me/5527999678371" target="_blank" title="Desenvolvedor e Designer Web Daniel_GLaser">Daniel_GLaser</Link></p>
                 </li>
             </Lista>
         </Footer>
