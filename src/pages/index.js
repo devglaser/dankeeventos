@@ -222,7 +222,7 @@ export default function Home() {
             <h2 className="subtitulo">Mais de 20 anos de experiência</h2>
             <TituloBanner className='titulo'>Tenha um evento inesquecível com a Danke!</TituloBanner>
           </AreaTextosBanner>
-          <BackBanner>
+          <BackBanner className="backBanner">
             <Image
                 src={"/Imgs/bannerBackground.jpg"}
                 alt="Imagem de fundo RAFFO Fest"
@@ -231,7 +231,7 @@ export default function Home() {
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`../../public/Imgs/bannerBackground.jpg`}
+                blurDataURL={`/Imgs/bannerBackground.jpg`}
               />
           </BackBanner>
         </Cabecalho>

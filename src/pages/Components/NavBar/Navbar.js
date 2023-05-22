@@ -9,7 +9,7 @@ import DankeEventos from "../SvgsComponents/DankeEventos";
 import BotaoAcao from "../ActionButton/BotaoAcao";
 import DankeLogo from "../SvgsComponents/DankeLogo";
 import OpenClose from "../ActionButton/OpenClose";
-//import Language from "../Language/CurrentLanguage";
+import Language from "../Language/CurrentLanguage";
 
 const Navegacao = styled.nav`
     position: absolute;
@@ -105,6 +105,7 @@ const Navbar = () => {
                     </ListaLink>
 
                     <li>
+                        <Language/>
                     </li>
                     
                     <li>
@@ -123,6 +124,7 @@ const Navbar = () => {
             
             <NavItens drop={drop === false ? '-100%' : '0'}>
                 <li>
+                    <Language/>
                 </li>
                 <li>
                     <ListaLinkMobile>

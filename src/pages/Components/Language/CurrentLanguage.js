@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import { useState } from "react";
 
@@ -21,9 +21,11 @@ const Language = () => {
 
     return (
         <AreaLingagem>
-            <Image src={`/Svg/${lang}Flag.svg`} alt="Bandeira Brasileira" layout="responsive" objectFit="cover" width={46} height={24}/>
+            <div>
+                <Image src={`/Svg/${lang}Flag.svg`} alt="Bandeira" layout="responsive" objectFit="cover" loading="lazy" width={46} height={24}/>
+            </div>
 
-            <SelecionaLinguagem onChange={({target})=>{setLang(target.value)}}>
+            <SelecionaLinguagem defaultValue={lang} onChange={({target})=>{setLang(target.value)}}>
                 <option value='ptbr' selected>pt-br</option>
 
                 <option value="usa">en</option>
