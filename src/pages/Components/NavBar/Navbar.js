@@ -119,7 +119,7 @@ const Navbar = () => {
                 </li>
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
                     <ListaLink>
-                        <li><Link href="/"><LinkItem active={router.path === '/' ? 'true' : 'false'}>Home</LinkItem></Link></li>    
+                        <li><Link href="/"><LinkItem active={router.path === '/'}>Home</LinkItem></Link></li>    
                         <li><Link href="/sobre"><LinkItem active={router.path === '/sobre'}>Sobre</LinkItem></Link></li>    
                         <li><Link href="/portfolio"><LinkItem active={router.path === '/portfolio'}>Portfólio</LinkItem></Link></li>    
                         <li><Link href="/contato"><LinkItem active={router.path === '/contato'}>Contato</LinkItem></Link></li>    

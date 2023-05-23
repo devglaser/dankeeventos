@@ -13,7 +13,7 @@ const ButtonOp = styled.button`
         position: relative;
         width: 100%;height:2px;
         border-radius: 1px;
-        background: ${({op})=> op === 'true' ? 'transparent' : '#e5e1e6'};
+        background: ${({op})=> op ? 'transparent' : '#e5e1e6'};
 
         &::before,&::after{
             content: '';
@@ -26,15 +26,15 @@ const ButtonOp = styled.button`
 
         &::before{
             top:-8.75px;
-            transform:${({op})=> op === 'true' ? 'rotate(-45deg)' : 'rotate(0deg)'};
+            transform:${({op})=> op ? 'rotate(-45deg)' : 'rotate(0deg)'};
         }
 
         &::after{
             top:8.75px;
-            transform:${({op})=> op === 'true' ? 'rotate(45deg)' : 'rotate(0deg)'};
+            transform:${({op})=> op ? 'rotate(45deg)' : 'rotate(0deg)'};
         }
 
-        &::before,&::after{top:${({op}) => op === 'true' && '0'};}
+        &::before,&::after{top:${({op}) => op && '0'};}
     }
 `
 
@@ -49,7 +49,7 @@ const OpenClose = ({w}) => {
 
     return (
         <>
-            <ButtonOp op={op.toString()} onClick={() => setOp(!op)}><span></span></ButtonOp>
+            <ButtonOp op={op} onClick={() => setOp(!op)}><span></span></ButtonOp>
         </>
     )
 }
