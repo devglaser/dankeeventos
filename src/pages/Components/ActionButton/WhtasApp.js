@@ -1,19 +1,14 @@
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styled from "styled-components";
-
-import whats from '../../../../public/Svg/whats.svg'
 
 const WhatsButton = styled.section`
     position: fixed;
     z-index: 99;
     right: 25px;
     bottom: 25px;
-    width: 60px;
-
-    @media (max-width:500px) {
-        width: 45px;
-    }
+    display: grid;place-items: center;
+    max-width: 60px;
 
     &:hover{
         transform: scale(1.1);
@@ -25,7 +20,7 @@ const WhtasApp = () => {
         <WhatsButton>
             <Link href="https://wa.me/5521993401594" title="Entre em contato pelo WhatsApp" target="_blank">
                 <Image 
-                    src={whats} 
+                    src={'/Svg/whats.svg'} 
                     alt="Botão inferio direito de contato via WhatsApp"
                     width={60} height={60}
                     layout="responsive" 
