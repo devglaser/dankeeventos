@@ -83,7 +83,7 @@ const ListaLinkMobile = styled.ul`
 `;
 
 const LinkItem = styled.b`
-    text-decoration: ${({active})=> active ? 'underline #C09ADD 3px' : 'none'};
+    text-decoration: ${({active})=> active === 'true' ? 'underline #C09ADD 3px' : 'none'};
 `;
 
 const Navbar = () => {
@@ -119,10 +119,10 @@ const Navbar = () => {
                 </li>
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
                     <ListaLink>
-                        <li><Link href="/" passHref><LinkItem active={router.path === '/' ? true : false}>Home</LinkItem></Link></li>    
-                        <li><Link href="/sobre" passHref><LinkItem active={router.pathname === '/sobre'}>Sobre</LinkItem></Link></li>    
-                        <li><Link href="/portfolio" passHref><LinkItem active={router.pathname === '/portfolio'}>Portfólio</LinkItem></Link></li>    
-                        <li><Link href="/contato" passHref><LinkItem active={router.pathname === '/contato'}>Contato</LinkItem></Link></li>    
+                        <li><Link href="/"><LinkItem active={router.path === '/' ? 'true' : 'false'}>Home</LinkItem></Link></li>    
+                        <li><Link href="/sobre"><LinkItem active={router.path === '/sobre'}>Sobre</LinkItem></Link></li>    
+                        <li><Link href="/portfolio"><LinkItem active={router.path === '/portfolio'}>Portfólio</LinkItem></Link></li>    
+                        <li><Link href="/contato"><LinkItem active={router.path === '/contato'}>Contato</LinkItem></Link></li>    
                     </ListaLink>
                     <Language/>
                     <BotaoAcao texto={'Contratar Serviço'}/>

@@ -2,15 +2,9 @@ import Head from 'next/head'
 import Image from "next/legacy/image"
 import Link from 'next/link'
 
-import { useEffect } from 'react'
-
 import styled from 'styled-components'
 
 import BotaoAcao from './Components/ActionButton/BotaoAcao'
-
-
-
-import ImgSobre from '../../public/Imgs/imgSobre.png'
 
 
 const Cabecalho = styled.header`
@@ -38,13 +32,12 @@ const TituloBanner = styled.h1`
   @media (max-width: 700px){font-size:2.125rem;max-width:480px}
 `
 const BackBanner = styled.section`
-  position: relative;
+  position: absolute;
   top:0;left: 0;
   width: 100%;
   height: 100%;max-height:615px;
   z-index: -1;
   overflow: hidden;
-  display: none;
 
   &::after{
     content: '';
@@ -223,7 +216,7 @@ export default function Home() {
             <h2 className="subtitulo">Mais de 20 anos de experiência</h2>
             <TituloBanner className='titulo'>Tenha um evento inesquecível com a Danke!</TituloBanner>
           </AreaTextosBanner>
-          <BackBanner >
+          <BackBanner>
             <Image
                 src={"/Imgs/bannerBackground.jpg"}
                 alt="Imagem de fundo RAFFO Fest"
@@ -256,8 +249,9 @@ export default function Home() {
 
             <ImageHomeMax>
               <Image 
-                src={ImgSobre}
-                alt="My Image"
+                src={'/Imgs/imgSobre.png'}
+                alt="Três imagens de eventos da Danke"
+                width={492} height={397}
                 layout="responsive"
                 objectFit="cover"
                 quality={75}
