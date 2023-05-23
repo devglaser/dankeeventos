@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const AreaLingagem = styled.div`
     max-height: 24px;
-    display: flex;
+    display: flex; align-items: center; justify-content: space-between;
 `
 
 const SelecionaLinguagem = styled.select`
@@ -26,7 +26,7 @@ const Language = () => {
             </div>
 
             <SelecionaLinguagem defaultValue={lang} onChange={({target})=>{setLang(target.value)}}>
-                <option value='ptbr' selected>pt-br</option>
+                <option value='ptbr'>pt-br</option>
 
                 <option value="usa">en</option>
 

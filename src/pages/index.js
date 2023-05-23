@@ -38,12 +38,13 @@ const TituloBanner = styled.h1`
   @media (max-width: 700px){font-size:2.125rem;max-width:480px}
 `
 const BackBanner = styled.section`
-  position: absolute;
+  position: relative;
   top:0;left: 0;
   width: 100%;
   height: 100%;max-height:615px;
   z-index: -1;
   overflow: hidden;
+  display: none;
 
   &::after{
     content: '';
@@ -222,7 +223,7 @@ export default function Home() {
             <h2 className="subtitulo">Mais de 20 anos de experiência</h2>
             <TituloBanner className='titulo'>Tenha um evento inesquecível com a Danke!</TituloBanner>
           </AreaTextosBanner>
-          <BackBanner className="backBanner">
+          <BackBanner >
             <Image
                 src={"/Imgs/bannerBackground.jpg"}
                 alt="Imagem de fundo RAFFO Fest"

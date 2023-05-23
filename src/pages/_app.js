@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import '@/styles/fontes.css'
+import { hydrate } from 'styled-components'
 import Rodape from './Components/Footer/Rodape'
 import Navbar from './Components/NavBar/Navbar'
 import WhtasApp from './Components/ActionButton/WhtasApp'
