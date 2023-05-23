@@ -82,7 +82,7 @@ const ListaLinkMobile = styled.ul`
     height: 160px;
 `;
 
-const LinkItem = styled.b`
+const LinkItem = styled(Link)`
     text-decoration: ${({active})=> active === 'true' ? 'underline #C09ADD 3px' : 'none'};
 `;
 
@@ -119,10 +119,10 @@ const Navbar = () => {
                 </li>
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
                     <ListaLink>
-                        <li><Link href="/"><LinkItem active={router.path === '/'}>Home</LinkItem></Link></li>    
-                        <li><Link href="/sobre"><LinkItem active={router.path === '/sobre'}>Sobre</LinkItem></Link></li>    
-                        <li><Link href="/portfolio"><LinkItem active={router.path === '/portfolio'}>Portfólio</LinkItem></Link></li>    
-                        <li><Link href="/contato"><LinkItem active={router.path === '/contato'}>Contato</LinkItem></Link></li>    
+                        <li><LinkItem href="/" active={router.path === '/'}>Home</LinkItem></li>    
+                        <li><LinkItem href="/sobre" active={router.path === '/sobre'}>Sobre</LinkItem></li>    
+                        <li><LinkItem href="/portfolio" active={router.path === '/portfolio'}>Portfólio</LinkItem></li>    
+                        <li><LinkItem href="/contato" active={router.path === '/contato'}>Contato</LinkItem></li>    
                     </ListaLink>
                     <Language/>
                     <BotaoAcao texto={'Contratar Serviço'}/>
@@ -141,26 +141,10 @@ const Navbar = () => {
                 </li>
                 <li>
                     <ListaLinkMobile>
-                        <li>
-                            <Link href="/" onClick={HandleCloseMenu} passHref>
-                                <LinkItem active={router.pathname === '/'}>Home</LinkItem>
-                            </Link>
-                        </li>    
-                        <li>
-                            <Link href="/sobre" onClick={HandleCloseMenu} passHref>
-                                <LinkItem active={router.pathname === '/sobre'}>Sobre</LinkItem>
-                            </Link>
-                        </li>    
-                        <li>
-                            <Link href="/portfolio" onClick={HandleCloseMenu} passHref>
-                                <LinkItem active={router.pathname === '/portfolio'}>Portfólio</LinkItem>
-                            </Link>
-                        </li>    
-                        <li>
-                            <Link href="/contato" onClick={HandleCloseMenu} passHref>
-                                <LinkItem active={router.pathname === '/contato'}>Contato</LinkItem>
-                            </Link>
-                        </li>  
+                        <li><LinkItem href="/" active={router.path === '/'}>Home</LinkItem></li>    
+                        <li><LinkItem href="/sobre" active={router.path === '/sobre'}>Sobre</LinkItem></li>    
+                        <li><LinkItem href="/portfolio" active={router.path === '/portfolio'}>Portfólio</LinkItem></li>    
+                        <li><LinkItem href="/contato" active={router.path === '/contato'}>Contato</LinkItem></li>
                     </ListaLinkMobile>
                 </li>
                 <li>
