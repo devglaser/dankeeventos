@@ -220,8 +220,8 @@ export default function Home() {
             <Image
                 src={"/Imgs/bannerBackground.jpg"}
                 alt="Imagem de fundo RAFFO Fest"
-                layout="fill"
-                objectFit='cover'
+                layout='fill'
+                objectFit={'cover'}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"

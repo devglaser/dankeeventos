@@ -12,7 +12,8 @@ const WhatsButton = styled.section`
     width: 60px;
 
     @media (max-width:500px) {
-        width: 45px;
+        width: 50px;
+        bottom: 50px;
     }
 
     &:hover{
