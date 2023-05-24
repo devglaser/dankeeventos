@@ -35,7 +35,7 @@ const BackBanner = styled.section`
   position: absolute;
   top:0;left: 0;
   width: 100%;
-  height: 100%;max-height:615px;
+  height: 100%;
   z-index: -1;
   overflow: hidden;
 
@@ -214,7 +214,7 @@ export default function Home() {
         <Cabecalho>
           <AreaTextosBanner>
             <h2 className="subtitulo">Mais de 20 anos de experiência</h2>
-            <TituloBanner className='titulo'>Tenha um evento inesquecível com a Danke!</TituloBanner>
+            <TituloBanner>Tenha um evento inesquecível com a Danke!</TituloBanner>
           </AreaTextosBanner>
           <BackBanner>
             <Image
