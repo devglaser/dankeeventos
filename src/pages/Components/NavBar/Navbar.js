@@ -139,10 +139,10 @@ const Navbar = () => {
                 </li>
                 <li>
                     <ListaLinkMobile>
-                    <li style={{textDecoration: router.pathname === '/' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/">Home</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/sobre' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/sobre">Sobre</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/portfolio' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/portfolio">Portfólio</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/contato' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/contato">Contato</Link></li>
+                    <li style={{textDecoration: router.pathname === '/' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/" onClick={HandleCloseMenu}>Home</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/sobre' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/sobre" onClick={HandleCloseMenu}>Sobre</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/portfolio' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/portfolio" onClick={HandleCloseMenu}>Portfólio</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/contato' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/contato" onClick={HandleCloseMenu}>Contato</Link></li>
                     </ListaLinkMobile>
                 </li>
                 <li>
