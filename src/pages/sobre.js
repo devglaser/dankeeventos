@@ -1,9 +1,10 @@
+import Head from "next/head";
 import Image from "next/legacy/image";
 
 import styled from "styled-components";
 
-import photo from '../../public/Imgs/imgServicos.jpg'
-import Head from "next/head";
+import ImagemSobre from '../../public/Imgs/galeriaC.png'
+import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
 
 const SobreDanke = styled.section`
     margin-top: 95px;
@@ -65,7 +66,7 @@ const sobre = () => {
                     
                     <div style={{position: 'relative', width: '100%', maxWidth: '492px'}}>
                         <Image 
-                            src='/Imgs/galeriaC.png'
+                            src={ImagemSobre}
                             alt="Imagem de jantar realizado pela Danke Eventos"
                             layout="responsive"
                             objectFit='cover'
@@ -73,7 +74,7 @@ const sobre = () => {
                             quality={75}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                            blurDataURL={ImagemSobre.blurDataURL}
                         />
                     </div>
 
@@ -82,7 +83,7 @@ const sobre = () => {
                 <Servico className="autoPadding fixedWidth">
                     <div style={{position: 'relative', width: '100%', maxWidth: '492px'}}>
                         <Image 
-                            src='/Imgs/imgServicos.jpg'
+                            src={ImagemServicos}
                             alt="Imagem da equipe organizando o evento"
                             layout="responsive"
                             objectFit={'cover'}
@@ -90,7 +91,7 @@ const sobre = () => {
                             quality={75}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                            blurDataURL={ImagemServicos.blurDataURL}
                         />
                     </div>
             

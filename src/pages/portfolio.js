@@ -76,10 +76,22 @@ const CustomMasonry = styled(Masonry)`
   }}
 `;
 
+const ViewImageStyle = styled.div`
+  position: fixed;
+  display: grid;place-items: center;
+  top: 0;left:0;
+  width: 100vw;height:100vh;
+  background: rgba(97, 38, 81, .75);
+  z-index: 99;
+`
+
 const Portfolio = () => {  
 
   const [colums, setColums] = useState(3)
   const [largura, setLargura] = useState('')
+
+  const [activeViewImage, setActveViewImage] = useState(false)
+  const [indexImage, setIndexImage] = useState(2)
 
   const images = [
     { path: danke1, alt: "AMC The Walking Dead" },
@@ -172,6 +184,7 @@ const Portfolio = () => {
           {images.map(({path, alt}, index) => (
             <div key={index}>
               <Image
+                onClick={()=> setIndexImage(index)}
                 src={path}
                 alt={alt}
                 layout="responsive"
@@ -179,12 +192,32 @@ const Portfolio = () => {
                 loading="lazy"
                 quality={75}
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={path.blurDataUrl}
               />
               <p>{alt}</p>
             </div>
           ))}
         </CustomMasonry>
+        {
+          activeViewImage && 
+          <ViewImageStyle>
+            <button>
+              <Image src={'/Svg/setaBranca.svg'} alt="Seta branca" layout="responsive" objectFit={'cover'}/>
+            </button>
+            <div>
+              <Image
+                src={images[indexImage].path}
+                alt={images[indexImage].alt}
+                layout="responsive"
+                objectFit="cover"
+                loading="lazy"
+                quality={100}
+                placeholder="blur"
+                blurDataURL={images[indexImage].path.blurDataUrl}
+              />
+            </div>
+          </ViewImageStyle>
+        }
       </SectionPortfolio>
     </>
   );

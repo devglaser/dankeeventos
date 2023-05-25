@@ -6,6 +6,16 @@ import styled from 'styled-components'
 
 import BotaoAcao from './Components/ActionButton/BotaoAcao'
 
+import backgroundBanner from '../../public/Imgs/bannerBackground.jpg'
+import ImagemSobre from '../../public/Imgs/imgSobre.png'
+import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
+
+import GaleriaA from '../../public/Imgs/galeriaA.png'
+import GaleriaB from '../../public/Imgs/galeriaB.png'
+import GaleriaC from '../../public/Imgs/galeriaC.png'
+import GaleriaD from '../../public/Imgs/galeriaD.png'
+import GaleriaE from '../../public/Imgs/galeriaE.png'
+
 
 const Cabecalho = styled.header`
   position: relative;
@@ -201,6 +211,8 @@ const CardGaleria = ({texto = "Eventos sociais", icone = "drink", alt = 'taça',
 
 export default function Home() {
 
+  console.log(backgroundBanner)
+
   return ( 
     <>
       <Head>
@@ -218,14 +230,14 @@ export default function Home() {
           </AreaTextosBanner>
           <BackBanner>
             <Image
-                src={"/Imgs/bannerBackground.jpg"}
+                src={backgroundBanner}
                 alt="Imagem de fundo RAFFO Fest"
                 layout='fill'
                 objectFit={'cover'}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`/Imgs/bannerBackground.jpg`}
+                blurDataURL={backgroundBanner.blurDataURL}
               />
           </BackBanner>
         </Cabecalho>
@@ -249,7 +261,7 @@ export default function Home() {
 
             <ImageHomeMax>
               <Image 
-                src={'/Imgs/imgSobre.png'}
+                src={ImagemSobre}
                 alt="Três imagens de eventos da Danke"
                 width={492} height={397}
                 layout="responsive"
@@ -257,7 +269,7 @@ export default function Home() {
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={ImagemSobre.blurDataURL}
               />
             </ImageHomeMax>
             
@@ -280,66 +292,66 @@ export default function Home() {
             <AreaImg area={"imgA"}>
               <Image
                 alt="WINDSOR | Principe e Princesa de Dinamarca"
-                src="/Imgs/galeriaA.png"
+                src={GaleriaA}
                 layout="responsive"
                 objectFit="cover"
                 width={596} height={398}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={GaleriaA.blurDataURL}
               />
             </AreaImg>
             <AreaImg area={"imgB"}>
               <Image
                 alt="Aniversário"
-                src="/Imgs/galeriaB.png"
+                src={GaleriaB}
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={GaleriaB.blurDataURL}
               />
             </AreaImg>
             <AreaImg area={"imgC"}>
               <Image
                 alt="Club Med Presidentes Gala"
-                src="/Imgs/galeriaC.png"
+                src={GaleriaC}
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={GaleriaC.blurDataURL}
               />
             </AreaImg>
             <AreaImg area={"imgD"}>
               <Image
                 alt="Saxofonista"
-                src="/Imgs/galeriaD.png"
+                src={GaleriaD}
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={GaleriaD.blurDataURL}
               />
             </AreaImg>
             <AreaImg area={"imgE"}>
               <Image
                 alt="Evento Avon"
-                src="/Imgs/galeriaE.png"
+                src={GaleriaE}
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={GaleriaE.blurDataURL}
               />
             </AreaImg>
           </AreaImgs>
@@ -360,7 +372,7 @@ export default function Home() {
           
             <ImageHomeMax>
               <Image 
-                src={'/Imgs/imgServicos.jpg'}
+                src={ImagemServicos}
                 alt="Equipe da Danke eventos em produção"
                 layout="responsive"
                 objectFit={'cover'}
@@ -368,7 +380,7 @@ export default function Home() {
                 quality={75}
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect x='0' y='0' width='200' height='200' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E`}
+                blurDataURL={ImagemServicos.blurDataURL}
               />
             </ImageHomeMax>
     

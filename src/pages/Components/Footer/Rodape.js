@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DankeEventos from "../SvgsComponents/DankeEventos";
 import FaceIcon from "../SvgsComponents/FaceIcon";
 import InstaIcon from "../SvgsComponents/InstaIcon";
+import Image from "next/legacy/image";
 
 const Footer = styled.footer`
     padding: 50px 0;
@@ -22,7 +23,7 @@ const Rodape = () => {
         <Footer>
             <Lista>
                 <li title="Danke Eventos">
-                    <DankeEventos/>
+                <Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={220.58} height={35} layout="responsive" objectFit="contain"/>
                 </li>
                 
                 <li title="Contato"> 

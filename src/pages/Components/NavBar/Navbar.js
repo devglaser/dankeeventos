@@ -9,6 +9,7 @@ import BotaoAcao from "../ActionButton/BotaoAcao";
 import DankeLogo from "../SvgsComponents/DankeLogo";
 import OpenClose from "../ActionButton/OpenClose";
 import Language from "../Language/CurrentLanguage";
+import Image from "next/image";
 
 const Navegacao = styled.nav`
     position: absolute;
@@ -112,7 +113,7 @@ const Navbar = () => {
             <ListaNav> 
                 <li>
                     <Link href="/">
-                        <DankeEventos/>
+                        <Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={220.58} height={35} layout="responsive" objectFit="contain"/>
                     </Link>
                 </li>
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
@@ -131,7 +132,7 @@ const Navbar = () => {
         <NavMobile $drop={drop ? "#612651" : 'transparent'}>
             <NavDrop $drop={drop ? 'transparent' : 'linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25)'}>
                 <li title={drop ? "Fechar menu" : "Abrir Menu"} onClick={() => setDrop(!drop)}><OpenClose w={drop}/></li>
-                <li><Link href="/"><DankeLogo/></Link></li>
+                <li><Link href="/"><Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={220.58} height={35} layout="responsive" objectFit="contain"/></Link></li>
             </NavDrop>
             <NavItens $drop={drop ? '0' : '-100%'}>
                 <li>
