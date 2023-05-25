@@ -21,7 +21,7 @@ const Language = () => {
 
     return (
         <AreaLingagem>
-            <div>
+            <div style={{width: '46px', height: '24px'}}>
                 <Image src={`/Svg/${lang}Flag.svg`} alt="Bandeira" layout="responsive" objectFit="cover" loading="lazy" width={46} height={24}/>
             </div>
 

@@ -8,7 +8,7 @@ import Image from "next/legacy/image";
 const Footer = styled.footer`
     padding: 50px 0;
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25));
-    height: 306px;
+    height: 406px;
     text-align:center;
     display:flex; align-items:center; justify-content: space-between;flex-direction:column;
 `
@@ -22,8 +22,8 @@ const Rodape = () => {
     return (
         <Footer>
             <Lista>
-                <li title="Danke Eventos">
-                <Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={220.58} height={35} layout="responsive" objectFit="contain"/>
+                <li title="Danke Eventos" style={{width: '100%', maxWidth: '150px', overflow: 'hidden', filter: 'brightness(1000%)'}}>
+                <Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={58.58} height={35} layout="responsive" objectFit="contain"/>
                 </li>
                 
                 <li title="Contato"> 

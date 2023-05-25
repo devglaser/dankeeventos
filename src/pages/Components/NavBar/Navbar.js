@@ -1,15 +1,15 @@
+import Image from "next/legacy/image";
 import styled from "styled-components";
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from "next/link";
 
-import DankeEventos from "../SvgsComponents/DankeEventos";
 import BotaoAcao from "../ActionButton/BotaoAcao";
-import DankeLogo from "../SvgsComponents/DankeLogo";
 import OpenClose from "../ActionButton/OpenClose";
 import Language from "../Language/CurrentLanguage";
-import Image from "next/image";
+
+import DankeLogo from '../../../../public/Imgs/logoDankeAntiga.png'
 
 const Navegacao = styled.nav`
     position: absolute;
@@ -49,7 +49,7 @@ const NavMobile = styled.nav`
     left:0;
     width: 100%;
     height: 75px;
-    z-index:99;
+    z-index:999;
     background: ${({$drop}) => $drop}; 
 `;
 
@@ -59,7 +59,7 @@ const NavDrop = styled.ul`
     display:flex;
     align-items:center;
     justify-content: space-between;
-    background: ${({$drop}) => $drop }; 
+    background: ${({$drop}) => $drop}; 
 `;
 
 const NavItens = styled.ul`
@@ -70,7 +70,7 @@ const NavItens = styled.ul`
     background: rgba(97, 38, 81, 1);
     display:flex;
     align-items:center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction:column;
     text-align: center;
 `;
@@ -111,9 +111,9 @@ const Navbar = () => {
     return largura >= 1100 ? ( 
         <Navegacao>
             <ListaNav> 
-                <li>
+                <li style={{width: '100%', maxWidth: '58.58px', height: '35px', overflow: 'hidden', filter: 'brightness(1000%)'}}>
                     <Link href="/">
-                        <Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={220.58} height={35} layout="responsive" objectFit="contain"/>
+                        <Image src={DankeLogo} alt="Logo Danke Eventos" layout="responsive" objectFit="cover"/>
                     </Link>
                 </li>
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
@@ -130,9 +130,13 @@ const Navbar = () => {
         </Navegacao>
     ) : (
         <NavMobile $drop={drop ? "#612651" : 'transparent'}>
-            <NavDrop $drop={drop ? 'transparent' : 'linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25)'}>
+            <NavDrop $drop={drop ? 'transparent' : 'linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25))'}>
                 <li title={drop ? "Fechar menu" : "Abrir Menu"} onClick={() => setDrop(!drop)}><OpenClose w={drop}/></li>
-                <li><Link href="/"><Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={220.58} height={35} layout="responsive" objectFit="contain"/></Link></li>
+                <li style={{width: '100%', maxWidth: '58.58px', height: '35px', overflow: 'hidden', filter: 'brightness(1000%)'}}>
+                    <Link href="/">
+                        <Image src={DankeLogo} alt="Logo Danke Eventos" layout="responsive" objectFit="cover"/>
+                    </Link>
+                </li>
             </NavDrop>
             <NavItens $drop={drop ? '0' : '-100%'}>
                 <li>

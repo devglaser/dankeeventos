@@ -4,11 +4,15 @@ import Link from 'next/link'
 
 import styled from 'styled-components'
 
+import { useState, useEffect } from 'react'
+
 import BotaoAcao from './Components/ActionButton/BotaoAcao'
 
 import backgroundBanner from '../../public/Imgs/bannerBackground.jpg'
 import ImagemSobre from '../../public/Imgs/imgSobre.png'
 import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
+import ClientesA from '../../public/Svg/clientesA.svg'
+import ClientesB from '../../public/Svg/clientesB.svg'
 
 import GaleriaA from '../../public/Imgs/galeriaA.png'
 import GaleriaB from '../../public/Imgs/galeriaB.png'
@@ -211,7 +215,22 @@ const CardGaleria = ({texto = "Eventos sociais", icone = "drink", alt = 'taça',
 
 export default function Home() {
 
-  console.log(backgroundBanner)
+  const [largura, setLargura] = useState('');
+  const [clientesRender, setClinetesRender] = useState(ClientesA)
+
+  useEffect(() => {
+      (() => {
+          try {
+              window.addEventListener('resize', () => {setLargura(window.innerWidth)});
+              window.removeEventListener('resize', () => {setLargura(window.innerWidth)});
+          } catch (error) {
+              console.warn(error);
+          } finally {
+              setLargura(window.innerWidth);
+              largura > 500 ? setClinetesRender(ClientesA) : setClinetesRender(ClientesB)
+          }
+      })();
+  }, [largura]);
 
   return ( 
     <>
@@ -219,7 +238,7 @@ export default function Home() {
         <title>Danke Eventos</title>
         <meta name="description" content="Danke eventos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/Svg/dankelogo.svg" />
+        <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
       </Head>
       
       <main>
@@ -403,6 +422,16 @@ export default function Home() {
 
         <Clientes className="autoPadding fixedWidth">
           <h1 className="titulo">Nossos Clientes</h1>
+          <div style={{position: 'relative', width: '100%', marginTop: '50px'}}>
+            <Image
+              src={clientesRender}
+              alt="Três imagens de eventos da Danke"
+              layout="responsive"
+              objectFit="cover"
+              quality={100}
+              loading="lazy"
+            />
+          </div>
         </Clientes>
       </main>
     </>
