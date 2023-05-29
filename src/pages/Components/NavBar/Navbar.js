@@ -84,6 +84,144 @@ const ListaLinkMobile = styled.ul`
 `;
 
 const Navbar = () => {
+
+    const [currentLanguage, setCurrentLanguage] = useState('')
+
+    const textsLangs = {
+        home:{
+            headerSection:{
+                title:{
+                    ptbr: 'Tenha um evento inesquecível com a Danke!',
+                    usa: 'Have an unforgettable event with Danke!',
+                    es: '¡Tenga un evento inolvidable con Danke!',
+                },
+                caption:{
+                    ptbr: 'Mais de 20 anos de experiência',
+                    usa: 'More than 20 years of experience',
+                    es: 'Más de 20 años de experiencia',
+                },
+            },
+            aboutSection:{
+                title:{
+                    ptbr: 'Transforme seu evento em uma experiência única e inesquecível',
+                    usa: 'Turn your event into a unique and unforgettable experience',
+                    es: 'Convierte tu evento en una experiencia única e inolvidable',
+                },
+                caption:{
+                    ptbr: 'Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento.',
+                    usa: 'For 20 years we have been committed to transforming your event into an unforgettable moment, with an experienced and dedicated team, offering services to meet the needs of any event.',
+                    es: 'Desde hace 20 años nos hemos comprometido a transformar su evento en un momento inolvidable, contando con un equipo experimentado y dedicado, ofreciendo servicios para satisfacer las necesidades de cualquier evento.',
+                },
+            },
+            portfolioSection:{
+                title:{
+                    ptbr: 'Fotos dos nossos eventos',
+                    usa: 'Photos of our events',
+                    es: 'Fotos de nuestros eventos',
+                },
+                caption:{
+                    ptbr: 'Atendimento personalizado',
+                    usa: 'Personalized service',
+                    es: 'Atendimiento personalizado',
+                },
+                texts: {
+                    ptbr: {
+                        a:'Eventos sociais',
+                        b:'Eventos Cerimoniais',
+                        c:'Eventos Esportivos',
+                        d:'Eventos de Exibição',
+                    },
+                    usa: {
+                        a:'Social events',
+                        b:'Ceremonial Events',
+                        c:'Sports event',
+                        d:'Display Events',
+                    },
+                    es: {
+                        a:'Eventos sociales',
+                        b:'Eventos Ceremoniales',
+                        c:'Evento deportivo',
+                        d:'Mostrar eventos',
+                    }
+                },
+                content:{
+                    ptbr: 'Galeria',
+                    usa: 'Gallery',
+                    es: 'Galería'
+                }
+            },
+            servicesSection:{
+                title:{
+                    ptbr: 'Soluções integradas de decoração e organização de eventos',
+                    usa: 'Integrated decoration and event organization solutions',
+                    es: 'Soluciones integrales de decoración y organización de eventos',
+                },
+                caption:{
+                    ptbr: 'Não importa qual seja o seu evento, nós estamos aqui para ajudar',
+                    usa: 'No matter what your event is, we are here to help.',
+                    es: 'No importa cuál sea tu evento, estamos aquí para ayudarte.',
+                },
+                texts:{
+                    ptbr: 'Profissionais altamente capacitados trabalha para transformar suas ideias em realidade, criando ambientes personalizados e atraentes que impressionarão seus convidados.',
+                    usa: 'Highly trained professionals work to turn your ideas into reality, creating personalized and attractive environments that will impress your guests.',
+                    es: 'Profesionales altamente capacitados trabajan para convertir sus ideas en realidad, creando ambientes personalizados y atractivos que impresionarán a sus invitados.'
+                }
+            },
+            clientsSection:{
+                title:{
+                    ptbr: 'Nossos Clientes',
+                    usa: 'Our Clients',
+                    es: 'Nuestros Clientes',
+                },
+            },
+        },
+        navBar:{
+            about:{
+                ptbr: 'Sobre',
+                usa: 'About',
+                es: 'Acerca de'
+            },
+            portfolio: {
+                ptbr: 'Portfólio',
+                usa: 'Portfolio',
+                es: 'Portafolio'
+            },
+            contact: {
+                ptbr: 'Contato',
+                usa: 'Contact',
+                es: 'Contacto'
+            }
+        },
+        buttons:{
+            actionButton:{
+                ptbr: 'Contratar Serviço',
+                usa: 'Hire Service',
+                es: 'Contratar Servicio'
+            },
+            aboutButton:{
+                ptbr: 'Saiba Mais',
+                usa: 'Know more',
+                es: 'Sepa mas'
+            },
+            galeryButton: {
+                ptbr: 'Ver Fotos',
+                usa: 'See Pictures',
+                es: 'Ver Fotos'
+            }
+        }
+    }
+
+    useEffect(()=>{
+        ;(()=>{
+          try {
+            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
+              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        })()
+      },[])
     
     const [largura, setLargura] = useState('');
     
@@ -119,12 +257,12 @@ const Navbar = () => {
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
                     <ListaLink>
                         <li style={{textDecoration: router.pathname === '/' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/">Home</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/sobre' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/sobre">Sobre</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/portfolio' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/portfolio">Portfólio</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/contato' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/contato">Contato</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/sobre' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/sobre">{textsLangs.navBar.about[currentLanguage]}</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/portfolio' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/portfolio">{textsLangs.navBar.portfolio[currentLanguage]}</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/contato' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/contato">{textsLangs.navBar.contact[currentLanguage]}</Link></li>    
                     </ListaLink>
                     <Language/>
-                    <BotaoAcao texto={'Contratar Serviço'}/>
+                    <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]}/>
                 </li>
             </ListaNav>
         </Navegacao>
@@ -145,13 +283,13 @@ const Navbar = () => {
                 <li>
                     <ListaLinkMobile>
                     <li style={{textDecoration: router.pathname === '/' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/" onClick={HandleCloseMenu}>Home</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/sobre' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/sobre" onClick={HandleCloseMenu}>Sobre</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/portfolio' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/portfolio" onClick={HandleCloseMenu}>Portfólio</Link></li>    
-                        <li style={{textDecoration: router.pathname === '/contato' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/contato" onClick={HandleCloseMenu}>Contato</Link></li>
+                        <li style={{textDecoration: router.pathname === '/sobre' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/sobre" onClick={HandleCloseMenu}>{textsLangs.navBar.about[currentLanguage]}</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/portfolio' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/portfolio" onClick={HandleCloseMenu}>{textsLangs.navBar.portfolio[currentLanguage]}</Link></li>    
+                        <li style={{textDecoration: router.pathname === '/contato' ? 'underline #C09ADD 3px' : 'none'}} ><Link href="/contato" onClick={HandleCloseMenu}>{textsLangs.navBar.contact[currentLanguage]}</Link></li>
                     </ListaLinkMobile>
                 </li>
                 <li>
-                    <BotaoAcao texto={'Contratar Serviço'}></BotaoAcao>
+                    <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]}></BotaoAcao>
                 </li>
             </NavItens>
         </NavMobile>

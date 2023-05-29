@@ -134,7 +134,7 @@ const TituloGaleleria = styled.h1 `
   }
 
   &::before{
-    content: 'Galeria';
+    content: 'Gallery';
     position: absolute;
     top: -78%;left:-8%;
     color: rgba(97, 38, 81, .5);
@@ -206,16 +206,164 @@ const CardsGaleria = styled.div`
   }
 `
 
-const CardGaleria = ({texto = "Eventos sociais", icone = "drink", alt = 'taça', w = 34.67}) => <>
-  <CardsGaleria >
-    <Image src={`/Svg/${icone}.svg`} alt={`Icone ilustrativo de ${alt}`} width={w} height={35}/>
-    <p style={{fontWeight: 'bold'}}>{texto}</p>
+const CardGaleria = ({ texto = "Eventos sociais", icone = "drink", alt = 'taça', w = 34.67 }) => (
+  <CardsGaleria>
+    <Image src={`/Svg/${icone}.svg`} alt={`Icone ilustrativo de ${alt}`} width={w} height={35} />
+    <p style={{ fontWeight: 'bold' }}>{texto}</p>
   </CardsGaleria>
-</>
+);
 
-export default function Home() {
+
+export default function Home() { 
+
+  const [currentLanguage, setCurrentLanguage] = useState('')
+
+    const textsLangs = {
+        home:{
+            headerSection:{
+                title:{
+                    ptbr: 'Tenha um evento inesquecível com a Danke!',
+                    usa: 'Have an unforgettable event with Danke!',
+                    es: '¡Tenga un evento inolvidable con Danke!',
+                },
+                caption:{
+                    ptbr: 'Mais de 20 anos de experiência',
+                    usa: 'More than 20 years of experience',
+                    es: 'Más de 20 años de experiencia',
+                },
+            },
+            aboutSection:{
+                title:{
+                    ptbr: 'Transforme seu evento em uma experiência única e inesquecível',
+                    usa: 'Turn your event into a unique and unforgettable experience',
+                    es: 'Convierte tu evento en una experiencia única e inolvidable',
+                },
+                caption:{
+                    ptbr: 'Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento.',
+                    usa: 'For 20 years we have been committed to transforming your event into an unforgettable moment, with an experienced and dedicated team, offering services to meet the needs of any event.',
+                    es: 'Desde hace 20 años nos hemos comprometido a transformar su evento en un momento inolvidable, contando con un equipo experimentado y dedicado, ofreciendo servicios para satisfacer las necesidades de cualquier evento.',
+                },
+            },
+            portfolioSection:{
+                title:{
+                    ptbr: 'Fotos dos nossos eventos',
+                    usa: 'Photos of our events',
+                    es: 'Fotos de nuestros eventos',
+                },
+                caption:{
+                    ptbr: 'Atendimento personalizado',
+                    usa: 'Personalized service',
+                    es: 'Atendimiento personalizado',
+                },
+                texts: {
+                    ptbr: {
+                        a:'Eventos sociais',
+                        b:'Eventos Cerimoniais',
+                        c:'Eventos Esportivos',
+                        d:'Eventos de Exibição',
+                    },
+                    usa: {
+                        a:'Social events',
+                        b:'Ceremonial Events',
+                        c:'Sports event',
+                        d:'Display Events',
+                    },
+                    es: {
+                        a:'Eventos sociales',
+                        b:'Eventos Ceremoniales',
+                        c:'Evento deportivo',
+                        d:'Mostrar eventos',
+                    }
+                },
+                content:{
+                    ptbr: 'Galeria',
+                    usa: 'Gallery',
+                    es: 'Galería'
+                }
+            },
+            servicesSection:{
+                title:{
+                    ptbr: 'Soluções integradas de decoração e organização de eventos',
+                    usa: 'Integrated decoration and event organization solutions',
+                    es: 'Soluciones integrales de decoración y organización de eventos',
+                },
+                caption:{
+                    ptbr: 'Não importa qual seja o seu evento, nós estamos aqui para ajudar',
+                    usa: 'No matter what your event is, we are here to help.',
+                    es: 'No importa cuál sea tu evento, estamos aquí para ayudarte.',
+                },
+                texts:{
+                    ptbr: 'Profissionais altamente capacitados trabalha para transformar suas ideias em realidade, criando ambientes personalizados e atraentes que impressionarão seus convidados.',
+                    usa: 'Highly trained professionals work to turn your ideas into reality, creating personalized and attractive environments that will impress your guests.',
+                    es: 'Profesionales altamente capacitados trabajan para convertir sus ideas en realidad, creando ambientes personalizados y atractivos que impresionarán a sus invitados.'
+                }
+            },
+            clientsSection:{
+                title:{
+                    ptbr: 'Nossos Clientes',
+                    usa: 'Our Clients',
+                    es: 'Nuestros Clientes',
+                },
+            },
+        },
+        navBar:{
+            about:{
+                ptbr: 'Sobre',
+                usa: 'About',
+                es: 'Acerca de'
+            },
+            portfolio: {
+                ptbr: 'Portfólio',
+                usa: 'Portfolio',
+                es: 'Portafolio'
+            },
+            contact: {
+                ptbr: 'Contato',
+                usa: 'Contact',
+                es: 'Contacto'
+            }
+        },
+        buttons:{
+            actionButton:{
+                ptbr: 'Contratar Serviço',
+                usa: 'Hire Service',
+                es: 'Contratar Servicio'
+            },
+            aboutButton:{
+                ptbr: 'Saiba Mais',
+                usa: 'Know more',
+                es: 'Sepa mas'
+            },
+            galeryButton: {
+                ptbr: 'Ver Fotos',
+                usa: 'See Pictures',
+                es: 'Ver Fotos'
+            }
+        }
+    }
+
+    useEffect(()=>{
+        ;(()=>{
+          try {
+            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
+              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        })()
+      },[])
+
+  const keyTextGalery = textsLangs.home.portfolioSection.texts[currentLanguage]
+  const textsGalery = [
+    keyTextGalery && keyTextGalery.a,
+    keyTextGalery && keyTextGalery.b,
+    keyTextGalery && keyTextGalery.c,
+    keyTextGalery && keyTextGalery.d,
+  ]
 
   const [largura, setLargura] = useState('');
+  
   const [clientesRender, setClinetesRender] = useState(ClientesA)
 
   useEffect(() => {
@@ -244,8 +392,8 @@ export default function Home() {
       <main>
         <Cabecalho>
           <AreaTextosBanner>
-            <h2 className="subtitulo">Mais de 20 anos de experiência</h2>
-            <TituloBanner>Tenha um evento inesquecível com a Danke!</TituloBanner>
+            <h2 className="subtitulo">{textsLangs.home.headerSection.caption[currentLanguage]}</h2> 
+            <TituloBanner>{textsLangs.home.headerSection.title[currentLanguage]}</TituloBanner>
           </AreaTextosBanner>
           <BackBanner>
             <Image
@@ -265,16 +413,16 @@ export default function Home() {
           <Sobre className="autoPadding fixedWidth">
             <div>
               <h1 className="titulo" style={{maxWidth: '650px', width: '100%'}}>
-                Transforme seu evento em uma experiência única e inesquecível
+              {textsLangs.home.aboutSection.title[currentLanguage]}
               </h1>
 
               <h2 className="subtitulo" style={{margin: '25px 0',maxWidth: '555px'}}>
-              Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento.
+              {textsLangs.home.aboutSection.caption[currentLanguage]}
               </h2>
 
               <div style={{width: '100%',maxWidth: '355px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                <BotaoAcao texto={'Contratar Serviços'} />
-                <Link href="/sobre" style={{textDecoration: 'underline', fontWeight: '300'}}>Saiba Mais</Link>
+                <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]} />
+                <Link href="/sobre" style={{textDecoration: 'underline', fontWeight: '300'}}>{textsLangs.buttons.aboutButton[currentLanguage]}</Link>
               </div>
             </div>
 
@@ -301,10 +449,10 @@ export default function Home() {
           
           <header style={{display:"flex",alignItems: 'center', justifyContent: 'space-between'}}>
             <TituloGaleleria className="titulo">
-              Fotos dos nossos eventos
+            {textsLangs.home.portfolioSection.title[currentLanguage]}
             </TituloGaleleria>
             
-            <Link href="/portfolio" className="hLinkPortGaleria" style={{fontWeight: '600'}}>Ver fotos <Image src="/Svg/seta.svg" alt="Icone de seta" width={19} height={15} className="setaLink"/> </Link>
+            <Link href="/portfolio" className="hLinkPortGaleria" style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={19} height={15} className="setaLink"/> </Link>
           </header>
 
           <AreaImgs>
@@ -375,15 +523,15 @@ export default function Home() {
             </AreaImg>
           </AreaImgs>
 
-          <Link href="/portfolio" className="linkPortGaleria" style={{fontWeight: '600'}}>Ver fotos <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
+          <Link href="/portfolio" className="linkPortGaleria" style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
           
-          <h1 className="subtitulo" style={{margin: "25px 0"}}>Atendimento personalizado</h1>
+          <h1 className="subtitulo" style={{margin: "25px 0"}}>{textsLangs.home.portfolioSection.caption[currentLanguage]}</h1>
 
           <AreaCards>
-            <CardGaleria/>
-            <CardGaleria texto='Eventos Cerimoniais' icone='nick' alt='tesoura' w={35.83}/>
-            <CardGaleria texto='Eventos Esportivos' icone='ball' alt='bola de tênis' w={36.13}/>
-            <CardGaleria texto='Eventos de Exibição' icone='confe' alt='pessoa palestrando' w={38.18}/>
+            <CardGaleria texto={textsGalery[0]}/>
+            <CardGaleria texto={textsGalery[1]} icone='nick' alt='tesoura' w={35.83}/>
+            <CardGaleria texto={textsGalery[2]} icone='ball' alt='bola de tênis' w={36.13}/>
+            <CardGaleria texto={textsGalery[3]} icone='confe' alt='pessoa palestrando' w={38.18}/>
           </AreaCards>
         </SectionGaleria>
 
@@ -405,23 +553,23 @@ export default function Home() {
     
           <TextosServicos >
             <h1 className="titulo" style={{maxWidth: '546px'}}>
-            Soluções integradas de decoração e organização de eventos
+            {textsLangs.home.servicesSection.title[currentLanguage]}
             </h1>
 
             <h2 className="subtitulo" style={{margin: '25px 0',maxWidth: '447px'}}>
-            Não importa qual seja o seu evento, nós estamos aqui para ajudar
+            {textsLangs.home.servicesSection.caption[currentLanguage]}
             </h2>
 
             <p style={{margin: '0 0 25px 0',maxWidth: '495px'}}>
-            Profissionais altamente capacitados trabalha para transformar suas ideias em realidade, criando ambientes personalizados e atraentes que impressionarão seus convidados.
+            {textsLangs.home.servicesSection.texts[currentLanguage]}
             </p>
 
-            <BotaoAcao texto={'Contratar Serviços'} />
+            <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]} />
           </TextosServicos>       
         </Servico>
 
         <Clientes className="autoPadding fixedWidth">
-          <h1 className="titulo">Nossos Clientes</h1>
+          <h1 className="titulo">{textsLangs.home.clientsSection.title[currentLanguage]}</h1>
           <div style={{position: 'relative', width: '100%', marginTop: '50px'}}>
             <Image
               src={clientesRender}
