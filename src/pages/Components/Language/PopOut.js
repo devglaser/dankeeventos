@@ -10,7 +10,7 @@ import esFlag from '../../../../public/Svg/esFlag.svg'
 
 
 const PopOutMain = styled.main`
-    position: absolute;
+    position: fixed;
     top: 0;left: 0;
     width: 100vw;height:100vh;
     z-index: 999;

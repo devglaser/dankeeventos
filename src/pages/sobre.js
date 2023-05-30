@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/legacy/image";
+import dynamic from "next/dynamic";
 
 import {useState, useEffect} from 'react'
 
@@ -7,6 +8,7 @@ import styled from "styled-components";
 
 import ImagemSobre from '../../public/Imgs/galeriaC.png'
 import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
+
 
 const SobreDanke = styled.section`
     margin-top: 95px;
@@ -43,7 +45,7 @@ const Servico = styled.section`
 
 const Sobre = () => {
 
-    const [currentLanguage, setCurrentLanguage] = useState('')
+    const [currentLanguage, setCurrentLanguage] = useState('ptbr')
 
     const textsLangs = {
         title: {
@@ -89,15 +91,17 @@ const Sobre = () => {
 
     useEffect(()=>{
         ;(()=>{
-            try {
-              if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
-                setCurrentLanguage(localStorage.getItem('dankeLanguage'))
-              }
-            } catch (error) {
-              console.log(error)
+          try {
+            if(localStorage.getItem('dankeLanguage') != null || localStorage.getItem('dankeLanguage') != undefined) {
+              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }else{
+                setCurrentLanguage('ptbr')
             }
-          })()
-    },[])
+          } catch (error) {
+            console.log(error)
+          }
+        })()
+      },[])
 
     return (
         <>

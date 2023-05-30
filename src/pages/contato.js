@@ -48,7 +48,7 @@ const InputTextEmail= ({place = 'Infome seu nome', type = 'text'}) => <InputForm
 
 const Contato = () => {
 
-    const [currentLanguage, setCurrentLanguage] = useState('')
+    const [currentLanguage, setCurrentLanguage] = useState('ptbr')
 
     const textsLangs = {
         title:{
@@ -86,8 +86,10 @@ const Contato = () => {
     useEffect(()=>{
         ;(()=>{
           try {
-            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
+            if(localStorage.getItem('dankeLanguage') != null || localStorage.getItem('dankeLanguage') != undefined) {
               setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }else{
+                setCurrentLanguage('ptbr')
             }
           } catch (error) {
             console.log(error)

@@ -219,7 +219,7 @@ const CardGaleria = ({ texto = "Eventos sociais", icone = "drink", alt = 'taça'
 
 export default function Home() { 
 
-  const [currentLanguage, setCurrentLanguage] = useState('')
+  const [currentLanguage, setCurrentLanguage] = useState('ptbr')
 
     const textsLangs = {
         home:{
@@ -329,16 +329,18 @@ export default function Home() {
     }
 
     useEffect(()=>{
-        ;(()=>{
-          try {
-            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
-              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
-            }
-          } catch (error) {
-            console.log(error)
+      ;(()=>{
+        try {
+          if(localStorage.getItem('dankeLanguage') != null || localStorage.getItem('dankeLanguage') != undefined) {
+            setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+          }else{
+              setCurrentLanguage('ptbr')
           }
-        })()
-      },[])
+        } catch (error) {
+          console.log(error)
+        }
+      })()
+    },[])
 
   const keyTextGalery = textsLangs.home.portfolioSection.texts[currentLanguage]
   const textsGalery = [
@@ -400,7 +402,7 @@ export default function Home() {
                 alt="Imagem de fundo RAFFO Fest"
                 layout='fill'
                 objectFit={'cover'}
-                quality={75}
+                quality={25}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={backgroundBanner.blurDataURL}
@@ -432,7 +434,7 @@ export default function Home() {
                 width={492} height={397}
                 layout="responsive"
                 objectFit="cover"
-                quality={75}
+                quality={50}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={ImagemSobre.blurDataURL}
@@ -462,7 +464,7 @@ export default function Home() {
                 layout="responsive"
                 objectFit="cover"
                 width={596} height={398}
-                quality={75}
+                quality={50}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={GaleriaA.blurDataURL}
@@ -475,7 +477,7 @@ export default function Home() {
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
-                quality={75}
+                quality={25}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={GaleriaB.blurDataURL}
@@ -501,7 +503,7 @@ export default function Home() {
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
-                quality={75}
+                quality={25}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={GaleriaD.blurDataURL}
@@ -514,7 +516,7 @@ export default function Home() {
                 layout="responsive"
                 objectFit="cover"
                 width={285} height={190}
-                quality={75}
+                quality={25}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={GaleriaE.blurDataURL}
@@ -543,7 +545,7 @@ export default function Home() {
                 layout="responsive"
                 objectFit={'cover'}
                 width={492} height={333}
-                quality={75}
+                quality={25}
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={ImagemServicos.blurDataURL}

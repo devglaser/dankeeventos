@@ -1,15 +1,17 @@
 import '@/styles/globals.css'
 import '@/styles/fontes.css'
-import { hydrate } from 'styled-components'
-import Rodape from './Components/Footer/Rodape'
-import Navbar from './Components/NavBar/Navbar'
-import WhtasApp from './Components/ActionButton/WhtasApp'
-import PopOut from './Components/Language/PopOut'
+
+import dynamic from 'next/dynamic'
+
+const NavBar = dynamic(()=> import('./Components/NavBar/Navbar'))
+const WhtasApp = dynamic(()=> import('./Components/ActionButton/WhtasApp')) 
+const PopOut = dynamic(()=> import('./Components/Language/PopOut')) 
+const Rodape = dynamic(()=> import('./Components/Footer/Rodape'))
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Navbar/>
+      <NavBar/>
       <PopOut/>
       <Component {...pageProps} />
       <WhtasApp/>

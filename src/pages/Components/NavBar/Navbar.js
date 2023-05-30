@@ -85,7 +85,7 @@ const ListaLinkMobile = styled.ul`
 
 const Navbar = () => {
 
-    const [currentLanguage, setCurrentLanguage] = useState('')
+    const [currentLanguage, setCurrentLanguage] = useState('ptbr')
 
     const textsLangs = {
         navBar:{
@@ -117,8 +117,10 @@ const Navbar = () => {
     useEffect(()=>{
         ;(()=>{
           try {
-            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
+            if(localStorage.getItem('dankeLanguage') != null || localStorage.getItem('dankeLanguage') != undefined) {
               setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }else{
+                setCurrentLanguage('ptbr')
             }
           } catch (error) {
             console.log(error)

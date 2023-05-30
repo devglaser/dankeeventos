@@ -87,7 +87,7 @@ const ViewImageStyle = styled.div`
 
 const Portfolio = () => {  
 
-  const [currentLanguage, setCurrentLanguage] = useState('')
+  const [currentLanguage, setCurrentLanguage] = useState('ptbr')
 
     const textsLangs = {
         title:{
@@ -101,16 +101,18 @@ const Portfolio = () => {
     }
 
     useEffect(()=>{
-        ;(()=>{
-          try {
-            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
-              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
-            }
-          } catch (error) {
-            console.log(error)
+      ;(()=>{
+        try {
+          if(localStorage.getItem('dankeLanguage') != null || localStorage.getItem('dankeLanguage') != undefined) {
+            setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+          }else{
+              setCurrentLanguage('ptbr')
           }
-        })()
-      },[])
+        } catch (error) {
+          console.log(error)
+        }
+      })()
+    },[])
 
   const [colums, setColums] = useState(3)
   const [largura, setLargura] = useState('')

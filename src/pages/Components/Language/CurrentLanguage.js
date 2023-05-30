@@ -45,10 +45,10 @@ const Language = () => {
     return (
         <AreaLingagem>
             <div style={{width: '46px', height: '24px'}}>
-                <Image src={`/Svg/${lang}Flag.svg`} alt="Bandeira" layout="responsive" objectFit="cover" loading="lazy" width={46} height={24}/>
+                <Image src={`/Svg/${lang ? lang : 'ptbr'}Flag.svg`} alt="Bandeira" layout="responsive" objectFit="cover" loading="lazy" width={46} height={24}/>
             </div>
 
-            <SelecionaLinguagem value={lang} onChange={({target})=>{HandleChangeLanguage(target.value)}}>
+            <SelecionaLinguagem value={lang ? lang : 'ptbr'} onChange={({target})=>{HandleChangeLanguage(target.value)}}>
                 <option value='ptbr'>pt-br</option>
 
                 <option value="usa">en</option>
