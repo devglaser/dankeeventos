@@ -1,8 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
+
+import {useState, useEffect} from 'react'
+
 import styled from "styled-components";
 
-const Contato = styled.main`
+const ContatoMain = styled.main`
     display: grid; place-items: center;align-content: start;
     margin-top:95px;
     height: calc(100vh - 95px);min-height: calc(100vh - 95px); 
@@ -39,39 +42,98 @@ const TextArea = styled.textarea`
     max-height:70px;min-height:70px;
 `
 
-const ButtonForm = () => <input type="submit" value="Enviar Mensagem" className="botaoAcao" style={{marginTop: '25px'}}/>
+const ButtonForm = ({text = 'Enviar Mensagem'}) => <input type="submit" value={text} className="botaoAcao" style={{marginTop: '25px'}}/>
 
 const InputTextEmail= ({place = 'Infome seu nome', type = 'text'}) => <InputForm placeholder={place} type={type} required/>
 
-const contato = () => {
+const Contato = () => {
+
+    const [currentLanguage, setCurrentLanguage] = useState('')
+
+    const textsLangs = {
+        title:{
+            ptbr:'Contate-nos',
+            usa: 'Contact us',
+            es: 'Contáctenos'
+        },
+        caption:{
+            ptbr:'sinta-se à vontade para entrar em contato conosco e retornaremos o mais breve possível',
+            usa: 'Please feel free to contact us and we will get back to you as soon as possible.',
+            es: 'No dude en ponerse en contacto con nosotros y nos pondremos en contacto con usted lo antes posible.'
+        },
+        placeHolderName:{
+            ptbr:'Seu nome ou de sua empresa',
+            usa: 'Your name or your company',
+            es: 'Su nombre o su empresa'
+        },
+        placeholderMail:{
+            ptbr:'Seu endereço de e-mail',
+            usa: 'Your email address',
+            es: 'Su dirección de correo electrónico'
+        },
+        placeholderTextArea:{
+            ptbr:'Escreva sua mensagem',
+            usa: 'Write your message',
+            es: 'escribe tu mensaje'
+        },
+        button:{
+            ptbr:'Enviar Mensagem',
+            usa: 'Send Message',
+            es: 'Enviar mensaje'
+        },
+    }
+
+    useEffect(()=>{
+        ;(()=>{
+          try {
+            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
+              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        })()
+      },[])
 
     return (
         <>
             <Head>
-                <title>Contate-nos</title>
-                <meta name="description" content="Danke eventos" />
+                <title>{textsLangs.title[currentLanguage]}</title>
+            
+                <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
+                <link rel="canonical" href="https://dankeeventos.com.br/contato"/>
+
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/Svg/dankelogo.svg" />
+                <meta name="author" content="Danke Eventos"/>
+                <meta name="description" content="Entre em contato conosco e experimente o atendimento excepcional da Danke Eventos. Estamos prontos para ouvir suas necessidades e responder às suas perguntas. Sinta-se à vontade para nos contatar e tenha a garantia de um retorno rápido e eficiente."/>
+                <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
+                
+                <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
+                <meta property="og:description" content="Entre em contato conosco e experimente o atendimento excepcional da Danke Eventos. Estamos prontos para ouvir suas necessidades e responder às suas perguntas. Sinta-se à vontade para nos contatar e tenha a garantia de um retorno rápido e eficiente."/>
+                <meta property="og:url" content="https://dankeeventos.com.br/contato"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:site_name" content="Danke Eventos"/>
             </Head>
-            <Contato className='autoPadding fixedWidth'>
+            <ContatoMain className='autoPadding fixedWidth'>
                 
-                <h1 className='titulo'>Contate-nos</h1> 
+                <h1 className='titulo'>{textsLangs.title[currentLanguage]}</h1> 
                 
-                <p style={{maxWidth: '375px', textAlign: 'center', margin: '25px 0 50px 0'}}>sinta-se à vontade para entrar em contato conosco e retornaremos o mais breve possível</p>
+                <p style={{maxWidth: '375px', textAlign: 'center', margin: '25px 0 50px 0'}}>{textsLangs.caption[currentLanguage]}</p>
                 
                 <Formulario method="post">
-                    <InputTextEmail place="Seu nome ou de sua empresa"/>
-                    <InputTextEmail place="Seu endereço de e-mail" type={'email'} style={{margin: '15px 0'}}/>
-                    <TextArea placeholder="Escreva sua mensagem"/>
-                    <ButtonForm/>
+                    <InputTextEmail place={textsLangs.placeHolderName[currentLanguage]}/>
+                    <InputTextEmail place={textsLangs.placeholderMail[currentLanguage]} type={'email'} style={{margin: '15px 0'}}/>
+                    <TextArea placeholder={textsLangs.placeholderTextArea[currentLanguage]}/>
+                    <ButtonForm text={textsLangs.button[currentLanguage]}/>
                 </Formulario>
                 
                 <p style={{marginTop: '50px',fontWeight: '700', textAlign: 'center', width: '100%',maxWidth: '425px'}}>
                     <Link href="https://wa.me/5521993401594" style={{marginRight: "15px"}}>+55 21 9 9340-1594</Link> <Link href='mailto:contato@dankeeventos.com.br' target="_blank">contanto@dankeeventos.com.br</Link>
                 </p>
-            </Contato>
+            </ContatoMain>
         </>
     );
 }
 
-export default contato;
+export default Contato;

@@ -57,7 +57,7 @@ const BackBanner = styled.section`
     content: '';
     position: absolute;
     width: 100%;height:100%;
-    background: linear-gradient(180deg,rgba(0,0,0,.25), rgba(97, 38, 81, .5), rgba(46, 26, 71, 1));
+    background: linear-gradient(180deg,rgba(0,0,0,.5), rgba(97, 38, 81, .5), rgba(46, 26, 71, 1));
   }
 `
 ////////////
@@ -202,6 +202,9 @@ const CardsGaleria = styled.div`
    
    p{
     font-size: .875rem;
+    @media (max-width:500px) {
+      font-size: .675rem;
+    }
    }
   }
 `
@@ -306,23 +309,6 @@ export default function Home() {
                 },
             },
         },
-        navBar:{
-            about:{
-                ptbr: 'Sobre',
-                usa: 'About',
-                es: 'Acerca de'
-            },
-            portfolio: {
-                ptbr: 'Portfólio',
-                usa: 'Portfolio',
-                es: 'Portafolio'
-            },
-            contact: {
-                ptbr: 'Contato',
-                usa: 'Contact',
-                es: 'Contacto'
-            }
-        },
         buttons:{
             actionButton:{
                 ptbr: 'Contratar Serviço',
@@ -383,10 +369,23 @@ export default function Home() {
   return ( 
     <>
       <Head>
-        <title>Danke Eventos</title>
-        <meta name="description" content="Danke eventos" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Danke Eventos - Transformando seu evento em um momento inesquecível</title>
+        
         <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
+        <link rel="canonical" href="https://dankeeventos.com.br"/>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Danke Eventos"/>
+        <meta name="description" content="Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento."/>
+        <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
+        
+        <meta property="og:title" content="Danke Eventos"/>
+        <meta property="og:description" content="Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento."/>
+        <meta property="og:url" content="https://dankeeventos.com.br"/>
+        <meta property="og:image" content="https://dankeeventos.com.br/Imgs/logoDankeAntiga.png"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Danke Eventos"/>
       </Head>
       
       <main>

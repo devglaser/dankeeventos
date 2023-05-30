@@ -17,7 +17,7 @@ const SelecionaLinguagem = styled.select`
 `
 
 const Language = () => {
-    const [lang, setLang] = useState('')
+    const [lang, setLang] = useState('ptbr')
 
     useEffect(()=>{
         ;(()=>{

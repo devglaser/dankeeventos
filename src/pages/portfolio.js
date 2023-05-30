@@ -87,6 +87,31 @@ const ViewImageStyle = styled.div`
 
 const Portfolio = () => {  
 
+  const [currentLanguage, setCurrentLanguage] = useState('')
+
+    const textsLangs = {
+        title:{
+          ptbr: 'Portfólio',
+          usa: 'Portfolio',
+          es: 'Portafolio'
+        },
+        ptbr: 'Confira alguns de nossos eventos',
+        usa: 'Check out some of our events',
+        es: 'Conoce algunos de nuestros eventos'
+    }
+
+    useEffect(()=>{
+        ;(()=>{
+          try {
+            if(localStorage.getItem('dankeLanguage') !== null || localStorage.getItem('dankeLanguage') !== undefined) {
+              setCurrentLanguage(localStorage.getItem('dankeLanguage'))
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        })()
+      },[])
+
   const [colums, setColums] = useState(3)
   const [largura, setLargura] = useState('')
 
@@ -166,10 +191,22 @@ const Portfolio = () => {
   return (
     <>
       <Head>
-        <title>Portfólio</title>
-        <meta name="description" content="Danke eventos" />
+        <title>{textsLangs.title[currentLanguage]}</title>
+            
+        <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
+        <link rel="canonical" href="https://dankeeventos.com.br/portfolio"/>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/Svg/dankelogo.svg" />
+        <meta name="author" content="Danke Eventos"/>
+        <meta name="description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos. De casamentos elegantes a festas corporativas memoráveis, nossa equipe experiente e dedicada transforma cada ocasião em uma experiência única. Conte conosco para tornar seu evento inesquecível e encante seus convidados com nossa criatividade, atenção aos detalhes e serviço excepcional. Entre em contato conosco e descubra como podemos transformar sua visão em realidade."/>
+        <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
+        
+        <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
+        <meta property="og:description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos. De casamentos elegantes a festas corporativas memoráveis, nossa equipe experiente e dedicada transforma cada ocasião em uma experiência única. Conte conosco para tornar seu evento inesquecível e encante seus convidados com nossa criatividade, atenção aos detalhes e serviço excepcional. Entre em contato conosco e descubra como podemos transformar sua visão em realidade."/>
+        <meta property="og:url" content="https://dankeeventos.com.br/portfolio"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Danke Eventos"/>
       </Head>
 
       <SectionPortfolio className="autoPadding fixedWidth">
@@ -177,7 +214,7 @@ const Portfolio = () => {
           className="titulo"
           style={{ textAlign: "center", marginBottom: "50px" }}
         >
-          Confira alguns de nossos eventos
+          {textsLangs[currentLanguage]}
         </h1>
 
         <CustomMasonry columnsCount={colums} gutter={'25px'} >
