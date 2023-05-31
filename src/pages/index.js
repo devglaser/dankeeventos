@@ -394,7 +394,7 @@ export default function Home() {
         <Cabecalho>
           <AreaTextosBanner>
             <h2 className="subtitulo">{textsLangs.home.headerSection.caption[currentLanguage]}</h2> 
-            <TituloBanner>{textsLangs.home.headerSection.title[currentLanguage]}</TituloBanner>
+            <TituloBanner className="titulo">{textsLangs.home.headerSection.title[currentLanguage]}</TituloBanner>
           </AreaTextosBanner>
           <BackBanner>
             <Image
@@ -403,9 +403,9 @@ export default function Home() {
                 layout='fill'
                 objectFit={'cover'}
                 quality={25}
-                loading="lazy"
                 placeholder="blur"
                 blurDataURL={backgroundBanner.blurDataURL}
+                priority={true}
               />
           </BackBanner>
         </Cabecalho>

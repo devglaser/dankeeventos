@@ -156,7 +156,7 @@ const Navbar = () => {
             <ListaNav> 
                 <li style={{width: '100%', maxWidth: '58.58px', height: '35px', overflow: 'hidden', filter: 'brightness(1000%)'}}>
                     <Link href="/">
-                        <Image src={DankeLogo} alt="Logo Danke Eventos" layout="responsive" objectFit="cover"/>
+                        <Image src={DankeLogo} alt="Logo Danke Eventos" layout="responsive" objectFit="cover" quality={25} priority={false}/>
                     </Link>
                 </li>
                 <li style={{display: 'flex', alignItems: 'Center', justifyContent: 'space-between', width: '745px'}}>
@@ -177,7 +177,7 @@ const Navbar = () => {
                 <li title={drop ? "Fechar menu" : "Abrir Menu"} onClick={() => setDrop(!drop)}><OpenClose w={drop}/></li>
                 <li style={{width: '100%', maxWidth: '58.58px', height: '35px', overflow: 'hidden', filter: 'brightness(1000%)'}}>
                     <Link href="/">
-                        <Image src={DankeLogo} alt="Logo Danke Eventos" layout="responsive" objectFit="cover"/>
+                        <Image src={DankeLogo} alt="Logo Danke Eventos" layout="responsive" objectFit="cover" priority={false}/>
                     </Link>
                 </li>
             </NavDrop>

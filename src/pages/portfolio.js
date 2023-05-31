@@ -78,11 +78,37 @@ const CustomMasonry = styled(Masonry)`
 
 const ViewImageStyle = styled.div`
   position: fixed;
-  display: grid;place-items: center;
+  display: grid; place-items: center;
   top: 0;left:0;
   width: 100vw;height:100vh;
-  background: rgba(97, 38, 81, .75);
-  z-index: 99;
+  background: rgba(97, 38, 81, .9);
+  z-index: 999;
+  overflow: hidden;
+
+  header{
+    position: absolute;
+    top: 15px;left:0;
+    width: 99vw;height: 45px;
+    z-index: 99;
+
+    button{
+      position: relative;
+      float: right;
+      padding: 10px 25px;
+      height: 45px;
+      background: transparent;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: underline;
+    }
+  }
+
+  div{
+    position: relative;
+    width: 100vw;height: 100vh;
+  }
 `
 
 const Portfolio = () => {  
@@ -133,9 +159,9 @@ const Portfolio = () => {
     { path: danke10, alt: "Casamento a beira do mar" },
     { path: danke11, alt: "Casamento a beira do mar" },
     { path: danke12, alt: "Casamento a beira do mar" },
-    { path: danke13, alt: "Evento" },
-    { path: danke14, alt: "Evento" },
-    { path: danke15, alt: "Evento" },
+    { path: danke13, alt: " " },
+    { path: danke14, alt: " " },
+    { path: danke15, alt: " " },
     { path: danke16, alt: "Escuna" },
     { path: danke17, alt: "Expert" },
     { path: danke18, alt: "CLUB MED Presidentes Gala Dinner" },
@@ -167,7 +193,7 @@ const Portfolio = () => {
     { path: danke44, alt: "REVLON" },
     { path: danke45, alt: "Santa Teresa" },
     { path: danke46, alt: "Santa Teresa" },
-    { path: danke47, alt: "Evento" },
+    { path: danke47, alt: " " },
     { path: danke48, alt: "SMG" },
     { path: danke49, alt: "WEDDING" },
     { path: danke50, alt: "WINDSOR jantar principe e princesa dinamarca" },
@@ -189,6 +215,11 @@ const Portfolio = () => {
         }
     })()
 }, [largura])
+
+  function HandleViewImage(index = 0){
+    setActveViewImage((activeViewImage) => !activeViewImage)
+    setIndexImage(index)
+  }
 
   return (
     <>
@@ -223,13 +254,13 @@ const Portfolio = () => {
           {images.map(({path, alt}, index) => (
             <div key={index}>
               <Image
-                onClick={()=> setIndexImage(index)}
+                onClick={()=> HandleViewImage(index)}
                 src={path}
                 alt={alt}
                 layout="responsive"
                 objectFit="cover"
                 loading="lazy"
-                quality={75}
+                quality={50}
                 placeholder="blur"
                 blurDataURL={path.blurDataUrl}
               />
@@ -240,15 +271,15 @@ const Portfolio = () => {
         {
           activeViewImage && 
           <ViewImageStyle>
-            <button>
-              <Image src={'/Svg/setaBranca.svg'} alt="Seta branca" layout="responsive" objectFit={'cover'}/>
-            </button>
+            <header>
+              <button onClick={()=> HandleViewImage()}>Fechar</button>
+            </header>
             <div>
-              <Image
+            <Image
                 src={images[indexImage].path}
                 alt={images[indexImage].alt}
-                layout="responsive"
-                objectFit="cover"
+                layout="fill"
+                objectFit="contain"
                 loading="lazy"
                 quality={100}
                 placeholder="blur"
