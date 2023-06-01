@@ -525,7 +525,7 @@ export default function Home() {
           </AreaImgs>
 
           <div style={{position: 'relative', width: '100%', display: 'grid', placeItems: 'center'}}>
-            <Link href="/portfolio"  style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
+            <Link href="/portfolio" className="linkPortGaleria" style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
           </div>
           
           <h1 className="subtitulo" style={{margin: "25px 0"}}>{textsLangs.home.portfolioSection.caption[currentLanguage]}</h1>

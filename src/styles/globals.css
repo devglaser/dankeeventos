@@ -87,9 +87,6 @@
   }
 }
 
-.linkPortGaleria {
-  margin: 0 42.5%;
-}
 @media (min-width: 900px) {
   .linkPortGaleria {
     display: none;
