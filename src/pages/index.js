@@ -385,7 +385,7 @@ export default function Home() {
         <meta property="og:title" content="Danke Eventos"/>
         <meta property="og:description" content="Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento."/>
         <meta property="og:url" content="https://dankeeventos.com.br"/>
-        <meta property="og:image" content="https://dankeeventos.com.br/Imgs/logoDankeAntiga.png"/>
+        <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="Danke Eventos"/>
       </Head>
@@ -524,7 +524,9 @@ export default function Home() {
             </AreaImg>
           </AreaImgs>
 
-          <Link href="/portfolio" className="linkPortGaleria" style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
+          <div style={{position: 'relative', width: '100%', display: 'grid', placeItems: 'center'}}>
+            <Link href="/portfolio"  style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
+          </div>
           
           <h1 className="subtitulo" style={{margin: "25px 0"}}>{textsLangs.home.portfolioSection.caption[currentLanguage]}</h1>
 

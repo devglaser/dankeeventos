@@ -1,4 +1,5 @@
 import Image from "next/legacy/image";
+import dynamic from "next/dynamic";
 
 import styled from "styled-components";
 
@@ -9,148 +10,146 @@ import usaFlag from '../../../../public/Svg/usaFlag.svg'
 import esFlag from '../../../../public/Svg/esFlag.svg'
 
 
+
 const PopOutMain = styled.main`
     position: fixed;
-    top: 0;left: 0;
-    width: 100vw;height:100vh;
+    bottom: -100%;
+    margin: 0 auto;
+    width: 100vw;
+    padding: 25px;
+    background: transparent;
     z-index: 999;
-    background: rgba(0,0,0,.75);
     display: grid; place-items: center;
+    animation: anima 1s ease-in-out forwards;
+
+    @keyframes anima {
+        from{
+            bottom: -100%;
+        }
+        to{
+            bottom: 10px;
+        }
+    }
+
 `
 
 const PopOutSection = styled.section`
     position: relative;
-    width: 75vw;
-    padding: 50px 25px 25px 25px;
+    padding: 25px 50px;
     background: #612651;
-    display: flex;align-items:center;
-    flex-direction:column;
-    transform: scale(1);
-    animation: anima .25s ease-in-out;
+    width: 80vw;
+    margin: auto;
 
-    @media (max-width:500px) {
+    display: flex; align-items: center; justify-content: space-between;
+
+    @media (max-width: 820px) {
         padding: 25px;
-    }
-
-    @keyframes anima {
-        from{
-            transform: scale(.1);
-        }
-        to{
-            transform: scale(1);
-        }
-    }
-
-    header{
-        text-align: center;
-    }
-
-    > div {
-        margin: 50px 0;
-        width: 100%;
-        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        text-align:center;
     }
-`
-
-const PopOutBotaoAcao = styled.button`
-    &:hover{
-        background: rgb(46, 26, 71);
-    }
-`
-
-const PopOutRadio = styled.input`
-    display: none;
-
-    &:nth-child(2):checked ~ div>label:nth-child(1){border: 3px solid #fff;}
-    &:nth-child(3):checked ~ div>label:nth-child(2){border: 3px solid #fff;}
-    &:nth-child(4):checked ~ div>label:nth-child(3){border: 3px solid #fff;}
-`
-
-const PopOutLabel = styled.label`
-    margin: 0 15px;
-    width: 100%;height:100%;
-    max-width: 200px;
-    position: relative;
-    display: inline;
-    cursor: pointer;
-    transition: all .1s;
 
     div{
-        position: relative;
-        height: 100%;width: 100%;
+    
+        &:nth-child(1){
+            div{
+                position: relative;
+                width: 46px; height: 24px;
+                cursor: pointer;
+
+                @media (max-width: 820px){display: inline-block}
+
+                &:nth-child(1){
+                    background: red;
+                }
+
+                &:nth-child(2){
+                    margin: 10px 0;
+                    
+                    @media (max-width: 820px){margin: 0px 15px}
+                }
+
+            }
+
+        }
+
+        &:nth-child(2){
+            margin: 0 25px;
+
+            @media (max-width: 820px){margin: 25px 0}
+        }
+        
+        h2{
+            font-weight: bolder;
+        }
+
+        p{
+            margin: 10px 0;
+
+        }
+    }
+
+    button{
+        border: 1px solid #e5e1e6;
+        
+        &:hover{
+            background: #2e1a47;
+        }
     }
 `
 
 const PopOut = () => {
-    const [selecao, setSelecao] = useState(false)
-    
-    const [idioma, setIdioma] = useState('ptbr')
 
-    const titulos = {
-        ptbr: ['Selecione seu idioma', 'Confirmar'],
-        usa: ['Select your language', 'Confirm'],
-        es: ['Elige tu idioma', 'Confirmar']
-    }
+    const [popView, setPopView] = useState(false)
 
-    function HanldeLanguage(){
-        try {
-            localStorage.setItem('dankeLanguage', idioma)
-        } catch (error) {
-            console.log(error)
-        }finally{
-            setSelecao(false)
-            window.location.reload()
-        }
+    const [textLangPopOut, setTextLangPopOut] = useState('ptbr')
+
+    const texts = {
+        ptbr: ['Opções de Idioma', 'Personalize o idioma do site na barra de navegação e aproveite nosso conteúdo em sua língua preferida.'],
+        usa: ['Language Options', 'Customize the website language in the navigation bar and enjoy our content in your preferred language.'],
+        es: ['Opciones de lenguaje', 'Personaliza el idioma del sitio web en la barra de navegación y disfruta de nuestro contenido en tu idioma preferido.']
     }
 
     useEffect(()=>{
         ;(()=>{
             try {
                 if(localStorage.getItem('dankeLanguage') === null || localStorage.getItem('dankeLanguage') === undefined){
-                    setSelecao(true)
+                    setTimeout(()=>{
+                        setPopView(true)
+                    }, 3000)
+                    
+                    localStorage.setItem('dankeLanguage', textLangPopOut)
                 }
             } catch (error) {
                 console.log(error)
+            }finally{
             }
         })()
     },[])
 
-    return selecao && (
+    return  popView && (
         <PopOutMain>
             <PopOutSection>
-
-                <header>
-                    <h1 className="titulo">{titulos[idioma][0]}</h1>
-                </header>
-
-                <PopOutRadio type="radio" name="bandeira" id="bandeira-usa" />
-                <PopOutRadio type="radio" name="bandeira" id="bandeira-ptbr" defaultChecked={true}/>
-                <PopOutRadio type="radio" name="bandeira" id="bandeira-es" />
-
                 <div>
-                    <PopOutLabel htmlFor='bandeira-usa' onClick={()=> setIdioma('usa')}>
-                        <div>
-                            <Image src={usaFlag} alt="bandeira do brasil" width={46} height={24} layout="responsive" objectFit='cover'/>
-                        </div>
-                    </PopOutLabel>
-
-                    <PopOutLabel htmlFor='bandeira-ptbr' onClick={()=> setIdioma('ptbr')}>
-                        <div>
-                            <Image src={ptbrFlag} alt="bandeira do brasil" width={46} height={24} layout="responsive" objectFit='cover'/>
-                        </div>
-                    </PopOutLabel>
-
-                    <PopOutLabel htmlFor='bandeira-es' onClick={()=> setIdioma('es')}>
-                        <div>
-                            <Image src={esFlag} alt="bandeira do brasil" width={46} height={24} layout="responsive" objectFit='cover'/>
-                        </div>
-                    </PopOutLabel>
+                    <div style={{opacity: textLangPopOut === 'usa' ? '1' : '.25'}} onClick={()=> setTextLangPopOut('usa')}>
+                        <Image src={usaFlag} alt="USA Flag" width={46} height={24} layout="responsive" objectFit={'cover'} />
+                    </div>
+                    
+                    <div style={{opacity: textLangPopOut === 'ptbr' ? '1' : '.25'}} onClick={()=> setTextLangPopOut('ptbr')}>
+                        <Image src={ptbrFlag} alt="Bandeira Brasileira" width={46} height={24} layout="responsive" objectFit={'cover'} />
+                    </div>
+                    
+                    <div style={{opacity: textLangPopOut === 'es' ? '1' : '.25'}} onClick={()=> setTextLangPopOut('es')}>
+                        <Image src={esFlag} alt="bandera española" width={46} height={24} layout="responsive" objectFit={'cover'} />
+                    </div>
                 </div>
 
-                <PopOutBotaoAcao className="botaoAcao" onClick={HanldeLanguage}>{titulos[idioma][1]}</PopOutBotaoAcao>
-
+                <div>
+                    <h1 className="subtitulo">{texts[textLangPopOut][0]}</h1>
+                    <p>{texts[textLangPopOut][1]}</p>
+                </div>
+                
+                <button className="botaoAcao" onClick={()=> setPopView(false)}>Ok!</button>
             </PopOutSection>
         </PopOutMain>
     );

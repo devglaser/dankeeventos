@@ -114,6 +114,7 @@ const Contato = () => {
                 <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
                 <meta property="og:description" content="Entre em contato conosco e experimente o atendimento excepcional da Danke Eventos. Estamos prontos para ouvir suas necessidades e responder às suas perguntas. Sinta-se à vontade para nos contatar e tenha a garantia de um retorno rápido e eficiente."/>
                 <meta property="og:url" content="https://dankeeventos.com.br/contato"/>
+                <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
             </Head>

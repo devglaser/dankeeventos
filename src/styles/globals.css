@@ -55,6 +55,7 @@
   font-weight: 700;
   font-family: "sft", sans-serif;
   cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 .botaoAcao:hover {
   background: #612651;

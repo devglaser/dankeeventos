@@ -120,6 +120,7 @@ const Sobre = () => {
                 <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
                 <meta property="og:description" content="Transforme sua celebração em um momento inesquecível com a experiência de 20 anos da Danke Eventos. Nossa equipe dedicada cuida de cada detalhe, oferecendo serviços personalizados e as últimas tendências do mercado. Conte conosco para criar uma celebração única e especial."/>
                 <meta property="og:url" content="https://dankeeventos.com.br/sobre"/>
+                <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
             </Head>

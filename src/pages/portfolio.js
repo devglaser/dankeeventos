@@ -238,6 +238,7 @@ const Portfolio = () => {
         <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
         <meta property="og:description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos. De casamentos elegantes a festas corporativas memoráveis, nossa equipe experiente e dedicada transforma cada ocasião em uma experiência única. Conte conosco para tornar seu evento inesquecível e encante seus convidados com nossa criatividade, atenção aos detalhes e serviço excepcional. Entre em contato conosco e descubra como podemos transformar sua visão em realidade."/>
         <meta property="og:url" content="https://dankeeventos.com.br/portfolio"/>
+        <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="Danke Eventos"/>
       </Head>
