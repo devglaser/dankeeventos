@@ -1,0 +1,260 @@
+#cabecalho{
+    position: relative;
+    height: 520px;
+    @media (max-width: 700px){height: 406px;}
+    z-index: 1;
+
+    #areaTextosBanner{
+        position: relative;
+        padding:0 75px;
+        top: 95px;
+        width: 100vw;height: calc(100% - 95px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        
+        @media (max-width: 700px){padding: 0 20px;}
+
+        #tituloBanner{
+            font-size: 4.25rem;
+            max-width: 920px;
+
+            @media (max-width: 700px){font-size:2.125rem;max-width:480px}
+        }
+    }
+
+    #backBanner{
+        position: absolute;
+        top:0;left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;height:100%;
+            background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(97, 38, 81,.5),  rgba(46, 26, 71, 1));
+        }
+    }
+}
+
+#sectionSobre{
+
+    #sobre{
+        display: flex;align-items:center;justify-content: space-between;
+
+        @media (max-width:1080px){
+            flex-direction: column-reverse;
+        }
+        
+        div{
+            h1{
+                max-width: '650px';
+                width: 100%;
+            }
+
+            h2{
+                margin: 25px 0;
+                max-width: 555px;
+            }
+
+            div{
+                width: 100%;
+                max-width: 355px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                a{
+                    &:nth-child(2){
+                        text-decoration: underline;
+                        font-weight: 300;
+                    }
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 492px;
+                width: 100%;
+            }
+        }
+    }
+
+    
+}
+
+#sectionGaleria{
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #tituloGaleria{
+            position: relative;
+            left: 40px;
+
+            @media (max-width:700px) {
+                font-size: 1.375rem;
+            }
+
+            &::before{
+                content: 'Gallery';
+                position: absolute;
+                top: -78%;left:-8%;
+                color: rgba(97, 38, 81, .5);
+                z-index: -1;
+                font-size: 1rem;font-weight: 400;
+
+                font-size: 4.25rem;
+
+                @media (max-width: 700px){
+                font-size:2.125rem;
+                }
+            }
+        }
+
+        a{font-weight: 600;}
+    }
+
+    #areaImgs{
+        margin-top: 25px;
+        display: grid;grid-gap:10px 25px;place-items:center;
+        grid-template-areas: 'imgA imgA imgB imgC'
+                                'imgA imgA imgD imgE';
+
+        @media (max-width:1215px) {
+            margin: 25px auto;
+            max-width: 598px;
+            grid-template-areas: 'imgA imgA'
+                                'imgB imgC'
+                                'imgD imgE';
+        }
+
+        @media (min-width:1216px) {
+            height: 398px;
+        }
+
+        .areaImg{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            grid-area: imgA;
+
+            &:nth-child(2){grid-area: imgB;}
+            &:nth-child(3){grid-area: imgC;}
+            &:nth-child(4){grid-area: imgD;}
+            &:nth-child(5){grid-area: imgE;}
+        }
+    }
+
+    >div{
+        width: 100%;
+        position: relative;
+        display: grid; place-items: center;
+    }
+
+    >h1{
+        margin: 25px 0;
+    }
+
+    #areaCards{
+        width: 100%;
+        display: grid; grid-gap: 25px;
+        grid-template-columns: repeat(4, 1fr);
+        place-items: center;
+
+        @media (max-width:1215px) {
+        grid-template-columns: repeat(2,1fr);
+        }
+
+        .cardGaleria{
+            div{
+                padding: 25px;
+            max-width: 285px;width:100%;
+            border: 3px solid #e5e1e6;
+            border-top-right-radius:  65.5px;
+
+            p{
+                margin-top: 25px;
+            }
+
+            @media (max-width:1200px) {
+                img{
+                    max-width: 25px;
+                }
+                
+                p{
+                    font-size: .875rem;
+                    @media (max-width:500px) {
+                    font-size: .675rem;
+                    }
+                }
+            }
+            }
+        }
+    }
+}
+
+#sectionServicos{
+    display: flex;align-items:center;justify-content: space-between;
+    height: 608px;
+
+    >div{
+        width: 100%;
+        max-width: 492px;
+    }
+
+    &::before{
+        content:'';
+        position: absolute;
+        right: 0;
+        width: 100%;height: 100%;
+        max-width: 41.5%;max-height:608px;
+        background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, 1));
+        border-bottom-left-radius: 50%;
+        z-index: -1;
+    }
+
+    @media (max-width:1215px){
+        position: relative;
+        flex-direction: column;
+        height: 100%; 
+
+        &::before{
+        bottom: 0;
+        max-width:83%; max-height: 553px;
+        border-bottom-left-radius: 150px;
+        }
+    }
+
+    #textosServicos{
+        @media (max-width: 1215px) {
+            height: 553px;
+            padding-top: 50px;
+          }
+
+          h1{
+            max-width: 546px;
+          }
+
+          h2{
+            margin: 25px 0;
+            max-width: 457px;
+          }
+
+          p{
+            margin-bottom: 50px;
+            max-width: 495px;
+          }
+    }
+}
+
+#sectionClientes{
+    h1{text-align: center;margin-bottom: 50px;}
+    div{position: relative;width: 100%;}
+}

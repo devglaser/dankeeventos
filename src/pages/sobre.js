@@ -11,7 +11,7 @@ import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
 
 
 const SobreDanke = styled.section`
-    margin-top: 95px;
+    padding-top: 125px;
     display: flex;align-items:center;justify-content: space-between;
 
     @media (max-width:1080px){
@@ -124,7 +124,7 @@ const Sobre = () => {
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
             </Head>
-            <main>
+            <main className="gradientBackPage">
                 <SobreDanke className="autoPadding fixedWidth">
                     <div>
                         <TituloDanke className="titulo" style={{maxWidth: '650px', width: '100%'}}>

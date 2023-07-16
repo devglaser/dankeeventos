@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react'
 import styled from "styled-components";
 
 const ContatoMain = styled.main`
-    display: grid; place-items: center;align-content: start;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
     margin-top:95px;
     height: calc(100vh - 95px);min-height: calc(100vh - 95px); 
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .1), rgba(46, 26, 71, 1));
@@ -118,7 +118,7 @@ const Contato = () => {
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
             </Head>
-            <ContatoMain className='autoPadding fixedWidth'>
+            <ContatoMain className='autoPadding'>
                 
                 <h1 className='titulo'>{textsLangs.title[currentLanguage]}</h1> 
                 

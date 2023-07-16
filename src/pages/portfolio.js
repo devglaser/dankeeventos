@@ -147,58 +147,59 @@ const Portfolio = () => {
   const [indexImage, setIndexImage] = useState(2)
 
   const images = [
-    { path: danke1, alt: "AMC The Walking Dead" },
-    { path: danke2, alt: "AMC The Walking Dead" },
-    { path: danke3, alt: "AMC The Walking Dead" },
-    { path: danke4, alt: "AMC The Walking Dead" },
-    { path: danke5, alt: "Aniversário Pietra" },
-    { path: danke6, alt: "Aniversário Pietra" },
-    { path: danke7, alt: "Evento Avon" },
-    { path: danke8, alt: "Evento Avon" },
-    { path: danke9, alt: "Cais do Oriente" },
-    { path: danke10, alt: "Casamento a beira do mar" },
-    { path: danke11, alt: "Casamento a beira do mar" },
-    { path: danke12, alt: "Casamento a beira do mar" },
-    { path: danke13, alt: " " },
-    { path: danke14, alt: " " },
-    { path: danke15, alt: " " },
-    { path: danke16, alt: "Escuna" },
-    { path: danke17, alt: "Expert" },
-    { path: danke18, alt: "CLUB MED Presidentes Gala Dinner" },
     { path: danke19, alt: "Hotel Teresa" },
-    { path: danke20, alt: "Hotel Teresa" },
-    { path: danke21, alt: "Hotel Teresa" },
-    { path: danke22, alt: "HSBC" },
-    { path: danke23, alt: "HSBC" },
-    { path: danke24, alt: "HSBC" },
+    { path: danke10, alt: "Casamento a beira do mar" },
+    { path: danke50, alt: "WINDSOR jantar principe e princesa dinamarca" },
+    { path: danke36, alt: "Morro da Urca" },
     { path: danke25, alt: "HSBC" },
-    { path: danke26, alt: "HSBC" },
-    { path: danke27, alt: "HYATT" },
-    { path: danke28, alt: "HYATT" },
-    { path: danke29, alt: "WINDSOR jantar principe e princesa dinamarca" },
-    { path: danke30, alt: "Jantar Avon" },
-    { path: danke31, alt: "LAZERTUR" },
-    { path: danke32, alt: "LAZERTUR" },
-    { path: danke33, alt: "LAZERTUR" },
+    { path: danke40, alt: "RAFFO Fest" },
+    { path: danke22, alt: "HSBC" },
     { path: danke34, alt: "Morro da Urca" },
     { path: danke35, alt: "Morro da Urca" },
-    { path: danke36, alt: "Morro da Urca" },
-    { path: danke37, alt: "Expert" },
-    { path: danke38, alt: "RAFFO Fest" },
-    { path: danke39, alt: "RAFFO Fest" },
-    { path: danke40, alt: "RAFFO Fest" },
-    { path: danke41, alt: "Renault" },
-    { path: danke42, alt: "Renault" },
+    { path: danke26, alt: "HSBC" },
     { path: danke43, alt: "REVLON" },
-    { path: danke44, alt: "REVLON" },
-    { path: danke45, alt: "Santa Teresa" },
     { path: danke46, alt: "Santa Teresa" },
+    { path: danke20, alt: "Hotel Teresa" },
     { path: danke47, alt: " " },
-    { path: danke48, alt: "SMG" },
+    { path: danke39, alt: "RAFFO Fest" },
+    { path: danke4, alt: "AMC The Walking Dead" },
+    { path: danke15, alt: " " },
+    { path: danke33, alt: "LAZERTUR" },
+    { path: danke44, alt: "REVLON" },
+    { path: danke41, alt: "Renault" },
+    { path: danke8, alt: "Evento Avon" },
+    { path: danke14, alt: " " },
+    { path: danke7, alt: "Evento Avon" },
+    { path: danke45, alt: "Santa Teresa" },
+    { path: danke21, alt: "Hotel Teresa" },
+    { path: danke11, alt: "Casamento a beira do mar" },
     { path: danke49, alt: "WEDDING" },
-    { path: danke50, alt: "WINDSOR jantar principe e princesa dinamarca" },
+    { path: danke42, alt: "Renault" },
+    { path: danke27, alt: "HYATT" },
+    { path: danke29, alt: "WINDSOR jantar principe e princesa dinamarca" },
+    { path: danke3, alt: "AMC The Walking Dead" },
+    { path: danke30, alt: "Jantar Avon" },
+    { path: danke28, alt: "HYATT" },
+    { path: danke37, alt: "Expert" },
+    { path: danke6, alt: "Aniversário Pietra" },
+    { path: danke2, alt: "AMC The Walking Dead" },
+    { path: danke31, alt: "LAZERTUR" },
+    { path: danke24, alt: "HSBC" },
+    { path: danke38, alt: "RAFFO Fest" },
+    { path: danke18, alt: "CLUB MED Presidentes Gala Dinner" },
+    { path: danke9, alt: "Cais do Oriente" },
+    { path: danke16, alt: "Escuna" },
+    { path: danke48, alt: "SMG" },
+    { path: danke5, alt: "Aniversário Pietra" },
+    { path: danke13, alt: " " },
+    { path: danke23, alt: "HSBC" },
+    { path: danke32, alt: "LAZERTUR" },
     { path: danke51, alt: "WINDSOR jantar principe e princesa dinamarca" },
-  ];
+    { path: danke17, alt: "Expert" },
+    { path: danke12, alt: "Casamento a beira do mar" },
+    { path: danke1, alt: "AMC The Walking Dead" },
+]
+
   
 
   useEffect(()=>{
@@ -243,7 +244,7 @@ const Portfolio = () => {
         <meta property="og:site_name" content="Danke Eventos"/>
       </Head>
 
-      <SectionPortfolio className="autoPadding fixedWidth">
+      <SectionPortfolio className="autoPadding fixedWidth gradientBackPage">
         <h1
           className="titulo"
           style={{ textAlign: "center", marginBottom: "50px" }}
@@ -253,7 +254,7 @@ const Portfolio = () => {
 
         <CustomMasonry columnsCount={colums} gutter={'25px'} >
           {images.map(({path, alt}, index) => (
-            <div key={index}>
+            <div key={index} style={{cursor: 'zoom-in'}}>
               <Image
                 onClick={()=> HandleViewImage(index)}
                 src={path}
