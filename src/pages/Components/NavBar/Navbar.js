@@ -123,7 +123,7 @@ const Navbar = () => {
             </li>
         </NavDrop>
 
-        <NavItens id={navbar.navItens} $drop={drop ? '0' : '-100%'}>
+        <NavItens id={navbar.navItens} $drop={drop ? '100%' : '-100%'}>
             <li>
                 <Language/>
             </li>
