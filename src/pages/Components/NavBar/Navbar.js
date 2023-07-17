@@ -123,7 +123,7 @@ const Navbar = () => {
             </li>
         </NavDrop>
 
-        <NavItens id={navbar.navItens} $drop={drop ? '100%' : '-100%'}>
+        <ul id={navbar.navItens} style={{left: drop ? '0' : '-100%'}}>
             <li>
                 <Language/>
             </li>
@@ -138,7 +138,7 @@ const Navbar = () => {
             <li>
                 <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]}></BotaoAcao>
             </li>
-        </NavItens>
+        </ul>
 
         </NavMobile>
         </>
