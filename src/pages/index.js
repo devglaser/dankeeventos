@@ -237,7 +237,7 @@ export default function Home() {
             <Image src={'/Imgs/logo.svg'} alt={''} width={646} height={386}/>
           </div>
           
-          <ReactPlayer url={'/video/danke.mp4'} loop playing/>
+          <ReactPlayer url={'/video/danke.mp4'} loop='true' playing="true"/>
 
           <div id={index.scrollIndicator}></div>
 
