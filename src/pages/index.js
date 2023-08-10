@@ -212,7 +212,7 @@ export default function Home() {
       <Head>
         <title>Danke Eventos - Transformando seu evento em um momento inesquecível</title>
         
-        <link rel="icon" href="/Imgs/dankeD.svg" />
+        <link rel="icon" href="/Imgs/dankeD.svg"/>
         <link rel="canonical" href="https://dankeeventos.com.br"/>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
