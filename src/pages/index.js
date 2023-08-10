@@ -7,20 +7,22 @@ import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 
 import BotaoAcao from './Components/ActionButton/BotaoAcao'
-
-import backgroundBanner from '../../public/Imgs/bannerBackground.jpg'
-import ImagemSobre from '../../public/Imgs/imgSobre.png'
 import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
 import ClientesA from '../../public/Svg/clientesA.svg'
 import ClientesB from '../../public/Svg/clientesB.svg'
 
-import GaleriaA from '../../public/Imgs/galeriaA.png'
-import GaleriaB from '../../public/Imgs/galeriaB.png'
-import GaleriaC from '../../public/Imgs/galeriaC.png'
-import GaleriaD from '../../public/Imgs/galeriaD.png'
-import GaleriaE from '../../public/Imgs/galeriaE.png'
+import GaleriaA from '../../public/Imgs/galeriaA.jpg'
+import GaleriaB from '../../public/Imgs/galeriaB.jpg'
+import GaleriaC from '../../public/Imgs/galeriaC.jpg'
+import GaleriaD from '../../public/Imgs/galeriaD.jpg'
+import GaleriaE from '../../public/Imgs/galeriaE.jpg'
 
 import index from '@/styles/index/index.module.css'
+import ReactPlayer from 'react-player/lazy'
+
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({subsets:['latin']})
 
 const CardsGaleria = styled.div`
   padding: 25px;
@@ -79,7 +81,7 @@ export default function Home() {
                     es: 'Convierte tu evento en una experiencia única e inolvidable',
                 },
                 caption:{
-                    ptbr: 'Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento.',
+                    ptbr: 'Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível',
                     usa: 'For 20 years we have been committed to transforming your event into an unforgettable moment, with an experienced and dedicated team, offering services to meet the needs of any event.',
                     es: 'Desde hace 20 años nos hemos comprometido a transformar su evento en un momento inolvidable, contando con un equipo experimentado y dedicado, ofreciendo servicios para satisfacer las necesidades de cualquier evento.',
                 },
@@ -210,7 +212,7 @@ export default function Home() {
       <Head>
         <title>Danke Eventos - Transformando seu evento em um momento inesquecível</title>
         
-        <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
+        <link rel="icon" href="/Imgs/dankeD.svg" />
         <link rel="canonical" href="https://dankeeventos.com.br"/>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -227,64 +229,32 @@ export default function Home() {
         <meta property="og:site_name" content="Danke Eventos"/>
       </Head>
       
-      <main className='gradientBackPage'>
+      <main className={`${montserrat.className} gradientBackPage`} >
         
         <header id={index.cabecalho}>
+
+          <div id={index.logoTitulo}>
+            <Image src={'/Imgs/logo.svg'} alt={''} width={646} height={386}/>
+          </div>
           
-          <section id={index.areaTextosBanner}>
-            <h2 className="subtitulo">{textsLangs.home.headerSection.caption[currentLanguage]}</h2> 
-            <h1 className="titulo" id={index.tituloBanner}>{textsLangs.home.headerSection.title[currentLanguage]}</h1>
-          </section>
+          <ReactPlayer url={'/video/danke.mp4'} loop playing/>
 
-          <section id={index.backBanner}>
-            
-            <Image
-                src={backgroundBanner}
-                alt="Imagem de fundo RAFFO Fest"
-                layout='fill'
-                objectFit={'cover'}
-                quality={25}
-                placeholder="blur"
-                blurDataURL={backgroundBanner.blurDataURL}
-                priority={true}
-              />
-
-          </section>
+          <div id={index.scrollIndicator}></div>
 
         </header>
 
         <section id={index.sectionSobre}>
           <main className="autoPadding fixedWidth" id={index.sobre}>
-            <div>
-              <h1 className="titulo">
+          <h1 className="titulo">
+
                 {textsLangs.home.aboutSection.title[currentLanguage]}
               </h1>
 
               <h2 className="subtitulo">
                 {textsLangs.home.aboutSection.caption[currentLanguage]}
               </h2>
-
-              <div>
-                <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]} />
-                <Link href="/sobre">{textsLangs.buttons.aboutButton[currentLanguage]}</Link>
-              </div>
-            </div>
-
-            <div>
-              <Image 
-                src={ImagemSobre}
-                alt="Três imagens de eventos da Danke"
-                width={492} height={397}
-                layout="responsive"
-                objectFit="cover"
-                quality={50}
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL={ImagemSobre.blurDataURL}
-              />
-            </div>
-            
-            
+              
+              <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]} />
 
           </main>
         </section>
@@ -296,7 +266,7 @@ export default function Home() {
               {textsLangs.home.portfolioSection.title[currentLanguage]}
             </h1>
             
-            <Link href="/portfolio" className="hLinkPortGaleria">{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={19} height={15} className="setaLink"/> </Link>
+            <Link href="/portfolio" className="hLinkPortGaleria">{textsLangs.buttons.galeryButton[currentLanguage]}</Link>
           </header>
 
           <main id={index.areaImgs}>
@@ -407,10 +377,6 @@ export default function Home() {
             <h2 className="subtitulo" >
             {textsLangs.home.servicesSection.caption[currentLanguage]}
             </h2>
-
-            <p >
-            {textsLangs.home.servicesSection.texts[currentLanguage]}
-            </p>
 
             <BotaoAcao texto={textsLangs.buttons.actionButton[currentLanguage]} />
           </main>       

@@ -5,6 +5,10 @@ import FaceIcon from "../SvgsComponents/FaceIcon";
 import InstaIcon from "../SvgsComponents/InstaIcon";
 import Image from "next/legacy/image";
 
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({subsets:['latin']})
+
 const Footer = styled.footer`
     padding: 50px 0;
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25));
@@ -20,7 +24,7 @@ const Lista = styled.ul`
 
 const Rodape = () => {
     return (
-        <Footer>
+        <Footer className={montserrat.className}>
             <Lista>
                 <li title="Danke Eventos" style={{width: '100%', maxWidth: '150px', overflow: 'hidden', filter: 'brightness(1000%)'}}>
                 <Image src="/Imgs/logoDankeAntiga.png" alt="Logo Danke Eventos" width={58.58} height={35} layout="responsive" objectFit="contain"/>

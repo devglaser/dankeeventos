@@ -9,7 +9,7 @@ $brancoNeve: #e5e1e6;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-size: 1rem;font-family: 'Nexa', sans-serif;font-weight: 400;
+  font-size: 1rem;font-weight: 400;
   color: $brancoNeve;
   transition: .5s all;
   outline: none;
@@ -19,8 +19,6 @@ $brancoNeve: #e5e1e6;
 // Fontes
 .titulo{font-size: 2.625rem;font-weight: 700;}
 .subtitulo{font-size: 1.625rem;font-weight: 500;}
-
-.titulo, .subtitulo{ font-family: 'sft', sans-serif;}
 
 .setaLink{
   position: relative;top: 2.5px;
@@ -39,14 +37,13 @@ $brancoNeve: #e5e1e6;
   padding: 10px 25px;
   background: $brancoNeve;
   color: $roxoEscuro;
-  font-size: 1.25rem;font-weight: 700;font-family: 'sft', sans-serif;
+  font-size: 1.25rem;font-weight: 700;
   cursor: pointer;
   box-shadow: 0 5px 10px rgba($color: #000000, $alpha: .15);
 
   &:hover{
-    background: $roxoDanke;
+    background: $roxoEscuro;
     color: $brancoNeve;
-
   }
 
   @media (max-width:700px) {font-size:1.125rem}
@@ -85,7 +82,7 @@ body{
   overflow-x: hidden;
 
    .gradientBackPage{
-    background: linear-gradient(180deg, $roxoEscuro, $roxoEscuro, rgba(97, 38, 81,.25), $roxoEscuro);
+    background: linear-gradient(180deg, $roxoDanke, $roxoEscuro);
   }
 
   &::-webkit-scrollbar{
@@ -93,6 +90,6 @@ body{
   }
 
   &::-webkit-scrollbar-thumb{
-    background: linear-gradient(180deg,$roxoEscuro, $roxoDanke);
+    background: #fff ;
   }
 }

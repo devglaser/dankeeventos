@@ -14,6 +14,10 @@ const SelecionaLinguagem = styled.select`
     font-weight: bold;
     cursor: pointer;
     margin-left: 10px;
+    
+    option{
+        background: rgba(97, 38, 81, 1);font-weight:700;
+    }
 `
 
 const Language = () => {

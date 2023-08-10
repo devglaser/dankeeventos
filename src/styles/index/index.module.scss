@@ -1,85 +1,122 @@
 #cabecalho{
     position: relative;
-    height: 520px;
-    @media (max-width: 700px){height: 406px;}
+    height: 100vh;
+    @media (max-width: 1280px){height: 406px;}
     z-index: 1;
+    overflow: hidden;
 
-    #areaTextosBanner{
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;left: 0;
+        width: 100vw;height: 100vh;
+        @media (max-width: 1280px){height: 406px;}
+        background: linear-gradient(180deg, rgba(46, 26, 71, .5), rgba(97, 38, 81, .75));
+    }
+
+    #logoTitulo{
         position: relative;
-        padding:0 75px;
-        top: 95px;
-        width: 100vw;height: calc(100% - 95px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        top: 50%;left:50%;
+        transform:translate(-50%,-50%);
+        height: 100vh;
+        display: flex;align-items:center;justify-content: center;flex-direction: column;
+        z-index: 99;
         text-align: center;
-        
-        @media (max-width: 700px){padding: 0 20px;}
 
-        #tituloBanner{
-            font-size: 4.25rem;
-            max-width: 920px;
+        img{
+            filter: brightness(1000);
+            width: 400px !important;
 
-            @media (max-width: 700px){font-size:2.125rem;max-width:480px}
+            @media (max-width: 700px){width: 200px !important;}
         }
     }
 
-    #backBanner{
+    #scrollIndicator{
         position: absolute;
-        top:0;left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
+        bottom: 35px;left: 50%;
+        z-index: 99;
+        border-radius: 25px;border:2px solid #fff;
+        width: 25px;height: 55px;
 
-        &::after{
+
+        @media (max-width: 1280px){display:none;}
+        
+        &::before{
             content: '';
             position: absolute;
-            width: 100%;height:100%;
-            background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(97, 38, 81,.5),  rgba(46, 26, 71, 1));
+            left: 28%;top: 5px;
+            width: 5px;height: 15px;
+            background: rgba(255,255,255,0);
+            border-radius: 10px;border:2px solid #fff;
+            animation: animate 1.5s ease-in-out infinite;
+            opacity: 0;
+            
+            @keyframes animate{
+                50%{
+                    opacity: 1;
+                    height: 25px;
+                    background: rgba(255,255,255,1);
+                }
+                100%{
+                    height: 15px;
+                    opacity: 0;
+                    top: 25px;
+                }
+            }
         }
+
+        &::after{
+            content: 'Role sua tela para continuar navegando';
+            position: absolute;
+            left: -110px;bottom: -25px;
+            width: 270px;
+            font-size: .8rem;
+        }
+    }
+
+    video{
+        width: 100vw !important;height: auto !important;
+
+        @media (max-width: 1280px){
+            height: 406px !important; transform: scale(1.5);
+
+            @media (max-width: 500px){transform: scale(2);}
+        }
+
+        position: absolute;
+        top: 0;left: 0;
+        z-index: -1;
     }
 }
 
 #sectionSobre{
-
+    padding:25px 0;
     #sobre{
-        display: flex;align-items:center;justify-content: space-between;
-
-        @media (max-width:1080px){
-            flex-direction: column-reverse;
-        }
+        display: flex;align-items:center;justify-content: space-between;flex-direction: column;
+        text-align: center;
         
+        h1{
+            max-width: 750px;
+            width: 100%;
+        }
+
+        h2{
+            margin: 25px 0;
+            max-width: 655px;
+        }
+
         div{
-            h1{
-                max-width: '650px';
-                width: 100%;
-            }
+            width: 100%;
+            max-width: 355px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            h2{
-                margin: 25px 0;
-                max-width: 555px;
-            }
-
-            div{
-                width: 100%;
-                max-width: 355px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                a{
-                    &:nth-child(2){
-                        text-decoration: underline;
-                        font-weight: 300;
-                    }
+            a{
+                &:nth-child(2){
+                    text-decoration: underline;
+                    font-weight: 300;
                 }
-            }
-
-            &:nth-child(2){
-                max-width: 492px;
-                width: 100%;
             }
         }
     }
@@ -96,7 +133,7 @@
 
         #tituloGaleria{
             position: relative;
-            left: 40px;
+            left: 0px;
 
             @media (max-width:700px) {
                 font-size: 1.375rem;
@@ -118,7 +155,7 @@
             }
         }
 
-        a{font-weight: 600;}
+        a{font-weight: 700;font-size: 1.25rem;}
     }
 
     #areaImgs{
@@ -215,9 +252,9 @@
         right: 0;
         width: 100%;height: 100%;
         max-width: 41.5%;max-height:608px;
-        background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, 1));
+        background: linear-gradient(180deg, rgba(46, 26, 71, .0), rgba(97, 38, 81, 1));
         border-bottom-left-radius: 50%;
-        z-index: -1;
+        z-index: 0;
     }
 
     @media (max-width:1215px){
@@ -233,6 +270,7 @@
     }
 
     #textosServicos{
+        z-index: 99;
         @media (max-width: 1215px) {
             height: 553px;
             padding-top: 50px;

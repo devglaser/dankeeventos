@@ -5,10 +5,14 @@ import {useState, useEffect} from 'react'
 
 import styled from "styled-components";
 
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({subsets:['latin']})
+
 const ContatoMain = styled.main`
     display: flex; align-items: center; justify-content: center; flex-direction: column;
-    margin-top:95px;
-    height: calc(100vh - 95px);min-height: calc(100vh - 95px); 
+    padding-top:125px;
+    height: 100vh;
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .1), rgba(46, 26, 71, 1));
 
     @media (max-width:700px){
@@ -32,6 +36,8 @@ const InputForm = styled.input`
     &:nth-child(2){
         margin: 15px 0;
     }
+
+    &::placeholder{color:rgba(255,255,255,.75)}
 `
 
 const TextArea = styled.textarea`
@@ -40,6 +46,8 @@ const TextArea = styled.textarea`
     border: 3px solid #E5E1E6;
     min-width: 100%;max-width: 490px;
     max-height:70px;min-height:70px;
+
+    &::placeholder{color:rgba(255,255,255,.75); font-weight: 500;}
 `
 
 const ButtonForm = ({text = 'Enviar Mensagem'}) => <input type="submit" value={text} className="botaoAcao" style={{marginTop: '25px'}}/>
@@ -72,9 +80,9 @@ const Contato = () => {
             es: 'Su dirección de correo electrónico'
         },
         placeholderTextArea:{
-            ptbr:'Escreva sua mensagem',
-            usa: 'Write your message',
-            es: 'escribe tu mensaje'
+            ptbr:'Me fale sobre o seu evento',
+            usa: 'Tell me about your event',
+            es: 'Cuéntame sobre tu evento'
         },
         button:{
             ptbr:'Enviar Mensagem',
@@ -102,7 +110,7 @@ const Contato = () => {
             <Head>
                 <title>{textsLangs.title[currentLanguage]}</title>
             
-                <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
+                <link rel="icon" href="/Imgs/dankeD.svg" />
                 <link rel="canonical" href="https://dankeeventos.com.br/contato"/>
 
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -118,7 +126,7 @@ const Contato = () => {
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
             </Head>
-            <ContatoMain className='autoPadding'>
+            <ContatoMain className={`autoPadding gradientBackPage ${montserrat.className}`}>
                 
                 <h1 className='titulo'>{textsLangs.title[currentLanguage]}</h1> 
                 
@@ -127,8 +135,8 @@ const Contato = () => {
                 <Formulario method="post">
                     <InputTextEmail place={textsLangs.placeHolderName[currentLanguage]}/>
                     <InputTextEmail place={textsLangs.placeholderMail[currentLanguage]} type={'email'} style={{margin: '15px 0'}}/>
-                    <TextArea placeholder={textsLangs.placeholderTextArea[currentLanguage]}/>
-                    <ButtonForm text={textsLangs.button[currentLanguage]}/>
+                    <TextArea placeholder={textsLangs.placeholderTextArea[currentLanguage]} className={montserrat.className}/>
+                    <ButtonForm  text={textsLangs.button[currentLanguage]}/>
                 </Formulario>
                 
                 <p style={{marginTop: '50px',fontWeight: '700', textAlign: 'center', width: '100%',maxWidth: '425px'}}>

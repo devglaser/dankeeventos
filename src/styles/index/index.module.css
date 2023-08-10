@@ -1,89 +1,146 @@
 #cabecalho {
   position: relative;
-  height: 520px;
+  height: 100vh;
   z-index: 1;
+  overflow: hidden;
 }
-@media (max-width: 700px) {
+@media (max-width: 1280px) {
   #cabecalho {
     height: 406px;
   }
 }
-#cabecalho #areaTextosBanner {
-  position: relative;
-  padding: 0 75px;
-  top: 95px;
+#cabecalho::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: calc(100% - 95px);
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(46, 26, 71, 0.5), rgba(97, 38, 81, 0.75));
+}
+@media (max-width: 1280px) {
+  #cabecalho::after {
+    height: 406px;
+  }
+}
+#cabecalho #logoTitulo {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 99;
   text-align: center;
 }
-@media (max-width: 700px) {
-  #cabecalho #areaTextosBanner {
-    padding: 0 20px;
-  }
-}
-#cabecalho #areaTextosBanner #tituloBanner {
-  font-size: 4.25rem;
-  max-width: 920px;
+#cabecalho #logoTitulo img {
+  filter: brightness(1000);
+  width: 400px !important;
 }
 @media (max-width: 700px) {
-  #cabecalho #areaTextosBanner #tituloBanner {
-    font-size: 2.125rem;
-    max-width: 480px;
+  #cabecalho #logoTitulo img {
+    width: 200px !important;
   }
 }
-#cabecalho #backBanner {
+#cabecalho #scrollIndicator {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  z-index: 99;
+  border-radius: 25px;
+  border: 2px solid #fff;
+  width: 25px;
+  height: 55px;
+}
+@media (max-width: 1280px) {
+  #cabecalho #scrollIndicator {
+    display: none;
+  }
+}
+#cabecalho #scrollIndicator::before {
+  content: "";
+  position: absolute;
+  left: 28%;
+  top: 5px;
+  width: 5px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  border: 2px solid #fff;
+  animation: animate 1.5s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes animate {
+  50% {
+    opacity: 1;
+    height: 25px;
+    background: rgb(255, 255, 255);
+  }
+  100% {
+    height: 15px;
+    opacity: 0;
+    top: 25px;
+  }
+}
+#cabecalho #scrollIndicator::after {
+  content: "Role sua tela para continuar navegando";
+  position: absolute;
+  left: -110px;
+  bottom: -25px;
+  width: 270px;
+  font-size: 0.8rem;
+}
+#cabecalho video {
+  width: 100vw !important;
+  height: auto !important;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   z-index: -1;
-  overflow: hidden;
 }
-#cabecalho #backBanner::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(97, 38, 81, 0.5), rgb(46, 26, 71));
+@media (max-width: 1280px) {
+  #cabecalho video {
+    height: 406px !important;
+    transform: scale(1.5);
+  }
+}
+@media (max-width: 1280px) and (max-width: 500px) {
+  #cabecalho video {
+    transform: scale(2);
+  }
 }
 
+#sectionSobre {
+  padding: 25px 0;
+}
 #sectionSobre #sobre {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
 }
-@media (max-width: 1080px) {
-  #sectionSobre #sobre {
-    flex-direction: column-reverse;
-  }
-}
-#sectionSobre #sobre div h1 {
-  max-width: "650px";
+#sectionSobre #sobre h1 {
+  max-width: 750px;
   width: 100%;
 }
-#sectionSobre #sobre div h2 {
+#sectionSobre #sobre h2 {
   margin: 25px 0;
-  max-width: 555px;
+  max-width: 655px;
 }
-#sectionSobre #sobre div div {
+#sectionSobre #sobre div {
   width: 100%;
   max-width: 355px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#sectionSobre #sobre div div a:nth-child(2) {
+#sectionSobre #sobre div a:nth-child(2) {
   text-decoration: underline;
   font-weight: 300;
-}
-#sectionSobre #sobre div:nth-child(2) {
-  max-width: 492px;
-  width: 100%;
 }
 
 #sectionGaleria header {
@@ -93,7 +150,7 @@
 }
 #sectionGaleria header #tituloGaleria {
   position: relative;
-  left: 40px;
+  left: 0px;
 }
 @media (max-width: 700px) {
   #sectionGaleria header #tituloGaleria {
@@ -117,7 +174,8 @@
   }
 }
 #sectionGaleria header a {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 #sectionGaleria #areaImgs {
   margin-top: 25px;
@@ -219,9 +277,9 @@
   height: 100%;
   max-width: 41.5%;
   max-height: 608px;
-  background: linear-gradient(180deg, rgb(46, 26, 71), rgb(97, 38, 81));
+  background: linear-gradient(180deg, rgba(46, 26, 71, 0), rgb(97, 38, 81));
   border-bottom-left-radius: 50%;
-  z-index: -1;
+  z-index: 0;
 }
 @media (max-width: 1215px) {
   #sectionServicos {
@@ -235,6 +293,9 @@
     max-height: 553px;
     border-bottom-left-radius: 150px;
   }
+}
+#sectionServicos #textosServicos {
+  z-index: 99;
 }
 @media (max-width: 1215px) {
   #sectionServicos #textosServicos {

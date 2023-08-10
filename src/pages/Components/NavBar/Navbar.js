@@ -13,6 +13,10 @@ import DankeLogo from '../../../../public/Imgs/logoDankeAntiga.png'
 
 import navbar from '@/pages/Components/NavBar/style/navbar.module.css'
 
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({subsets:['latin']})
+
 const NavMobile = styled.nav`background: ${({$drop}) => $drop};`;
 
 const NavDrop = styled.ul`background: ${({$drop}) => $drop}; `;
@@ -89,7 +93,7 @@ const Navbar = () => {
 
     return ( 
         <>
-            <nav id={navbar.navegacao}>
+            <nav id={navbar.navegacao} className={montserrat.className}>
             <ul id={navbar.listaNav}> 
                 
                 <li >
@@ -112,7 +116,7 @@ const Navbar = () => {
             </ul>
         </nav>
 
-        <NavMobile id={navbar.navMobile} $drop={drop ? "#612651" : 'transparent'}>
+        <NavMobile id={navbar.navMobile} className={montserrat.className} $drop={drop ? "#612651" : 'transparent'}>
                     
         <NavDrop id={navbar.navDrop} $drop={drop ? 'transparent' : 'linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .25))'}>
             <li title={drop ? "Fechar menu" : "Abrir Menu"} onClick={() => setDrop(!drop)}><OpenClose w={drop}/></li>

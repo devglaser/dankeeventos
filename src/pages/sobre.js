@@ -6,9 +6,11 @@ import {useState, useEffect} from 'react'
 
 import styled from "styled-components";
 
-import ImagemSobre from '../../public/Imgs/galeriaC.png'
-import ImagemServicos from '../../public/Imgs/imgServicos.jpg'
+import ImagemSobre from '../../public/Imgs/k.jpg'
 
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({subsets:['latin']})
 
 const SobreDanke = styled.section`
     padding-top: 125px;
@@ -108,7 +110,7 @@ const Sobre = () => {
             <Head>
                 <title>{textsLangs.title[currentLanguage]}</title>
         
-                <link rel="icon" href="/Imgs/logoDankeAntiga.png" />
+                <link rel="icon" href="/Imgs/dankeD.svg" />
                 <link rel="canonical" href="https://dankeeventos.com.br/sobre"/>
 
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -125,7 +127,7 @@ const Sobre = () => {
                 <meta property="og:site_name" content="Danke Eventos"/>
             </Head>
             <main className="gradientBackPage">
-                <SobreDanke className="autoPadding fixedWidth">
+                <SobreDanke className={`autoPadding fixedWidth ${montserrat.className}`}>
                     <div>
                         <TituloDanke className="titulo" style={{maxWidth: '650px', width: '100%'}}>
                             {textsLangs.aboutSection.title[currentLanguage]}
@@ -146,8 +148,8 @@ const Sobre = () => {
                             alt="Imagem de jantar realizado pela Danke Eventos"
                             layout="responsive"
                             objectFit='cover'
-                            width={492} height={292}
-                            quality={75}
+                            width={ImagemSobre.width} height={ImagemSobre.height}
+                            quality={50}
                             loading="lazy"
                             placeholder="blur"
                             blurDataURL={ImagemSobre.blurDataURL}
@@ -155,36 +157,6 @@ const Sobre = () => {
                     </div>
 
                 </SobreDanke>
-
-                <Servico className="autoPadding fixedWidth">
-                    <div style={{position: 'relative', width: '100%', maxWidth: '492px'}}>
-                        <Image 
-                            src={ImagemServicos}
-                            alt="Imagem da equipe organizando o evento"
-                            layout="responsive"
-                            objectFit={'cover'}
-                            width={492} height={292}
-                            quality={75}
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL={ImagemServicos.blurDataURL}
-                        />
-                    </div>
-            
-                    <div>
-                        <h1 className="titulo" style={{maxWidth: '546px'}}>
-                            {textsLangs.servicesSection.title[currentLanguage]}
-                        </h1>
-
-                        <h2 className="subtitulo" style={{margin: '25px 0',maxWidth: '447px'}}>
-                            {textsLangs.servicesSection.caption[currentLanguage]}
-                        </h2>
-
-                        <p style={{maxWidth: '630px'}}>
-                        {textsLangs.servicesSection.texts[currentLanguage]}
-                        </p>
-                    </div>       
-                </Servico>
             </main>
         </>
     );

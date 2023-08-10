@@ -5,7 +5,6 @@
   text-decoration: none;
   list-style: none;
   font-size: 1rem;
-  font-family: "Nexa", sans-serif;
   font-weight: 400;
   color: #e5e1e6;
   transition: 0.5s all;
@@ -21,10 +20,6 @@
 .subtitulo {
   font-size: 1.625rem;
   font-weight: 500;
-}
-
-.titulo, .subtitulo {
-  font-family: "sft", sans-serif;
 }
 
 .setaLink {
@@ -53,12 +48,11 @@
   color: #2e1a47;
   font-size: 1.25rem;
   font-weight: 700;
-  font-family: "sft", sans-serif;
   cursor: pointer;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 .botaoAcao:hover {
-  background: #612651;
+  background: #2e1a47;
   color: #e5e1e6;
 }
 @media (max-width: 700px) {
@@ -103,11 +97,11 @@ body {
   overflow-x: hidden;
 }
 body .gradientBackPage {
-  background: linear-gradient(180deg, #2e1a47, #2e1a47, rgba(97, 38, 81, 0.25), #2e1a47);
+  background: linear-gradient(180deg, #612651, #2e1a47);
 }
 body::-webkit-scrollbar {
   width: 10px;
 }
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2e1a47, #612651);
+  background: #fff;
 }/*# sourceMappingURL=globals.css.map */

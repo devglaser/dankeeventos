@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
     <>
       <NavBar/>
       <PopOut/>
-      <Component {...pageProps} />
+      <Component {...pageProps}/>
       <WhtasApp/>
       <Rodape/>
     </>
