@@ -133,21 +133,15 @@ import p118 from 'public/Imgs/port/p118.jpg';
 import p119 from 'public/Imgs/port/p119.jpg';
 import p120 from 'public/Imgs/port/p120.jpg';
 import p121 from 'public/Imgs/port/p121.jpg';
-import p122 from 'public/Imgs/port/p122.png';
+import p122 from 'public/Imgs/port/p122.jpg';
 import p123 from 'public/Imgs/port/p123.jpg';
 import p124 from 'public/Imgs/port/p124.jpg';
-import p125 from 'public/Imgs/port/p125.png';
+import p125 from 'public/Imgs/port/p125.jpg';
 import p126 from 'public/Imgs/port/p126.jpg';
 import p127 from 'public/Imgs/port/p127.jpg';
-import p128 from 'public/Imgs/port/p128.png';
+import p128 from 'public/Imgs/port/p128.jpg';
 import p129 from 'public/Imgs/port/p129.jpg';
 import p130 from 'public/Imgs/port/p130.jpg';
-import p131 from 'public/Imgs/port/p122.png';
-import p132 from 'public/Imgs/port/p132.jpg';
-import p133 from 'public/Imgs/port/p133.jpg';
-import p134 from 'public/Imgs/port/p122.png';
-import p135 from 'public/Imgs/port/p122.png';
-import p136 from 'public/Imgs/port/p136.jpg';
 
 
 
@@ -368,12 +362,6 @@ const Portfolio = () => {
     { path: p128, alt: '' },
     { path: p129, alt: '' },
     { path: p130, alt: '' },
-    { path: p131, alt: '' },
-    { path: p132, alt: '' },
-    { path: p133, alt: '' },
-    { path: p134, alt: '' },
-    { path: p135, alt: '' },
-    { path: p136, alt: '' },
   ];
   
   useEffect(()=>{

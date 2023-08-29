@@ -7,14 +7,14 @@ const Form = (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.USER_EMAIL,
-        pass: process.env.PASSWORD,
+        user: 'seusite.noreply@gmail.com',
+        pass: 'hsgihamnjmdgjcba',
       }
     });
   
     const mailData = {
-      from: process.env.USER_EMAIL,
-      to: process.env.USER_EMAIL,
+      from: 'seusite.noreply@gmail.com',
+      to: 'seusite.noreply@gmail.com',
       subject: `Mensagem de ${req.body.name}`,
       text: req.body.mensagem,
       html: `<main>${req.body.mensagem} <br/> <p>E-mail de contato: ${req.body.email}</p> </main>`
