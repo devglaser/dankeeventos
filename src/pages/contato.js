@@ -77,7 +77,6 @@ const Contato = () => {
     const handleSubmit = (e) => { 
     
         e.preventDefault()
-        console.log('Sending')
 
         let data = {
             name,
@@ -94,7 +93,6 @@ const Contato = () => {
             body: JSON.stringify(data)
         }).then((res)=>{
             if (res.status === 200){
-                console.log('Resposta bem sucedida')
                 setSubmitted(true)
                 setName('')
                 setEmail('')
