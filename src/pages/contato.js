@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect,} from 'react'
 
 import styled from "styled-components";
 
 import { Montserrat } from 'next/font/google'
+
+import contato from '../styles/contato/contato.module.css'
 
 const montserrat = Montserrat({subsets:['latin']})
 
@@ -21,63 +23,25 @@ const ContatoMain = styled.main`
     }
 `
 
-const Formulario = styled.form`
-    width:100%;max-width: 490px;
-    display: grid; place-items: center;
-`
-
-const InputForm = styled.input`
-    background: transparent;
-    padding: 15px 25px;
-    border: 3px solid #E5E1E6;
-    width: 100%;max-width: 490px;
-    max-height:45px;
-
-    &:nth-child(2){
-        margin: 15px 0;
-    }
-
-    &::placeholder{color:rgba(255,255,255,.75)}
-`
-
-const TextArea = styled.textarea`
-    background: transparent;
-    padding: 13px 25px;
-    border: 3px solid #E5E1E6;
-    min-width: 100%;max-width: 490px;
-    max-height:70px;min-height:70px;
-
-    &::placeholder{color:rgba(255,255,255,.75); font-weight: 500;}
-`
-
-const ButtonForm = ({text = 'Enviar Mensagem'}) => <input type="submit" value={text} className="botaoAcao" style={{marginTop: '25px'}}/>
-
-const InputTextEmail= ({place = 'Infome seu nome', type = 'text'}) => <InputForm placeholder={place} type={type} required/>
-
 const Contato = () => {
 
     const [currentLanguage, setCurrentLanguage] = useState('ptbr')
 
     const textsLangs = {
         title:{
-            ptbr:'Contate-nos',
-            usa: 'Contact us',
-            es: 'Contáctenos'
-        },
-        caption:{
-            ptbr:'sinta-se à vontade para entrar em contato conosco e retornaremos o mais breve possível',
-            usa: 'Please feel free to contact us and we will get back to you as soon as possible.',
-            es: 'No dude en ponerse en contacto con nosotros y nos pondremos en contacto con usted lo antes posible.'
+            ptbr:'Vamos Conversar!',
+            usa: 'Vamos Conversar!',
+            es: '¡Vamos a hablar!'
         },
         placeHolderName:{
-            ptbr:'Seu nome ou de sua empresa',
-            usa: 'Your name or your company',
-            es: 'Su nombre o su empresa'
+            ptbr:'Seu nome',
+            usa: 'Your name',
+            es: 'Su nombre'
         },
         placeholderMail:{
-            ptbr:'Seu endereço de e-mail',
-            usa: 'Your email address',
-            es: 'Su dirección de correo electrónico'
+            ptbr:'Seu e-mail',
+            usa: 'Your email ',
+            es: 'Su correo electrónico'
         },
         placeholderTextArea:{
             ptbr:'Me fale sobre o seu evento',
@@ -105,6 +69,41 @@ const Contato = () => {
         })()
       },[])
 
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [mensagem, setMensagem] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+
+    const handleSubmit = (e) => { 
+    
+        e.preventDefault()
+        console.log('Sending')
+
+        let data = {
+            name,
+            email,
+            mensagem
+        }
+        
+        fetch('./api/Email', {
+            method: 'POST',
+            headers:{
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((res)=>{
+            if (res.status === 200){
+                console.log('Resposta bem sucedida')
+                setSubmitted(true)
+                setName('')
+                setEmail('')
+                setMensagem('')
+            }
+        })
+
+    }
+
     return (
         <>
             <Head>
@@ -128,18 +127,17 @@ const Contato = () => {
             </Head>
             <ContatoMain className={`autoPadding gradientBackPage ${montserrat.className}`}>
                 
-                <h1 className='titulo'>{textsLangs.title[currentLanguage]}</h1> 
+                <h1 className='titulo' style={{marginBottom: '50px'}}>{textsLangs.title[currentLanguage]}</h1>
                 
-                <p style={{maxWidth: '375px', textAlign: 'center', margin: '25px 0 50px 0'}}>{textsLangs.caption[currentLanguage]}</p>
+                <form action="" method="post" id={contato.formulario}>
+                    <input placeholder={textsLangs.placeHolderName[currentLanguage]} value={name} onChange={({target}) => setName(target.value)} type="text" required minLength={5}/>
+                    <input placeholder={textsLangs.placeholderMail[currentLanguage]} value={email} onChange={({target}) => setEmail(target.value)} type={"email"} required minLength={10}/>
+                    <textarea placeholder={textsLangs.placeholderTextArea[currentLanguage]} value={mensagem} required minLength={10} onChange={({target}) => setMensagem(target.value)} className={montserrat.className}/>
+                    
+                    <input type="submit" value={textsLangs.button[currentLanguage]} className="botaoAcao" style={{marginTop: '25px'}} onClick={(e)=>handleSubmit(e)}/>
+                </form>
                 
-                <Formulario method="post">
-                    <InputTextEmail place={textsLangs.placeHolderName[currentLanguage]}/>
-                    <InputTextEmail place={textsLangs.placeholderMail[currentLanguage]} type={'email'} style={{margin: '15px 0'}}/>
-                    <TextArea placeholder={textsLangs.placeholderTextArea[currentLanguage]} className={montserrat.className}/>
-                    <ButtonForm  text={textsLangs.button[currentLanguage]}/>
-                </Formulario>
-                
-                <p style={{marginTop: '50px',fontWeight: '700', textAlign: 'center', width: '100%',maxWidth: '425px'}}>
+                <p style={{marginTop: '50px',fontWeight: '700', textAlign: 'center', width: '100%',maxWidth: '430px'}}>
                     <Link href="https://wa.me/5521993401594" style={{marginRight: "15px"}}>+55 21 9 9340-1594</Link> <Link href='mailto:contato@dankeeventos.com.br' target="_blank">contanto@dankeeventos.com.br</Link>
                 </p>
             </ContatoMain>

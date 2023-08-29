@@ -126,6 +126,7 @@
 #sectionSobre #sobre h1 {
   max-width: 750px;
   width: 100%;
+  margin: 0;
 }
 #sectionSobre #sobre h2 {
   margin: 25px 0;
@@ -227,17 +228,19 @@
   width: 100%;
   display: grid;
   grid-gap: 25px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   place-items: center;
 }
 @media (max-width: 1215px) {
   #sectionGaleria #areaCards {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 }
 #sectionGaleria #areaCards .cardGaleria div {
   padding: 25px;
-  max-width: 285px;
+  max-width: 300px;
   width: 100%;
   border: 3px solid #e5e1e6;
   border-top-right-radius: 65.5px;
@@ -304,15 +307,11 @@
   }
 }
 #sectionServicos #textosServicos h1 {
-  max-width: 546px;
+  max-width: 550px;
 }
 #sectionServicos #textosServicos h2 {
-  margin: 25px 0;
-  max-width: 457px;
-}
-#sectionServicos #textosServicos p {
-  margin-bottom: 50px;
-  max-width: 495px;
+  margin: 25px 0 50px;
+  max-width: 545px;
 }
 
 #sectionClientes h1 {

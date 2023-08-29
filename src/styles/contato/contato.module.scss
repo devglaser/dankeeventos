@@ -1,0 +1,28 @@
+#formulario{
+    width:100%;max-width: 490px;
+    display: grid; place-items: center;
+
+    input:nth-child(1),input:nth-child(2){
+        background: transparent;
+        padding: 15px 25px;
+        border: 3px solid #E5E1E6;
+        width: 100%;max-width: 490px;
+        max-height:45px;
+
+        &:nth-child(2){
+            margin: 15px 0;
+        }
+
+        &::placeholder{color:rgba(255,255,255,.75)}
+    }
+
+    textarea{
+        background: transparent;
+        padding: 13px 25px;
+        border: 3px solid #E5E1E6;
+        min-width: 100%;max-width: 490px;
+        max-height:70px;min-height:70px;
+
+        &::placeholder{color:rgba(255,255,255,.75); font-weight: 500;}
+    }
+}

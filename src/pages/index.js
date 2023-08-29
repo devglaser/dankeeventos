@@ -26,12 +26,13 @@ const montserrat = Montserrat({subsets:['latin']})
 
 const CardsGaleria = styled.div`
   padding: 25px;
-  max-width: 285px;width:100%;
+  max-width: 300px;width:100%;
   border: 3px solid #e5e1e6;
   border-top-right-radius:  65.5px;
 
   p{
     margin-top: 25px;
+    font-size: .9rem;
   }
 
   @media (max-width:1200px) {
@@ -62,59 +63,53 @@ export default function Home() {
 
     const textsLangs = {
         home:{
-            headerSection:{
-                title:{
-                    ptbr: 'Tenha um evento inesquecível com a Danke!',
-                    usa: 'Have an unforgettable event with Danke!',
-                    es: '¡Tenga un evento inolvidable con Danke!',
-                },
-                caption:{
-                    ptbr: 'Mais de 20 anos de experiência',
-                    usa: 'More than 20 years of experience',
-                    es: 'Más de 20 años de experiencia',
-                },
-            },
             aboutSection:{
                 title:{
-                    ptbr: 'Transforme seu evento em uma experiência única e inesquecível',
-                    usa: 'Turn your event into a unique and unforgettable experience',
-                    es: 'Convierte tu evento en una experiencia única e inolvidable',
+                    ptbr: 'Mais Que Eventos. Experiências',
+                    usa: 'More Than Events. Experiences',
+                    es: 'Más que eventos. Experiencias',
                 },
                 caption:{
-                    ptbr: 'Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível',
-                    usa: 'For 20 years we have been committed to transforming your event into an unforgettable moment, with an experienced and dedicated team, offering services to meet the needs of any event.',
-                    es: 'Desde hace 20 años nos hemos comprometido a transformar su evento en un momento inolvidable, contando con un equipo experimentado y dedicado, ofreciendo servicios para satisfacer las necesidades de cualquier evento.',
+                    ptbr: 'Planejamento. Produção. Gestão. MICE',
+                    usa: 'Planning. Production. Management. MICE',
+                    es: 'Planificación. Producción. Gestión. MICE',
                 },
             },
             portfolioSection:{
                 title:{
-                    ptbr: 'Fotos dos nossos eventos',
-                    usa: 'Photos of our events',
-                    es: 'Fotos de nuestros eventos',
+                    ptbr: 'Nosso Portfólio',
+                    usa: 'Our Portfolio',
+                    es: 'Nuestro Portafolio',
                 },
                 caption:{
-                    ptbr: 'Atendimento personalizado',
-                    usa: 'Personalized service',
-                    es: 'Atendimiento personalizado',
+                    ptbr: 'Serviços',
+                    usa: 'Services',
+                    es: 'Servicios',
                 },
                 texts: {
                     ptbr: {
-                        a:'Eventos sociais',
-                        b:'Eventos Cerimoniais',
-                        c:'Eventos Esportivos',
-                        d:'Eventos de Exibição',
+                        a:'Espaços',
+                        b:'Alta Gastronomia & Open Bar',
+                        c:'Cenografia e Decoração',
+                        d:'Audiovisual',
+                        e:'Shows e Atrações Especiais',
+                        f:'Estandes para Feiras',
                     },
                     usa: {
-                        a:'Social events',
-                        b:'Ceremonial Events',
-                        c:'Sports event',
-                        d:'Display Events',
+                        a:'Spaces',
+                        b:'High Gastronomy & Open Bar',
+                        c:'Scenography and Decoration',
+                        d:'Audiovisual',
+                        e:'Shows and Special Attractions',
+                        f:'Stands for Fairs',
                     },
                     es: {
-                        a:'Eventos sociales',
-                        b:'Eventos Ceremoniales',
-                        c:'Evento deportivo',
-                        d:'Mostrar eventos',
+                        a:'Espacios',
+                        b:'Alta Gastronomía & Barra Libre',
+                        c:'Escenografía y Decoración',
+                        d:'Audiovisual',
+                        e:'Espectáculos y atracciones especiales',
+                        f:'Stands para Ferias',
                     }
                 },
                 content:{
@@ -130,15 +125,13 @@ export default function Home() {
                     es: 'Soluciones integrales de decoración y organización de eventos',
                 },
                 caption:{
-                    ptbr: 'Não importa qual seja o seu evento, nós estamos aqui para ajudar',
-                    usa: 'No matter what your event is, we are here to help.',
-                    es: 'No importa cuál sea tu evento, estamos aquí para ayudarte.',
+                    ptbr: `Aliando profissionalismo a valorização dos detalhes e criatividade, propiciamos uma
+                    experiência prazerosa desde a idealização à execução do seu evento!`,
+                    usa: `Combining professionalism with the appreciation of details and creativity, we provide a
+                    Pleasant experience from the idealization to the execution of your event!`,
+                    es: `Combinando profesionalismo con la apreciación de los detalles y la creatividad, brindamos una
+                    ¡Una agradable experiencia desde la idealización hasta la ejecución de tu evento!`,
                 },
-                texts:{
-                    ptbr: 'Profissionais altamente capacitados trabalha para transformar suas ideias em realidade, criando ambientes personalizados e atraentes que impressionarão seus convidados.',
-                    usa: 'Highly trained professionals work to turn your ideas into reality, creating personalized and attractive environments that will impress your guests.',
-                    es: 'Profesionales altamente capacitados trabajan para convertir sus ideas en realidad, creando ambientes personalizados y atractivos que impresionarán a sus invitados.'
-                }
             },
             clientsSection:{
                 title:{
@@ -182,12 +175,8 @@ export default function Home() {
     },[])
 
   const keyTextGalery = textsLangs.home.portfolioSection.texts[currentLanguage]
-  const textsGalery = [
-    keyTextGalery && keyTextGalery.a,
-    keyTextGalery && keyTextGalery.b,
-    keyTextGalery && keyTextGalery.c,
-    keyTextGalery && keyTextGalery.d,
-  ]
+  
+  const textsGalery = [keyTextGalery && keyTextGalery.a,keyTextGalery && keyTextGalery.b,keyTextGalery && keyTextGalery.c,keyTextGalery && keyTextGalery.d, keyTextGalery && keyTextGalery.e, keyTextGalery && keyTextGalery.f]
 
   const [largura, setLargura] = useState('');
   
@@ -346,10 +335,12 @@ export default function Home() {
           <h1 className="subtitulo">{textsLangs.home.portfolioSection.caption[currentLanguage]}</h1>
 
           <section id={index.areaCards}>
-            <CardGaleria texto={textsGalery[0]}/>
-            <CardGaleria texto={textsGalery[1]} icone='nick' alt='tesoura' w={35.83}/>
-            <CardGaleria texto={textsGalery[2]} icone='ball' alt='bola de tênis' w={36.13}/>
-            <CardGaleria texto={textsGalery[3]} icone='confe' alt='pessoa palestrando' w={38.18}/>
+            <CardGaleria texto={textsGalery[0]} icone='chair'/>
+            <CardGaleria texto={textsGalery[1]} icone='drink' alt='tesoura'/>
+            <CardGaleria texto={textsGalery[2]} icone='decoration' alt='bola de tênis' w={36.13}/>
+            <CardGaleria texto={textsGalery[3]} icone='cam' alt='pessoa palestrando' w={38.18}/>
+            <CardGaleria texto={textsGalery[4]} icone='show' alt='bola de tênis' w={36.13}/>
+            <CardGaleria texto={textsGalery[5]} icone='confe' alt='pessoa palestrando' w={38.18}/>
           </section>
         </section>
 

@@ -67,26 +67,19 @@ const Sobre = () => {
                 es: 'Más de 20 años de experiencia',
             },
             texts: {
-                ptbr:'Nossa empresa de eventos tem 20 anos de experiência em transformar celebrações em momentos inesquecíveis. Com uma equipe dedicada e serviços personalizados, cuidamos de todos os detalhes do seu evento, desde o planejamento até a execução. Oferecemos soluções para diversos tipos de eventos, sempre atentos às últimas tendências do mercado. Trabalhamos com os melhores fornecedores para garantir a qualidade dos nossos serviços e o sucesso do seu evento. Conte conosco para tornar sua celebração única e especial.',
+                ptbr:`
+                Com mais de 20 anos de história, a Danke já realizou centenas de eventos sociais
+                e corporativos, de mini weddings a convenções de grande porte para
+                multinacionais.
+                Ao longo de nossa trajetória sedimentamos uma parceria especial com os
+                melhores fornecedores e locações do Rio de Janeiro, oferecendo aos nossos
+                clientes o mais alto nível de profissionalismo em todas os serviços necessários
+                para a realização de um evento.
+                Acreditamos que eventos devem conectar pessoas, e que pessoas se conectam
+                através de experiências.                
+                `,
                 usa: 'Our events company has 20 years of experience in transforming celebrations into unforgettable moments. With a dedicated team and personalized services, we take care of every detail of your event, from planning to execution. We offer solutions for different types of events, always attentive to the latest market trends. We work with the best suppliers to guarantee the quality of our services and the success of your event. Count on us to make your celebration unique and special.',
                 es: 'Nuestra empresa de eventos cuenta con 20 años de experiencia en transformar celebraciones en momentos inolvidables. Con un equipo dedicado y servicios personalizados, nos encargamos de cada detalle de su evento, desde la planificación hasta la ejecución. Ofrecemos soluciones para diferentes tipos de eventos, siempre atentos a las últimas tendencias del mercado. Trabajamos con los mejores proveedores para garantizar la calidad de nuestros servicios y el éxito de su evento. Cuente con nosotros para hacer de su celebración algo único y especial.'
-            },
-        },
-        servicesSection: {
-            title:{
-                ptbr: 'Soluções integradas de decoração e organização de eventos',
-                usa: 'Integrated decoration and event organization solutions',
-                es: 'Soluciones integrales de decoración y organización de eventos',
-            },
-            caption:{
-                ptbr: 'Não importa qual seja o seu evento, nós estamos aqui para ajudar',
-                usa: 'No matter what your event is, we are here to help.',
-                es: 'No importa cuál sea tu evento, estamos aquí para ayudarte.',
-            },
-            texts: {
-                ptbr:'Nossa empresa oferece soluções integradas para a organização e decoração de eventos. Com anos de experiência, nossa equipe de profissionais trabalha para transformar suas ideias em realidade, criando ambientes personalizados e atraentes para impressionar seus convidados. Nossos serviços são flexíveis e customizáveis, adaptados às necessidades específicas de cada cliente. Deixe-nos cuidar de todos os detalhes, para que você possa desfrutar de um evento perfeito e sem preocupações. Entre em contato conosco hoje mesmo para saber mais sobre nossos serviços de decoração e organização de eventos.',
-                usa: 'Our company offers integrated solutions for the organization and decoration of events. With years of experience, our team of professionals works to turn your ideas into reality, creating personalized and attractive environments to impress your guests. Our services are flexible and customizable, tailored to the specific needs of each client. Let us take care of all the details, so you can enjoy a seamless, worry-free event. Contact us today to find out more about our event planning and decoration services.',
-                es: 'Nuestra empresa ofrece soluciones integrales para la organización y decoración de eventos. Con años de experiencia, nuestro equipo de profesionales trabaja para convertir sus ideas en realidad, creando ambientes personalizados y atractivos para impresionar a sus invitados. Nuestros servicios son flexibles y personalizables, adaptados a las necesidades específicas de cada cliente. Permítanos encargarnos de todos los detalles, para que pueda disfrutar de un evento sin problemas y sin preocupaciones. Contáctenos hoy para obtener más información sobre nuestros servicios de planificación y decoración de eventos.'
             },
         },
     }
@@ -137,7 +130,7 @@ const Sobre = () => {
                         {textsLangs.aboutSection.caption[currentLanguage]}
                         </h2>
 
-                        <p style={{maxWidth: '630px'}}>
+                        <p style={{maxWidth: '575px'}}>
                         {textsLangs.aboutSection.texts[currentLanguage]}
                         </p>
                     </div>
@@ -145,15 +138,16 @@ const Sobre = () => {
                     <div style={{position: 'relative', width: '100%', maxWidth: '492px'}}>
                         <Image 
                             src={ImagemSobre}
-                            alt="Imagem de jantar realizado pela Danke Eventos"
+                            alt="Imagem de Karim Engelbart, CEO"
                             layout="responsive"
                             objectFit='cover'
                             width={ImagemSobre.width} height={ImagemSobre.height}
-                            quality={50}
+                            quality={25}
                             loading="lazy"
                             placeholder="blur"
                             blurDataURL={ImagemSobre.blurDataURL}
                         />
+                        <p style={{fontSize: '.75rem', fontWeight: '600', top: '15px', position: 'relative'}}>Karim Engelbart, CEO, Danke Eventos</p>
                     </div>
 
                 </SobreDanke>

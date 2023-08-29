@@ -1,5 +1,5 @@
-import '@/styles/globals.css'
 import '@/styles/fontes.css'
+import '@/styles/globals.css'
 
 import dynamic from 'next/dynamic'
 

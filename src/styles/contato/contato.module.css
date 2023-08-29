@@ -1,0 +1,40 @@
+#formulario {
+  width: 100%;
+  max-width: 490px;
+  display: grid;
+  place-items: center;
+}
+#formulario input:nth-child(1), #formulario input:nth-child(2) {
+  background: transparent;
+  padding: 15px 25px;
+  border: 3px solid #E5E1E6;
+  width: 100%;
+  max-width: 490px;
+  max-height: 45px;
+}
+#formulario input:nth-child(1):nth-child(2), #formulario input:nth-child(2):nth-child(2) {
+  margin: 15px 0;
+}
+#formulario input:nth-child(1)::-moz-placeholder, #formulario input:nth-child(2)::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+#formulario input:nth-child(1)::placeholder, #formulario input:nth-child(2)::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+#formulario textarea {
+  background: transparent;
+  padding: 13px 25px;
+  border: 3px solid #E5E1E6;
+  min-width: 100%;
+  max-width: 490px;
+  max-height: 70px;
+  min-height: 70px;
+}
+#formulario textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+#formulario textarea::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}/*# sourceMappingURL=contato.module.css.map */

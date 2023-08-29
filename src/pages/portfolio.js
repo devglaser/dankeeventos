@@ -133,15 +133,21 @@ import p118 from 'public/Imgs/port/p118.jpg';
 import p119 from 'public/Imgs/port/p119.jpg';
 import p120 from 'public/Imgs/port/p120.jpg';
 import p121 from 'public/Imgs/port/p121.jpg';
-import p122 from 'public/Imgs/port/p122.jpg';
+import p122 from 'public/Imgs/port/p122.png';
 import p123 from 'public/Imgs/port/p123.jpg';
 import p124 from 'public/Imgs/port/p124.jpg';
-import p125 from 'public/Imgs/port/p125.jpg';
+import p125 from 'public/Imgs/port/p125.png';
 import p126 from 'public/Imgs/port/p126.jpg';
 import p127 from 'public/Imgs/port/p127.jpg';
-import p128 from 'public/Imgs/port/p128.jpg';
+import p128 from 'public/Imgs/port/p128.png';
 import p129 from 'public/Imgs/port/p129.jpg';
 import p130 from 'public/Imgs/port/p130.jpg';
+import p131 from 'public/Imgs/port/p122.png';
+import p132 from 'public/Imgs/port/p132.jpg';
+import p133 from 'public/Imgs/port/p133.jpg';
+import p134 from 'public/Imgs/port/p122.png';
+import p135 from 'public/Imgs/port/p122.png';
+import p136 from 'public/Imgs/port/p136.jpg';
 
 
 
@@ -230,215 +236,6 @@ const Portfolio = () => {
 
   const [activeViewImage, setActveViewImage] = useState(false)
   const [indexImage, setIndexImage] = useState(2)
-
-  const objects = [
-    { path: p5, alt: '__.jpg' },
-    { path: p1, alt: '__.jpg' },
-    { path: p2, alt: '__.jpg' },
-    { path: p12, alt: '__.jpg' },
-    { path: p9, alt: '__.jpg' },
-    { path: p13, alt: '__.jpg' },
-    { path: p14, alt: '__.jpg' },
-    { path: p15, alt: '__.jpg' },
-    { path: p16, alt: '__.jpg' },
-    { path: p17, alt: '__.jpg' },
-    { path: p18, alt: '__.jpg' },
-    { path: p3, alt: 'Casa de Santa Teresa.jpg' },
-    { path: p4, alt: 'Hotel Hyatt.jpg' },
-    { path: p6, alt: 'Villa Philippe.jpg' },
-    { path: p7, alt: 'Casa de Santa Teresa.jpg' },
-    { path: p8, alt: 'Hotel Hyatt.jpg' },
-    { path: p10, alt: 'Casa de Santa Teresa.jpg' },
-    { path: p11, alt: 'Hotel Hyatt.jpg' },
-    { path: p19, alt: 'Almoço Chef Harold Engelbart.jpg' },
-    { path: p20, alt: 'AMC The Walking Dead - Club Med.jpg' },
-    { path: p21, alt: 'AMC The Walking Dead - Club Med.jpg' },
-    { path: p22, alt: 'Aniversário Janick Daudet - Torre Rio Sul.jpg' },
-    { path: p23, alt: 'Aniversário Janick Daudet - Torre Rio Sul.jpg' },
-    { path: p24, alt: 'Aniversário Janick Daudet - Torre Rio Sul.jpg' },
-    { path: p25, alt: 'Aniversário Janick Daudet - Torre Rio Sul.jpg' },
-    { path: p26, alt: 'Aniversário Pietra - Espaço Coca-Cola, Club Med.jpg' },
-    { path: p27, alt: 'Aniversário Pietra - Espaço Coca-Cola, Club Med.jpg' },
-    { path: p28, alt: 'Aniversário Pietra - Espaço Coca-Cola, Club Med.jpg' },
-    { path: p29, alt: 'Avon - Centro de Convenções Club Med.jpg' },
-    { path: p30, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p31, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p32, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p33, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p34, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p35, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p36, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p37, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p38, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p39, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p40, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p41, alt: 'Avon - Club Med Rio das Pedras.jpg' },
-    { path: p42, alt: 'BBVA - Centro de Convenções Club Med.jpg' },
-    { path: p43, alt: 'BMI Companies - Hotel Sheraton.jpg' },
-    { path: p44, alt: 'Castrol - Club Med Rio das Pedras.jpg' },
-    { path: p45, alt: 'Chandon - Club Med Rio das Pedras.jpg' },
-    { path: p46, alt: 'Chandon - Club Med Rio das Pedras.jpg' },
-    { path: p47, alt: 'Club Med Expert 2017 - Centro de Convenções Club Med.jpg' },
-    { path: p48, alt: 'Club Med Expert 2017 - Centro de Convenções Club Med.jpg' },
-    { path: p49, alt: 'Club Med Expert 2017 - Club Med.jpg' },
-    { path: p50, alt: 'Club Med Expert 2017 - Club Med.jpg' },
-    { path: p51, alt: 'Criarte - Pier Maua.jpg' },
-    { path: p52, alt: 'Darrow - Centro de Convenções Club Med.jpg' },
-    { path: p53, alt: 'Darrow - Centro de Convenções Club Med.jpg' },
-    { path: p54, alt: 'Elcotour - Baía de Guanabara.jpg' },
-    { path: p55, alt: 'Founders Forum Dinner - Mansão Moteiro de Carvalho.jpg' },
-    { path: p56, alt: 'Founders Forum Dinner - Mansão Moteiro de Carvalho.jpg' },
-    { path: p57, alt: 'Gala Dinner - Copacabana Palace.jpg' },
-    { path: p58, alt: 'Gala Dinner - Copacabana Palace.jpg' },
-    { path: p59, alt: 'Gala Dinner Família Real Dinamarquesa - Hotel Windsor.jpg' },
-    { path: p60, alt: 'Gala Dinner Família Real Dinamarquesa - Hotel Windsor.jpg' },
-    { path: p61, alt: 'Gala Dinner Família Real Dinamarquesa - Hotel Windsor.jpg' },
-    { path: p62, alt: 'Gala Dinner - Morro da Urca.jpg' },
-    { path: p63, alt: 'Gala Dinner - Morro da Urca.jpg' },
-    { path: p64, alt: 'Gala Dinner - Morro da Urca.jpg' },
-    { path: p65, alt: 'GEM Shipping 2015 - Hípica.jpg' },
-    { path: p66, alt: 'GEM Shipping, 2015 - Sociedade Hípica Brasileira.jpg' },
-    { path: p67, alt: 'GEM Shipping, 2015 - Sociedade Hípica Brasileira.jpg' },
-    { path: p68, alt: 'GEM Shipping, 2015 - Sociedade Hípica Brasileira.jpg' },
-    { path: p69, alt: 'Globalis - Club Med Rio das Pedras.jpg' },
-    { path: p70, alt: 'Golden Cross - Club Med Rio das Pedras.jpg' },
-    { path: p71, alt: 'Hotel Terese_.jpg' },
-    { path: p72, alt: 'HSBC - Centro de Convenções Club Med.jpg' },
-    { path: p73, alt: 'HSBC - Centro de Convenções Club Med.jpg' },
-    { path: p74, alt: 'HSBC - Centro de Convenções Club Med.jpg' },
-    { path: p75, alt: 'HSBC - Centro de Convenções Club Med.jpg' },
-    { path: p76, alt: 'HSBC - Club Med.jpg' },
-    { path: p77, alt: 'HSBC - Club Med.jpg' },
-    { path: p78, alt: 'HSBC - Club Med Rio das Pedras.jpg' },
-    { path: p79, alt: 'HSBC - Club Med Rio das Pedras.jpg' },
-    { path: p80, alt: 'Jaguar Land Rover Top Talent.jpg' },
-    { path: p81, alt: 'Jaguar Land Rover Top Talent.jpg' },
-    { path: p82, alt: '__.jpg' },
-    { path: p83, alt: 'Land Rover - Itatiaia.jpg' },
-    { path: p84, alt: 'Land Rover - Itatiaia.jpg' },
-    { path: p85, alt: 'Land Rover - Itatiaia.jpg' },
-    { path: p86, alt: 'Lazertur - Club Med.jpg' },
-    { path: p87, alt: 'Lazertur - Club Med.jpg' },
-    { path: p88, alt: 'L_Oréal - MAM Rio.jpg' },
-    { path: p89, alt: 'L_Oréal - MAM Rio.jpg' },
-    { path: p90, alt: 'Losango - Club Med Rio das Pedras.jpg' },
-    { path: p91, alt: 'Losango - Club Med Rio das Pedras.jpg' },
-    { path: p92, alt: 'Luau para a Sonora - Club Med.jpg' },
-    { path: p93, alt: 'Mini Wedding - Club Med Rio das Pedras.jpg' },
-    { path: p94, alt: 'Mini Wedding - Club Med Rio das Pedras.jpg' },
-    { path: p95, alt: 'Natal Club Med.jpg' },
-    { path: p96, alt: 'Nike - Sociedade Hípica Brasileira.jpg' },
-    { path: p97, alt: 'Nike - Sociedade Hípica Brasileira.jpg' },
-    { path: p98, alt: 'Oi - Sociedade Hípica Brasileira.jpg' },
-    { path: p99, alt: 'Oriflame - Museu Histórico Nacional.jpg' },
-    { path: p100, alt: 'Raffo - Centro de Convenções Club Med.jpg' },
-    { path: p101, alt: 'Raffo - Centro de Convenções Club Med.jpg' },
-    { path: p102, alt: 'Raffo - Centro de Convenções Club Med.jpg' },
-    { path: p103, alt: 'Raffo - Centro de Convenções Club Med.jpg' },
-    { path: p104, alt: 'Renova - Adega Santiago, Barra.jpg' },
-    { path: p105, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p106, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p107, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p108, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p109, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p110, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p111, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p112, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p113, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p114, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p115, alt: 'Revlon - Club Med Rio das Pedras.jpg' },
-    { path: p116, alt: 'Schulz Rio Oil _ Gas - Riocentro.jpg' },
-    { path: p117, alt: 'SMG - Centro de Convenções Club Med.jpg' },
-    { path: p118, alt: 'SMG - Centro de Convenções Club Med.jpg' },
-    { path: p119, alt: 'SMG - Centro de Convenções Club Med.jpg' },
-    { path: p120, alt: 'SMG Convencíon.jpg' },
-    { path: p121, alt: 'Gala Dinner - Casa de Santa Teresa' },
-    { path: p122, alt: 'Casa Santa Teresa' },
-    // Continuar com os demais objetos...
-  ];
-  
-
-  const i = [
-    { path: p45, alt: 'Chandon - Club Med Rio das Pedras' },
-    { path: p93, alt: 'Mini Wedding - Club Med Rio das Pedras' },
-    { path: p109, alt: 'Revlon - Club Med Rio das Pedras' },
-
-    { path: p71, alt: 'Hotel Terese' },
-    { path: p94, alt: 'Mini Wedding - Club Med Rio das Pedras' },
-    { path: p44, alt: 'Castrol - Club Med Rio das Pedras' },
-
-    { path: p63, alt: 'Gala Dinner - Morro da Urca' },
-    { path: p102, alt: 'Raffo - Centro de Convenções Club Med' },
-    { path: p29, alt: 'Avon - Centro de Convenções Club Med' },
-
-    { path: p105, alt: 'Revlon - Club Med Rio das Pedras' },
-    { path: p121, alt: 'Gala Dinner - Casa de Santa Teresa' },
-    { path: p103, alt: 'Raffo - Centro de Convenções Club Med' },
-
-    { path: p114, alt: 'Revlon - Club Med Rio das Pedras' },
-    { path: p23, alt: 'Aniversário Janick Daudet - Torre Rio Sul' },
-    { path: p56, alt: 'Founders Forum Dinner - Mansão Moteiro de Carvalho' },
-     
-    { path: p64, alt: 'Gala Dinner - Morro da Urca' },
-    { path: p24, alt: 'Aniversário Janick Daudet - Torre Rio Sul' },
-    { path: p6, alt: 'Villa Philippe' },
-
-    { path: p62, alt: 'Gala Dinner - Morro da Urca' },
-    { path: p20, alt: 'AMC The Walking Dead - Club Med' },
-    { path: p68, alt: 'GEM Shipping, 2015 - Sociedade Hípica Brasileira' },
-
-    { path: p118, alt: 'SMG - Centro de Convenções Club Med' },
-    { path: p21, alt: 'AMC The Walking Dead - Club Med' },
-    { path: p108, alt: 'Revlon - Club Med Rio das Pedras' },
-
-    { path: p79, alt: 'HSBC - Club Med Rio das Pedras' },
-    { path: p106, alt: 'Revlon - Club Med Rio das Pedras' },
-    { path: p89, alt: 'LOréal - MAM Rio' },
-
-    { path: p61, alt: 'Gala Dinner Família Real Dinamarquesa - Hotel Windsor' },
-    { path: p38, alt: 'Avon - Club Med Rio das Pedras' },
-    { path: p74, alt: 'HSBC - Centro de Convenções Club Med' },
-
-    { path: p86, alt: 'Lazertur - Club Med' },
-    { path: p32, alt: 'Avon - Club Med Rio das Pedras' },
-    { path: p1, alt: '' },
-
-    { path: p36, alt: 'Avon - Club Med Rio das Pedras' },
-    { path: p82, alt: '' },
-    { path: p16, alt: '' },
-
-    { path: p28, alt: 'Aniversário Pietra - Espaço Coca-Cola, Club Med' },
-    { path: p112, alt: 'Revlon - Club Med Rio das Pedraas' },
-    { path: p46, alt: 'Chandon - Club Med Rio das Pedras' },
-
-    { path: p35, alt: 'Avon - Club Med Rio das Pedras' },
-    { path: p43, alt: 'BMI Companies - Hotel Sheraton' },
-    { path: p69, alt: 'Globalis - Club Med Rio das Pedras' },
-    
-    { path: p60, alt: 'Gala Dinner Família Real Dinamarquesa - Hotel Windsor' },
-    { path: p2, alt: '' },
-    { path: p80, alt: 'Jaguar Land Rover Top Talent' },
-
-    { path: p70, alt: 'Golden Cross - Club Med Rio das Pedras' },
-    { path: p8, alt: 'Hotel Hyatt' },
-    { path: p115, alt: 'Revlon - Club Med Rio das Pedras' },
-
-    { path: p51, alt: 'Criarte - Pier Maua' },
-    { path: p72, alt: 'HSBC - Centro de Convenções Club Med' },
-    { path: p113, alt: 'Revlon - Club Med Rio das Pedras' },
-
-    { path: p66, alt: 'GEM Shipping, 2015 - Sociedade Hípica Brasileira' },
-    { path: p4, alt: 'Hotel Hyatt' },
-    { path: p34, alt: 'Avon - Club Med Rio das Pedras' },
-
-    { path: p119, alt: 'SMG - Centro de Convenções Club Med.jpg' },
-    { path: p96, alt: 'Nike - Sociedade Hípica Brasileira.jpg' },
-    { path: p123, alt: 'Lazertur - Club Med.jpg' },
-
-    { path: p5, alt: '__.jpg' },
-    { path: p67, alt: 'GEM Shipping, 2015 - Sociedade Hípica Brasileira.jpg' },
-    { path: p98, alt: 'Oi - Sociedade Hípica Brasileira.jpg' },
-  ]
 
   const images = [
     { path: p1, alt: '' },
@@ -570,7 +367,13 @@ const Portfolio = () => {
     { path: p127, alt: '' },
     { path: p128, alt: '' },
     { path: p129, alt: '' },
-    { path: p130, alt: '' }
+    { path: p130, alt: '' },
+    { path: p131, alt: '' },
+    { path: p132, alt: '' },
+    { path: p133, alt: '' },
+    { path: p134, alt: '' },
+    { path: p135, alt: '' },
+    { path: p136, alt: '' },
   ];
   
   useEffect(()=>{
