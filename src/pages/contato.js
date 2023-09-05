@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { Montserrat } from 'next/font/google'
 
 import contato from '../styles/contato/contato.module.css'
+import Loading from "./Components/Loading/Loading";
 
 const montserrat = Montserrat({subsets:['latin']})
 
@@ -18,8 +19,8 @@ const ContatoMain = styled.main`
     background: linear-gradient(180deg, rgba(46, 26, 71, 1), rgba(97, 38, 81, .1), rgba(46, 26, 71, 1));
 
     @media (max-width:700px){
-        margin-top:75px;
-        height: calc(100vh - 75px);min-height: calc(100vh - 75px);
+        padding-top:75px;
+        height: 812px;
     }
 `
 
@@ -72,34 +73,50 @@ const Contato = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [mensagem, setMensagem] = useState('')
+    const [validInfos, setValidInfos] = useState(false)
     const [submitted, setSubmitted] = useState(false)
-
-    const handleSubmit = (e) => { 
     
+    const [loadSend, setLoadSend] = useState(false)
+    const [errorSend, setErrorSend] = useState(false)
+    const [sucessSend, setSucessSend] = useState(false)
+
+    const handleSubmit = (e) => {
+        setValidInfos(false)
         e.preventDefault()
-
-        let data = {
-            name,
-            email,
-            mensagem
-        }
         
-        fetch('./api/Email', {
-            method: 'POST',
-            headers:{
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then((res)=>{
-            if (res.status === 200){
-                setSubmitted(true)
-                setName('')
-                setEmail('')
-                setMensagem('')
-            }
-        })
+        const data = {name,email,mensagem}
 
+        if(name.length > 3 || email.length > 10 || mensagem.length > 20){
+            setSucessSend(false)
+            setErrorSend(false) 
+            setLoadSend(true)
+            
+            try{
+                fetch('./api/Email', {
+                    method: 'POST',
+                    headers:{
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then((res)=>{
+                    if (res.status === 200){
+                        
+                        setSubmitted(true)
+                        setName('')
+                        setEmail('')
+                        setMensagem('')
+
+                        setSucessSend(true)
+                        setLoadSend(false)
+                    }else{
+                        setErrorSend(true)
+                    }
+                })
+            }catch(e){
+                console.log(e)
+            }
+        }else{setValidInfos(true)}
     }
 
     return (
@@ -132,7 +149,16 @@ const Contato = () => {
                     <input placeholder={textsLangs.placeholderMail[currentLanguage]} value={email} onChange={({target}) => setEmail(target.value)} type={"email"} required minLength={10}/>
                     <textarea placeholder={textsLangs.placeholderTextArea[currentLanguage]} value={mensagem} required minLength={10} onChange={({target}) => setMensagem(target.value)} className={montserrat.className}/>
                     
-                    <input type="submit" value={textsLangs.button[currentLanguage]} className="botaoAcao" style={{marginTop: '25px'}} onClick={(e)=>handleSubmit(e)}/>
+                    {!loadSend && <input type="submit" value={textsLangs.button[currentLanguage]} className="botaoAcao" style={{marginTop: '25px'}} onClick={(e)=>handleSubmit(e)}/>}
+                    
+                    {loadSend && <p style={{marginTop:'25px', fontWeight: 'bold'}}>Aguarde, estamos enviando sua mensagem...</p>}
+                    {loadSend && <Loading/>}
+
+                    {errorSend && <p style={{marginTop:'25px', fontWeight: 'bold', textAlign: 'center', maxWidth: '400px'}}>Algo deu errado ao enviar sua mensagem, tente novamente.</p>}
+
+                    {sucessSend && <p style={{marginTop:'25px', fontWeight: 'bold', textAlign: 'center', maxWidth: '400px'}}>Mensagem enviada com sucesso!</p>}
+
+                    {validInfos && <p style={{marginTop:'25px', fontWeight: 'bold', textAlign: 'center', maxWidth: '400px'}}>Preencha todos os campos.</p>}
                 </form>
                 
                 <p style={{marginTop: '50px',fontWeight: '700', textAlign: 'center', width: '100%',maxWidth: '430px'}}>

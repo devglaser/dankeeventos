@@ -200,6 +200,12 @@
         margin: 25px 0;
     }
 
+    #tituloCards{
+        @media (min-width:701px) {
+            font-size: 2rem;
+        }
+    }
+
     #areaCards{
         width: 100%;
         display: grid; grid-gap: 25px;

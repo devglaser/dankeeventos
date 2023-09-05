@@ -130,7 +130,7 @@ const Sobre = () => {
                         {textsLangs.aboutSection.caption[currentLanguage]}
                         </h2>
 
-                        <p style={{maxWidth: '575px'}}>
+                        <p style={{maxWidth: '575px', fontSize: '1.125rem'}}>
                         {textsLangs.aboutSection.texts[currentLanguage]}
                         </p>
                     </div>

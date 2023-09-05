@@ -224,6 +224,11 @@
 #sectionGaleria > h1 {
   margin: 25px 0;
 }
+@media (min-width: 701px) {
+  #sectionGaleria #tituloCards {
+    font-size: 2rem;
+  }
+}
 #sectionGaleria #areaCards {
   width: 100%;
   display: grid;

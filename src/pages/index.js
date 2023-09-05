@@ -41,11 +41,13 @@ const CardsGaleria = styled.div`
    }
    
    p{
-    font-size: .875rem;
-    @media (max-width:500px) {
-      font-size: .675rem;
-    }
+    
    }
+  }
+
+  @media (max-width:635px) {
+    height: 210px;
+    display: flex ; align-items: start; justify-content: center; flex-direction: column;
   }
 `
 
@@ -65,14 +67,14 @@ export default function Home() {
         home:{
             aboutSection:{
                 title:{
-                    ptbr: 'Mais Que Eventos. Experiências',
-                    usa: 'More Than Events. Experiences',
-                    es: 'Más que eventos. Experiencias',
+                    ptbr: 'Mais Que Eventos. Experiências.',
+                    usa: 'More Than Events. Experiences.',
+                    es: 'Más que eventos. Experiencias.',
                 },
                 caption:{
-                    ptbr: 'Planejamento. Produção. Gestão. MICE',
-                    usa: 'Planning. Production. Management. MICE',
-                    es: 'Planificación. Producción. Gestión. MICE',
+                    ptbr: 'Planejamento. Produção. Gestão. MICE.',
+                    usa: 'Planning. Production. Management. MICE.',
+                    es: 'Planificación. Producción. Gestión. MICE.',
                 },
             },
             portfolioSection:{
@@ -226,7 +228,7 @@ export default function Home() {
             <Image src={'/Imgs/logo.svg'} alt={''} width={646} height={386}/>
           </div>
           
-          <ReactPlayer url={'/video/danke.mp4'} loop playing muted/>
+          <ReactPlayer url={'/video/danke.mp4'} loop playing muted playsinline/>
 
           <div id={index.scrollIndicator}></div>
 
@@ -332,7 +334,7 @@ export default function Home() {
             <Link href="/portfolio" className="linkPortGaleria" style={{fontWeight: '600'}}>{textsLangs.buttons.galeryButton[currentLanguage]} <Image src="/Svg/seta.svg" alt="Icone de seta" width={15} height={11} className="setaLink"/> </Link>
           </div>
           
-          <h1 className="subtitulo">{textsLangs.home.portfolioSection.caption[currentLanguage]}</h1>
+          <h1 className="subtitulo" id={index.tituloCards}>{textsLangs.home.portfolioSection.caption[currentLanguage]}</h1>
 
           <section id={index.areaCards}>
             <CardGaleria texto={textsGalery[0]} icone='chair'/>

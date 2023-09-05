@@ -9,7 +9,8 @@ import ptbrFlag from '../../../../public/Svg/ptbrFlag.svg'
 import usaFlag from '../../../../public/Svg/usaFlag.svg'
 import esFlag from '../../../../public/Svg/esFlag.svg'
 
-
+import { Montserrat } from 'next/font/google'
+const montserrat = Montserrat({subsets:['latin']})
 
 const PopOutMain = styled.main`
     position: fixed;
@@ -128,7 +129,7 @@ const PopOut = () => {
     },[])
 
     return  popView && (
-        <PopOutMain>
+        <PopOutMain className={montserrat.className}>
             <PopOutSection>
                 <div>
                     <div style={{opacity: textLangPopOut === 'usa' ? '1' : '.25'}} onClick={()=> setTextLangPopOut('usa')}>
