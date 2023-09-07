@@ -67,8 +67,8 @@ export default function Home() {
         home:{
             aboutSection:{
                 title:{
-                    ptbr: 'Mais Que Eventos. Experiências.',
-                    usa: 'More Than Events. Experiences.',
+                    ptbr: 'Mais que eventos. Experiências.',
+                    usa: 'More than events. Experiences.',
                     es: 'Más que eventos. Experiencias.',
                 },
                 caption:{

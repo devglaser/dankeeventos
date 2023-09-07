@@ -62,9 +62,9 @@ const Sobre = () => {
                 es: 'Danke Eventos'
             },
             caption:{
-                ptbr: 'Mais de 20 anos de experiência',
-                usa: 'More than 20 years of experience',
-                es: 'Más de 20 años de experiencia',
+                ptbr: 'Amamos e sabemos fazer eventos',
+                usa: 'We love and know how to do events',
+                es: 'Amamos y sabemos hacer eventos.',
             },
             texts: {
                 ptbr:`
