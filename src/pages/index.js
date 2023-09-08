@@ -218,6 +218,8 @@ export default function Home() {
         <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="Danke Eventos"/>
+        
+        <meta name="google-site-verification" content="-aXzEbRy3BMAAnmA2VWeLHdkaOb2IXepd3UQ6dXohY0" />
       </Head>
       
       <main className={`${montserrat.className} gradientBackPage`} >

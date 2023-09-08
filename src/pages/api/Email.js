@@ -1,7 +1,19 @@
 require('dotenv').config()
+
 const nodemailer = require('nodemailer');
 
 const Form = async (req, res) => {
+
+  const defaultHtml = `
+  <div id="email" style="width: 100%;background: linear-gradient(180deg, #612651, #2e1a47) no-repeat;padding: 50px;color:#fff;">
+    <h1 style="margin-bottom: 25px;font-size: 2.625rem;font-weight: 700;">${req.body.name}</h1>
+    <h2 style="font-size: 1.625rem;font-weight: 500;">Enviou um email para <br/>você através de seu site</h2>
+    <p style="width: 100%;max-width: 400px;margin: 50px 0;font-size: 1.25rem;"><b>Mensagem:</b> ${req.body.mensagem}</p>
+    <a href="mailto:${req.body.email}" style="display: grid;place-items: center;text-align:center;width: 275px;height: 50px;background: #fff;color: #2e1a47;text-decoration: none !important;font-size: 1.25rem;text-transform: uppercase;font-weight: 700;line-height:50px;">Responder e-mail</a>
+    <p style="margin: 15px 0;">Informações de contato</p>
+    <p style="font-weight: 500; color: #fff !important; text-decoration: none !important;">Nome: ${req.body.name} | E-mail: ${req.body.email}</p>
+  </div>
+  `
 
   try {
     const transporter = nodemailer.createTransport({
@@ -26,21 +38,28 @@ const Form = async (req, res) => {
       })
     })
   
-    const mailData = {
+    const contatoDanke = {
       from: 'seusite.noreply@gmail.com',
-      to: 'seusite.noreply@gmail.com',
+      to: 'contato@dankeeventos.com.br',
       subject: `Mensagem de ${req.body.name}`,
       text: req.body.mensagem,
-      html: `
-      <div id="email" style="width: 100%;background: linear-gradient(180deg, #612651, #2e1a47) no-repeat;padding: 50px;color:#fff;">
-        <h1 style="margin-bottom: 25px;font-size: 2.625rem;font-weight: 700;">${req.body.name}</h1>
-        <h2 style="font-size: 1.625rem;font-weight: 500;">Enviou um email para <br/>você através de seu site</h2>
-        <p style="width: 100%;max-width: 400px;margin: 50px 0;"><b>Mensagem:</b> ${req.body.mensagem}</p>
-        <a href="mailto:${req.body.email}" style="display: grid;place-items: center;text-align:center;width: 275px;height: 50px;background: #fff;color: #2e1a47;text-decoration: none !important;font-size: 1.25rem;text-transform: uppercase;font-weight: 700;line-height:50px;">Responder e-mail</a>
-        <p style="margin: 15px 0;">Informações de contato</p>
-        <p style="font-weight: 500; color: #fff !important; text-decoration: none !important;">Nome: ${req.body.name} | E-mail: ${req.body.email}</p>
-      </div>
-      `
+      html: defaultHtml,
+    }
+  
+    const contatoKarim = {
+      from: 'seusite.noreply@gmail.com',
+      to: 'karim@dankeeventos.com.br',
+      subject: `Mensagem de ${req.body.name}`,
+      text: req.body.mensagem,
+      html: defaultHtml,
+    }
+  
+    const contatoMayer = {
+      from: 'seusite.noreply@gmail.com',
+      to: 'mayer@dankeeventos.com.br',
+      subject: `Mensagem de ${req.body.name}`,
+      text: req.body.mensagem,
+      html: defaultHtml,
     }
 
     const notifyMyMail = {
@@ -60,7 +79,31 @@ const Form = async (req, res) => {
     }
   
     await new Promise((resolve, reject)=>{
-      transporter.sendMail(mailData, (error, info)=>{
+      transporter.sendMail(contatoDanke, (error, info)=>{
+        if(error){
+          console.log(error)
+          reject(error)
+        }else{
+          console.log(info)
+          resolve(info)
+        }
+      })
+    })
+  
+    await new Promise((resolve, reject)=>{
+      transporter.sendMail(contatoKarim, (error, info)=>{
+        if(error){
+          console.log(error)
+          reject(error)
+        }else{
+          console.log(info)
+          resolve(info)
+        }
+      })
+    })
+  
+    await new Promise((resolve, reject)=>{
+      transporter.sendMail(contatoMayer, (error, info)=>{
         if(error){
           console.log(error)
           reject(error)
