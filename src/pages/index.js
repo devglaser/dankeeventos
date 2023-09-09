@@ -201,7 +201,7 @@ export default function Home() {
   return ( 
     <>
       <Head>
-        <title>Danke Eventos - Transformando seu evento em um momento inesquecível</title>
+        <title>Danke Eventos - Criando experiências inesquecíveis</title>
         
         <link rel="icon" href="/Imgs/dankeD.svg"/>
         <link rel="canonical" href="https://dankeeventos.com.br"/>
@@ -209,13 +209,13 @@ export default function Home() {
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Danke Eventos"/>
-        <meta name="description" content="Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento."/>
+        <meta name="description" content="Há mais de 20 anos com o compromisso de transformar seu evento em uma experiência inesquecível e com uma equipe experiente e dedicada."/>
         <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
         
         <meta property="og:title" content="Danke Eventos"/>
         <meta property="og:description" content="Há 20 anos temos o compromisso de transformar seu evento em um momento inesquecível, com uma equipe experiente e dedicada, oferecendo serviços para atender às necessidades de qualquer evento."/>
         <meta property="og:url" content="https://dankeeventos.com.br"/>
-        <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
+        <meta property="og:image" content="https://dankeeventos.com.br/Imgs/logoDankeAntiga.png"/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="Danke Eventos"/>
         

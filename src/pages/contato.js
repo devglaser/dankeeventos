@@ -130,7 +130,7 @@ const Contato = () => {
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="author" content="Danke Eventos"/>
-                <meta name="description" content="Entre em contato conosco e experimente o atendimento excepcional da Danke Eventos. Estamos prontos para ouvir suas necessidades e responder às suas perguntas. Sinta-se à vontade para nos contatar e tenha a garantia de um retorno rápido e eficiente."/>
+                <meta name="description" content="Entre em contato conosco, estamos prontos para ouvir suas necessidades e responder às suas perguntas."/>
                 <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
                 
                 <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
@@ -139,6 +139,8 @@ const Contato = () => {
                 <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
+
+                <meta name="robots" content="index, follow"/>
             </Head>
             <ContatoMain className={`autoPadding gradientBackPage ${montserrat.className}`}>
                 

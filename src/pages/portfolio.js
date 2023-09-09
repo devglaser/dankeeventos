@@ -395,15 +395,17 @@ const Portfolio = () => {
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Danke Eventos"/>
-        <meta name="description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos. De casamentos elegantes a festas corporativas memoráveis, nossa equipe experiente e dedicada transforma cada ocasião em uma experiência única. Conte conosco para tornar seu evento inesquecível e encante seus convidados com nossa criatividade, atenção aos detalhes e serviço excepcional. Entre em contato conosco e descubra como podemos transformar sua visão em realidade."/>
+        <meta name="description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos."/>
         <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
         
         <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
-        <meta property="og:description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos. De casamentos elegantes a festas corporativas memoráveis, nossa equipe experiente e dedicada transforma cada ocasião em uma experiência única. Conte conosco para tornar seu evento inesquecível e encante seus convidados com nossa criatividade, atenção aos detalhes e serviço excepcional. Entre em contato conosco e descubra como podemos transformar sua visão em realidade."/>
+        <meta property="og:description" content="Confira alguns dos eventos espetaculares criados pela Danke Eventos."/>
         <meta property="og:url" content="https://dankeeventos.com.br/portfolio"/>
         <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="Danke Eventos"/>
+
+        <meta name="robots" content="index, follow"/>
       </Head>
 
       <SectionPortfolio className={`autoPadding gradientBackPage ${montserrat.className}`}>

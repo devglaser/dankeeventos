@@ -109,7 +109,7 @@ const Sobre = () => {
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="author" content="Danke Eventos"/>
-                <meta name="description" content="Transforme sua celebração em um momento inesquecível com a experiência de 20 anos da Danke Eventos. Nossa equipe dedicada cuida de cada detalhe, oferecendo serviços personalizados e as últimas tendências do mercado. Conte conosco para criar uma celebração única e especial."/>
+                <meta name="description" content="Transforme seu evento em um momento inesquecível com mais de 20 anos de experiêcia da Danke Eventos."/>
                 <meta name="keywords" content="eventos, festas, organização de eventos, serviços de eventos, equipe experiente, momentos inesquecíveis"/>
                 
                 <meta property="og:title" content={textsLangs.title[currentLanguage]}/>
@@ -118,6 +118,8 @@ const Sobre = () => {
                 <meta property="og:image" content="https://dankeeventos.vercel.app/Imgs/logoDankeAntiga.png"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="Danke Eventos"/>
+
+                <meta name="robots" content="index, follow"/>
             </Head>
             <main className="gradientBackPage">
                 <SobreDanke className={`autoPadding fixedWidth ${montserrat.className}`}>
