@@ -164,7 +164,7 @@ const Contato = () => {
                 </form>
                 
                 <p style={{marginTop: '50px',fontWeight: '700', textAlign: 'center', width: '100%',maxWidth: '430px'}}>
-                    <Link href="https://wa.me/5521993401594" style={{marginRight: "15px"}}>+55 21 9 9340-1594</Link> <Link href='mailto:contato@dankeeventos.com.br' target="_blank">contanto@dankeeventos.com.br</Link>
+                    <Link href="https://wa.me/5521993401594" style={{marginRight: "15px"}}>+55 21 9 9340-1594</Link> <Link href='mailto:contato@dankeeventos.com.br' target="_blank">contato@dankeeventos.com.br</Link>
                 </p>
             </ContatoMain>
         </>
